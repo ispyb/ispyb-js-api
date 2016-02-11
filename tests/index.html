@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>ispyb-js-api unit test module</title>
+
+
+
+<!-- These dependencies should be updated -->
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../min/ispyb-js-api.min.js"></script>
+
+<!-- CONFIG -->
+<script type="text/javascript" src="config.js"></script>
+
+</head>
+
+<script>
+function getProposalDataAdapter(fn){
+	return new ProposalDataAdapter({
+		proposal 	: proposal,
+		token 		: token,
+		url 		: url,
+		onSuccess	: fn		
+	});
+};
+
+function getMacromoleculeDataAdapter(fn){
+	return new MacromoleculeSaxsDataAdapter({
+		proposal 	: proposal,
+		token 		: token,
+		url 		: url,
+		onSuccess	: fn		
+	});
+};
+	
+</script>
+
+<script>
+//** AUTHENTICATION AND UNIT TEST START **//
+
+//* NEEDED PARAMETERS FOR CONNECTION **/
+var proposal = "mx415";
+var user = "mx415";
+var password = "*****";
+var url = "http://ispyvalid.esrf.fr:8080/ispyb/ispyb-ws/rest";
+var token = null;
+
+
+var fn = function(sender, data){
+	token = data.token;
+	console.log("Your token is: " + token);
+	console.log("Test are starting");
+	test1(token);
+	test2(token);
+};
+
+
+// AUTHENTICATION 
+var authenticationDataAdapter = new AuthenticationDataAdapter({
+	onSuccess: fn
+});
+authenticationDataAdapter.authenticate(user, password, url);
+	
+	
+</script>
+
+
+<script>
+
+	
+	
+// FIRST TEST AFTER AUTHENTICATION **/
+function test1(token){
+	console.log("STARTING TEST 1");
+	var fn =  function(sender, data){
+		console.log("TEST1: Retrieved " + data.length + " proposals");
+	};
+	var proposalDataAdapter = getProposalDataAdapter(fn);
+	proposalDataAdapter.getProposals();
+}
+
+function test2(token){
+	console.log("STARTING TEST 2");
+	var fn =  function(sender, data){
+		console.log("TEST2: Retrieved " + data.length + " macromolecules");
+	};
+	var macromoleculeDataAdapter = getMacromoleculeDataAdapter(fn);
+	macromoleculeDataAdapter.getMacromolecules();
+}
+
+
+
+
+</script>	
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "exi-ui",
+  "version": "0.0.0",
+  "homepage": "https://github.com/antolinos/ExiSAXS",
+  "description": "Extended ISPyB User Interface",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "ISPyB",
+    "LIMS",
+    "Synchrotron",
+    "MX",
+    "SAXS"
+  ],
+  "authors": [
+    "Alejandro de Maria Antolinos"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "jshint-stylish": "~2.1.0"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "ispyb-js-api",
+  "version": "1.0.0",
+  "description": "Javascript framework agnostic API to retrieve and update information to ISPyB",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-debian-package": "^0.1.11"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.9.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-include-source": "^0.7.0",
+    "grunt-plato": "^1.2.1",
+    "jshint-stylish": "^2.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antolinos/ispyb-js-api.git"
+  },
+  "keywords": [
+    "ISPyB",
+    "LIMS"
+  ],
+  "author": "Alejandro de Maria Antolinos",
+  "license": "GPL-3",
+  "bugs": {
+    "url": "https://github.com/antolinos/ispyb-js-api/issues"
+  },
+  "homepage": "https://github.com/antolinos/ispyb-js-api"
+}

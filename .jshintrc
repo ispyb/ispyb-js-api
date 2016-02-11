@@ -1,0 +1,28 @@
+{
+  
+    
+  
+  "eqeqeq"	: false,
+  "immed"	: true,
+  "latedef"	: true,
+  "newcap"	: true,
+  "noarg"	: true,
+  "sub"		: true,
+  "undef"	: false,
+  "unused"	: false,
+  "boss"	: true,
+  "eqnull"	: true,
+  "node"	: true,
+  "es5"		: false,
+  "curly"	: true,
+  "devel"       :true,
+  // Predefined globals whom JSHint will ignore.
+  "browser" 	: true,  // Standard browser globals e.g. `window`, `document`.
+  "jquery"	: true,
+  "predef"      : [  
+        "EXI"
+    ],
+    
+    "-W041": true //^ Use '!==' to compare with '0'. ignoring this error
+  
+}
