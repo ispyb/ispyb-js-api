@@ -19,6 +19,9 @@ MacromoleculeSaxsDataAdapter.prototype.getMacromolecules= function(){
 MacromoleculeSaxsDataAdapter.prototype.getContactDescriptionUploadFileURL= function(macromoleculeId){
 	var connection = EXI.credentialManager.getConnections()[0];
 	return this.getUrl(connection, ('/{token}/proposal/{proposal}/saxs/macromolecule/{0}/contactfile/upload'.format([macromoleculeId])));
+
+	//var url = '/{token}/proposal/{proposal}/saxs/macromolecule/{mmId}/contactfile/upload'.replace("{mmId}", macromoleculeId);
+	//this.get(url);
 };
 
 MacromoleculeSaxsDataAdapter.prototype.removeContactDescriptionFile= function(macromoleculeId){

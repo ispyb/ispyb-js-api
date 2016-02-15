@@ -58,7 +58,6 @@ DataAdapter.prototype.getUrl = function(url){
 	return this.url + url.replace("{token}", this.token).replace("{proposal}", this.proposal).replace("{username}", this.username);
 };
 
-
 DataAdapter.prototype.get = function(url){
 	var _this = this;
 
@@ -82,7 +81,7 @@ DataAdapter.prototype.get = function(url){
 				  _this.onSuccess.notify(data);
 			  },
 			  error: function(error){
-				  debugger
+
 				  _this.onError.notify(error);
 				   
 			  }
@@ -91,7 +90,6 @@ DataAdapter.prototype.get = function(url){
 
 DataAdapter.prototype.post = function(url, data){
 	var _this = this;
-	
 	
 	 url = this.getUrl(url);
 	 $.ajax({

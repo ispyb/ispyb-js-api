@@ -17,6 +17,9 @@
 </head>
 
 <script>
+
+"use strict";
+
 function getProposalDataAdapter(fn){
 	return new ProposalDataAdapter({
 		proposal 	: proposal,
@@ -35,15 +38,13 @@ function getMacromoleculeDataAdapter(fn){
 	});
 };
 	
-</script>
 
-<script>
 //** AUTHENTICATION AND UNIT TEST START **//
 
 //* NEEDED PARAMETERS FOR CONNECTION **/
 var proposal = "mx415";
 var user = "mx415";
-var password = "*****";
+var password = "pimx415";
 var url = "http://ispyvalid.esrf.fr:8080/ispyb/ispyb-ws/rest";
 var token = null;
 
@@ -52,8 +53,8 @@ var fn = function(sender, data){
 	token = data.token;
 	console.log("Your token is: " + token);
 	console.log("Test are starting");
-	test1(token);
-	test2(token);
+	test1();
+	test2();
 };
 
 
@@ -62,18 +63,11 @@ var authenticationDataAdapter = new AuthenticationDataAdapter({
 	onSuccess: fn
 });
 authenticationDataAdapter.authenticate(user, password, url);
-	
-	
-</script>
 
 
-<script>
-
-	
-	
 // FIRST TEST AFTER AUTHENTICATION **/
-function test1(token){
-	console.log("STARTING TEST 1");
+function test1(){
+	console.log("STARTING TEST 1 " + token);
 	var fn =  function(sender, data){
 		console.log("TEST1: Retrieved " + data.length + " proposals");
 	};
@@ -81,8 +75,8 @@ function test1(token){
 	proposalDataAdapter.getProposals();
 }
 
-function test2(token){
-	console.log("STARTING TEST 2");
+function test2(){
+	console.log("STARTING TEST 2 " + token);
 	var fn =  function(sender, data){
 		console.log("TEST2: Retrieved " + data.length + " macromolecules");
 	};
@@ -90,8 +84,7 @@ function test2(token){
 	macromoleculeDataAdapter.getMacromolecules();
 }
 
-
-
-
+//test1();
+//test2();
 </script>	
 </html>
