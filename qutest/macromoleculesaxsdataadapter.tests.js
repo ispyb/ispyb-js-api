@@ -26,6 +26,7 @@ QUnit.test( "MacromoleculeSaxsDataAdapter Class", function( assert ) {
         console.log("Token is: " + token);
         testGetMacromolecules();
         //testGetContactDescriptionUploadFileURL();
+        testSaveMacromolecule();
 
     };
 
@@ -52,7 +53,56 @@ QUnit.test( "MacromoleculeSaxsDataAdapter Class", function( assert ) {
         var macromoleculeDataAdapter = getMacromoleculeDataAdapter(fn);
         macromoleculeDataAdapter.getMacromolecules();
 
-    }
+    } // END testGetMacromolecules()
+
+    // MacromoleculeSaxsDataAdapter.prototype.saveMacromolecule = function(macromolecule){
+    // TODO: maybe the save of an already stored MM should return an error
+
+    function testSaveMacromolecule(){
+
+        var newMM = {
+            macromoleculeId : 10003,
+            proposalId : 1170,
+            name : "TestSaveMM3",
+            acronym : "TSM",
+            comments : "Test Save a new MM then Get the same MM and compare"
+        };
+
+        function save_error(sender, error){
+            console.log("MacromoleculeSaxsDataAdapter.saveMacromolecule: " + error);
+            assert.ok((1==0),"MacromoleculeSaxsDataAdapter.saveMacromolecule(): failed.");
+
+        };
+
+        function mm_readback(sender, data){
+
+            assert.ok((data.length>0),"MacromoleculeSaxsDataAdapter.saveMacromolecule(readback):");
+            var searchedMM = {} ;
+            searchedMM = data.filter(function (obj) {
+                return obj.macromoleculeId === newMM.macromoleculeId ;
+            })[0];
+            assert.notEqual(searchedMM, {}, "MacromoleculeSaxsDataAdapter.saveMacromolecule(readback saved MM): success!")
+
+        };
+
+        function save_success(sender, data){
+            console.log("MacromoleculeSaxsDataAdapter.saveMacromolecule(): success. " + data );
+            //assert.ok((data.length>0),"MacromoleculeSaxsDataAdapter.saveMacromolecule(): There is some data ");
+
+            var mmDA = getMacromoleculeDataAdapter(mm_readback);
+            mmDA.getMacromolecules();
+        };
+
+        var macromoleculeDataAdapter = new MacromoleculeSaxsDataAdapter({
+                                            proposal 	: proposal,
+                                            token 		: token,
+                                            url 		: url,
+                                            onSuccess	: save_success,
+                                            onError     : save_error
+                                        });
+        macromoleculeDataAdapter.saveMacromolecule(newMM);
+
+    } // END testSaveMacromolecule()
 
     // MacromoleculeSaxsDataAdapter.prototype.getContactDescriptionUploadFileURL
 
@@ -63,7 +113,7 @@ QUnit.test( "MacromoleculeSaxsDataAdapter Class", function( assert ) {
             console.log("Macromolecules getContactDescriptionUploadFileURL data.length: " + data.length);
             assert.ok((data.length>0),"MacromoleculeSaxsDataAdapter.getContactDescriptionUploadFileURL(): There's at contacts description file.");
             console.log("testGetContactDescriptionUploadFileURL: " + data);
-            assert(mM.contactsDescriptionFilePath, data, "Right contacts description file found!");
+            //assert(mM.contactsDescriptionFilePath, data, "Right contacts description file found!");
         }
 
         function fn_mms(sender, data){
@@ -87,7 +137,7 @@ QUnit.test( "MacromoleculeSaxsDataAdapter Class", function( assert ) {
         var mdamms = getMacromoleculeDataAdapter(fn_mms);
         mdamms.getMacromolecules();
 
-    }
+    } // END testGetContactDescriptionUploadFileURL()
 
 });
 
