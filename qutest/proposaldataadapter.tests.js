@@ -38,7 +38,7 @@ QUnit.test( "ProposalDataAdapter Class", function( assert ) {
     function testGetProposals(){
 
         var fn_gp =  function(sender, data){
-            console.log("proposal data.length: " + data.length);
+            //console.log("proposal data.length: " + data.length);
             assert.ok((data.length>0),"ProposalDataAdapter.getProposals(): There's at least one proposal.");
             //console.log("proposal data: " + JSON.stringify(data));
         };
@@ -52,7 +52,7 @@ QUnit.test( "ProposalDataAdapter Class", function( assert ) {
     function testGetDewarByProposalId(){
 
         var fn_gd =  function(sender, data){
-            console.log("dewars data.length: " + data.length);
+            //console.log("dewars data.length: " + data.length);
             assert.ok((data.length>0),"ProposalDataAdapter.getDewarByProposalId(): There's at least one dewar.");
             //console.log("dewars data: " + JSON.stringify(data));
         };
@@ -66,7 +66,7 @@ QUnit.test( "ProposalDataAdapter Class", function( assert ) {
     function testGetProposalsInfo(){
 
         var fn_pi =  function(sender, data){
-            console.log("proposal infos data.length: " + data.length);
+            //console.log("proposal infos data.length: " + data.length);
             assert.ok((data.length>0),"ProposalDataAdapter.getProposalsInfo(): There's at least one info.");
             //console.log("proposal infos data: " + JSON.stringify(data));
         };

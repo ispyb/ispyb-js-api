@@ -23,7 +23,7 @@ QUnit.test( "MacromoleculeSaxsDataAdapter Class", function( assert ) {
 
     function fn_auth(sender, data){
         token = data.token;
-        console.log("Token is: " + token);
+        //console.log("Token is: " + token);
         testGetMacromolecules();
         //testGetContactDescriptionUploadFileURL();
         testSaveMacromolecule();
@@ -41,13 +41,13 @@ QUnit.test( "MacromoleculeSaxsDataAdapter Class", function( assert ) {
     function testGetMacromolecules(){
 
         function fn(sender, data){
-            console.log("Macromolecules data.length: " + data.length);
+            //console.log("Macromolecules data.length: " + data.length);
             assert.ok((data.length>0),"MacromoleculeSaxsDataAdapter.getMacromolecules(): There's at least one macromolecule.");
             //console.log("Macromolecules data: " + JSON.stringify(data));
             var mM = data[0];
-            console.log("Macromolecules data[0].macromoleculeId: " + mM.macromoleculeId );
-            console.log("Macromolecules data[0].name: " + mM.name );
-            console.table(data);
+            //console.log("Macromolecules data[0].macromoleculeId: " + mM.macromoleculeId );
+            //console.log("Macromolecules data[0].name: " + mM.name );
+            //console.table(data);
         };
 
         var macromoleculeDataAdapter = getMacromoleculeDataAdapter(fn);
@@ -86,7 +86,7 @@ QUnit.test( "MacromoleculeSaxsDataAdapter Class", function( assert ) {
         };
 
         function save_success(sender, data){
-            console.log("MacromoleculeSaxsDataAdapter.saveMacromolecule(): success. " + data );
+            //console.log("MacromoleculeSaxsDataAdapter.saveMacromolecule(): success. " + data );
             //assert.ok((data.length>0),"MacromoleculeSaxsDataAdapter.saveMacromolecule(): There is some data ");
 
             var mmDA = getMacromoleculeDataAdapter(mm_readback);
