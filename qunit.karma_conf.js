@@ -31,6 +31,9 @@ module.exports = function(config) {
         ,'qutest/config.js'
         ,'qutest/proposaldataadapter.tests.js'
         ,'qutest/macromoleculesaxsdataadapter.tests.js'
+        ,'qutest/sessiondataadapter.tests.js'
+        ,'qutest/shippingdataadapter.tests.js'
+
     ],
 
 
