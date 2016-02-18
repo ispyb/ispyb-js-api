@@ -69,8 +69,8 @@ QUnit.test( "MacromoleculeSaxsDataAdapter Class", function( assert ) {
         };
 
         function save_error(sender, error){
-            console.log("MacromoleculeSaxsDataAdapter.saveMacromolecule: " + error);
-            assert.ok((1==0),"MacromoleculeSaxsDataAdapter.saveMacromolecule(): failed.");
+            console.log("MacromoleculeSaxsDataAdapter.saveMacromolecule: " + error.responseText);
+            assert.ok((1==0),"MacromoleculeSaxsDataAdapter.saveMacromolecule(): failed. " + error.responseText);
 
         };
 

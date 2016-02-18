@@ -42,8 +42,8 @@ QUnit.test( "SessionDataAdapter Class", function( assert ) {
     function testGetSessions(){
 
         function fn_error(sender, error){
-            console.log("SessionDataAdapter.getSessions: " + error);
-            assert.ok((1==0),"SessionDataAdapter.getSessions(): failed.");
+            console.log("SessionDataAdapter.getSessions: " + error.responseText);
+            assert.ok((1==0),"SessionDataAdapter.getSessions(): failed. " + error.responseText);
 
         };
 
@@ -66,15 +66,15 @@ QUnit.test( "SessionDataAdapter Class", function( assert ) {
     function testGetSessionsByDate(){
 
         function fn_error(sender, error){
-            console.log("SessionDataAdapter.getSessions: " + error);
-            assert.ok((1==0),"SessionDataAdapter.getSessions(): failed.");
+            console.log("SessionDataAdapter.getSessions: " + error.responseText);
+            assert.ok((1==0),"SessionDataAdapter.getSessions(): failed. " + error.responseText);
 
         };
 
         function fn_dates(sender, data){
-            console.log("Sessions by dates data.length: " + data.length);
+            //console.log("Sessions by dates data.length: " + data.length);
             assert.ok((data.length>0),"SessionDataAdapter.getSessionsByDate(): There's at least one session.");
-            console.table(data);
+            //console.table(data);
         };
 
         var sessionDataAdapter = getSessionDataAdapter(fn_dates,fn_error);
@@ -89,9 +89,10 @@ QUnit.test( "SessionDataAdapter Class", function( assert ) {
         var end_date = new Date(2016,1,5).toJSON(); // February 5, 2016
 
         //var start_date = new Date(2016,1,1).toDateString(); // February 1, 2016
-        console.log("Sessions by dates start date: " + start_date);
         //var end_date = new Date(2016,1,5).toDateString(); // February 5, 2016
-        console.log("Sessions by dates end date: " + end_date);
+
+        //console.log("Sessions by dates start date: " + start_date);
+        //console.log("Sessions by dates end date: " + end_date);
 
         sessionDataAdapter.getSessionsByDate(start_date,end_date);
 
