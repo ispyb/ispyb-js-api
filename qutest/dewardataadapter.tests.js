@@ -5,17 +5,29 @@ var user = "mx415";
 var password = "pimx415";
 var url = "http://ispyvalid.esrf.fr:8080/ispyb/ispyb-ws/rest";
 var token = null;
+var shippingId = null;
 
 
 QUnit.test( "DewarDataAdapter Class", function( assert ) {
     assert.ok(true,"Running...");
 
-    function getDewarDataAdapter(fn){
+    function getShippingDataAdapter(fn_success, fn_error){
+        return new ShippingDataAdapter({
+            proposal 	: proposal,
+            token 		: token,
+            url 		: url,
+            onSuccess	: fn_success,
+            onError     : fn_error
+        });
+    };
+
+    function getDewarDataAdapter(fn_success, fn_error){
         return new DewarDataAdapter({
             proposal 	: proposal,
             token 		: token,
             url 		: url,
-            onSuccess	: fn
+            onSuccess	: fn_success,
+            onError     : fn_error
         });
     };
 
@@ -24,10 +36,10 @@ QUnit.test( "DewarDataAdapter Class", function( assert ) {
     function fn_auth(sender, data){
         token = data.token;
         //console.log("Token is: " + token);
-
-        testGetSessions();
-        //testGetSessionsByDate();
-
+        testGetShippings();
+        setTimeout(testSaveGoodDewar, 1000);
+        //setTimeout(testSaveBadDewar, 1200);
+        setTimeout(testDeleteDewars, 3000);
     };
 
 // AUTHENTICATION
@@ -37,50 +49,174 @@ QUnit.test( "DewarDataAdapter Class", function( assert ) {
     authenticationDataAdapter.authenticate(user, password, url);
 
 // FIRST TEST AFTER AUTHENTICATION **/
-    // SessionDataAdapter.prototype.getSessions = function()
-    function testGetSessions(){
 
-        function fn_sessions(sender, data){
-            //console.log("Sessions data.length: " + data.length);
-            assert.ok((data.length>0),"SessionDataAdapter.getSessions(): There's at least one session.");
-            //console.table(data);
+    // First call getShippings to store a shippingId needed for next tests
+    // ShippingDataAdapter.prototype.getShippings = function()
+
+    function testGetShippings(){
+
+        function fn_error(sender, error){
+            console.log("ShippingDataAdapter.getShippings(error): " + error.responseText);
+            assert.ok((1==0),"ShippingDataAdapter.getShippings(): failed. " + error.responseText);
         };
 
-        var sessionDataAdapter = getSessionDataAdapter(fn_sessions);
-        sessionDataAdapter.getSessions();
+        function fn_shippings(sender, data){
+            //console.log("Shipping data.length: " + data.length);
+            //assert.ok((data.length>0),"ShippingDataAdapter.getShippings(): There's at least one shipping.");
+            //console.log(data[0]);
+            shippingId = data[0].Shipping_shippingId ;
+            //console.log("ShippingDataAdapter.getShippings() shippingId: " + shippingId);
+        };
 
-    } // END testGetSessions()
+        var sda = getShippingDataAdapter(fn_shippings, fn_error);
+        sda.getShippings();
 
-    // SessionDataAdapter.prototype.getSessionsByDate = function(startDate, endDate)
-    // TODO got TypeError on dates format in SessionDataAdapter.prototype.getSessionsByDate
-    // TODO: document dates format to give to SessionDataAdapter.prototype.getSessionsByDate
+    } // END testGetShippings()
 
-    function testGetSessionsByDate(){
+    // DewarDataAdapter.prototype.saveDewar= function(shippingId, dewar)
+    // TODO: when saving the same dewar again no error returned. Bug or feature ?
+    //       the same dewar is saved multiple time with a different Id.
 
-        function fn_dates(sender, data){
-            console.log("Sessions by dates data.length: " + data.length);
-            assert.ok((data.length>0),"SessionDataAdapter.getSessionsByDate(): There's at least one session.");
+    // TODO: when saving a malformed dewar no error returned. Bug or feature ?
+    //       again the same dewar is saved multiple time with a different Id.
+
+    function testSaveGoodDewar(){
+
+        var newGoodDewar = {
+            dewardId        : 252525,
+            barCode         : null,
+            code            : "BsaEsrf",
+            comments        : "test dewar for TDD",
+            customsValue    : null,
+            dewarStatus     : "opened",
+            isStorageDewar  : false,
+            sessionVO       : null,
+            storageLocation : "-80",
+            timeStamp       : new Date(2016,1,1).toJSON() ,
+            trackingNumberFromSynchrotron: "",
+            trackingNumberToSynchrotron: "",
+            transportValue  : 0,
+            type            : "Dewar",
+            containerVOs    : {
+                beamlineLocation        : null,
+                capacity                : 16,
+                code                    : null,
+                containerId             : 252525,
+                containerStatus         : null,
+                containerType           : "Puck",
+                sampleChangerLocation   : null,
+                sampleVOs               : [],
+                timeStamp               : new Date(2016,1,1).toJSON()
+            }
+
+        };
+        function fn_error(sender, error){
+            console.log("DewarDataAdapter.saveDewar(error): " + error.responseText);
+            assert.ok((1==0),"DewarDataAdapter.saveDewar(good one): failed. " + error.responseText);
+        };
+
+        function fn_saveDewar(sender, data){
+            //console.log("DewarDataAdapter.saveDewar(good): " + typeof(data) );
+            //console.log("DewarDataAdapter.saveDewar(good): " + data );
+            //console.table(data)
+            assert.ok( (1==1),"DewarDataAdapter.saveDewar(): new good dewar saved.");
+        };
+
+        var dda = getDewarDataAdapter(fn_saveDewar, fn_error);
+        dda.saveDewar(shippingId, newGoodDewar);
+
+    } // END testSaveGoodDewar()
+
+    function testSaveBadDewar(){
+
+        var newBadDewar = {
+            dewardId        : -1,
+            barCode         : null,
+            code            : "bla",
+            comments        : "test dewar for TDD",
+            customsValue    : null,
+            dewarStatus     : "opened",
+            isStorageDewar  : false,
+            sessionVO       : null,
+            storageLocation : "-80",
+            timeStamp       : -1 ,
+            trackingNumberFromSynchrotron: "",
+            trackingNumberToSynchrotron: "",
+            transportValue  : 0,
+            type            : "Dewar",
+            containerVOs    : -1
+
+        };
+        function fn_error(sender, error){
+            console.log("DewarDataAdapter.saveDewar(error): " + error.responseText);
+            assert.ok((1==0),"DewarDataAdapter.saveDewar(bad one): failed. " + error.responseText);
+        };
+
+        function fn_saveDewar(sender, data){
+            //console.log("DewarDataAdapter.saveDewar(good): " + typeof(data) );
+            //console.log("DewarDataAdapter.saveDewar(good): " + data );
+            //console.table(data)
+            assert.ok( (1==1),"DewarDataAdapter.saveDewar(): new bad dewar saved.");
+        };
+
+        var dda = getDewarDataAdapter(fn_saveDewar, fn_error);
+        dda.saveDewar(shippingId, newBadDewar);
+
+    } // END testSaveBadDewar()
+
+    // DewarDataAdapter.prototype.removeDewar= function(shippingId, dewarId)
+    // TODO: the structure of dewars data is not the same (from what I can see)
+    //       and the delete does not delete anything because the getDewars call
+    //       return something else the saveDewar call did stored. Or I did not
+    //       understand the flow of calls and data.
+    //
+    // TODO: general need to document data/object structures for all classes ??
+    //
+    function testDeleteDewars(){
+
+        var sda = {};
+        var dda = {};
+
+        function fn_error(sender, error){
+            console.log("ShippingDataAdapter.getDewarsByShipmentId(error): " + error.responseText);
+            assert.ok((1==0),"ShippingDataAdapter.getDewarsByShipmentId(): failed. " + error.responseText);
+        };
+
+        function removeThisDewar(dewar, idx,arr) {
+            dda.removeDewar(shippingId, dewar.dewarId);
+        }
+
+        function fn_delDewar(sender,data){
+            console.log("DewarDataAdapter.removeDewar(done): " + typeof(data) );
+            console.log("DewarDataAdapter.removeDewar(done): " + data );
+        }
+
+        function fn_delError(sender, error){
+            console.log("DewarDataAdapter.removeDewar(error): " + error.responseText);
+            assert.ok((1==0),"DewarDataAdapter.removeDewar(): failed. " + error.responseText);
+        };
+
+        function fn_dewars(sender, data){
+            console.log("ShippingDataAdapter.getDewarsByShipmentId(): " + typeof(data) );
+            assert.ok((typeof(data) == 'object'),"ShippingDataAdapter.getDewarsByShipmentId(): There is at least one dewar.");
             console.table(data);
+            var searchedDW = [];
+            searchedDW = data.filter(function (obj) {
+                return ( (obj.code === "bla") || (obj.code === "BsaEsrf" ) );
+            });
+            console.log("DewarDataAdapter.removeDewar(search): " + typeof(searchedDW) );
+            console.table(searchedDW);
+            if ( searchedDW.length > 0) {
+                dda = getDewarDataAdapter(fn_delDewar, fn_delError);
+                searchedDW.forEach(removeThisDewar);
+            }
         };
 
-        var sessionDataAdapter = getSessionDataAdapter(fn_dates);
+        sda = getShippingDataAdapter(fn_dewars, fn_error);
+        //console.log("ShippingDataAdapter.getDewarsByShipmentId() shippingId: " + shippingId);
+        sda.getDewarsByShipmentId(shippingId);
 
-        var start_date = new Date(2016,2,1); // February 1, 2016
-        var end_date = new Date(2016,2,5); // February 5, 2016
-
-        //var start_date = "01/02/2016"; // February 1, 2016
-        //var end_date = "05/02/2016"; // February 5, 2016
-
-        //var start_date = new Date(2016,2,1).toDateString(); // February 1, 2016
-        //var end_date = new Date(2016,2,5).toDateString(); // February 5, 2016
-
-        //var start_date = new Date(2016,2,1).toJSON(); // February 1, 2016
-        //var end_date = new Date(2016,2,5).toJSON(); // February 5, 2016
-
-        sessionDataAdapter.getSessionsByDate(start_date,end_date);
-
-    } // END testGetSessions()
-
+    } // END testDeleteDewars()
 
 });
 

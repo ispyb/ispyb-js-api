@@ -33,11 +33,11 @@ QUnit.test( "ShippingDataAdapter Class", function( assert ) {
         testGetLabContacts();
         testGetScientists();
 
-        setTimeout(testGetShipment, 1000);
-        setTimeout(testGetDewarsByShipmentId,1200);
-        setTimeout(testGetLabContactById,1400);
-        setTimeout(testSaveGoodLabContact,1600);
-        setTimeout(testSaveBadLabContact,1800);
+        setTimeout(testGetShipment, 2000);
+        setTimeout(testGetDewarsByShipmentId,2200);
+        setTimeout(testGetLabContactById,2400);
+        setTimeout(testSaveGoodLabContact,2600);
+        setTimeout(testSaveBadLabContact,2800);
 
     };
 
@@ -162,7 +162,7 @@ QUnit.test( "ShippingDataAdapter Class", function( assert ) {
         };
 
         function fn_contactById(sender, data){
-            console.log("ShippingDataAdapter.getLabContactById(): " + typeof(data) );
+            //console.log("ShippingDataAdapter.getLabContactById(): " + typeof(data) );
             assert.ok((typeof(data) == 'object'),"ShippingDataAdapter.getLabContactById(): found contact.");
             //console.log(data);
         };

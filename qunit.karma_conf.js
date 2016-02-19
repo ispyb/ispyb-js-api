@@ -33,6 +33,7 @@ module.exports = function(config) {
         ,'qutest/macromoleculesaxsdataadapter.tests.js'
         ,'qutest/sessiondataadapter.tests.js'
         ,'qutest/shippingdataadapter.tests.js'
+        ,'qutest/dewardataadapter.tests.js'
 
     ],
 
