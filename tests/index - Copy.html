@@ -17,9 +17,6 @@
 </head>
 
 <script>
-
-"use strict";
-
 function getProposalDataAdapter(fn){
 	return new ProposalDataAdapter({
 		proposal 	: proposal,
@@ -38,7 +35,9 @@ function getMacromoleculeDataAdapter(fn){
 	});
 };
 	
+</script>
 
+<script>
 //** AUTHENTICATION AND UNIT TEST START **//
 
 //* NEEDED PARAMETERS FOR CONNECTION **/
@@ -65,6 +64,11 @@ var authenticationDataAdapter = new AuthenticationDataAdapter({
 authenticationDataAdapter.authenticate(user, password, url);
 
 
+</script>
+
+
+<script>
+
 // FIRST TEST AFTER AUTHENTICATION **/
 function test1(){
 	console.log("STARTING TEST 1 " + token);
@@ -84,7 +88,6 @@ function test2(){
 	macromoleculeDataAdapter.getMacromolecules();
 }
 
-//test1();
-//test2();
+
 </script>	
 </html>

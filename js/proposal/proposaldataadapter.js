@@ -14,8 +14,6 @@ ProposalDataAdapter.prototype.getDewarByProposalId= function(){
 	this.get('/{token}/proposal/{proposal}/shipping/dewar/list');
 };
 
-
-
 ProposalDataAdapter.prototype.getProposalsInfo= function(){
 	this.get('/{token}/proposal/{proposal}/technique/saxs/get');
 };
@@ -36,3 +34,4 @@ ProposalDataAdapter.prototype.update= function(){
 	}
 	this.getProposalsInfo();
 };
+

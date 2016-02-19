@@ -16,4 +16,5 @@ Event.prototype = {
 			this._listeners[i](this._sender, args);
 		}
 	}
+
 };
