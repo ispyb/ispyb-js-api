@@ -1,3 +1,4 @@
+alert("test")
 /**
  * Super class for all the data adapters
  * Based on $ and Event it will make a GET/POST call to an given URL
