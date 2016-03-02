@@ -1,6 +1,6 @@
 {
-  "name": "exi-ui",
-  "version": "0.0.0",
+  "name": "ispyb-js-api",
+  "version": "0.1",
   "homepage": "https://github.com/antolinos/ispyb-js-api",
   "description": "ISPyB javascript API",
   "main": "index.html",
