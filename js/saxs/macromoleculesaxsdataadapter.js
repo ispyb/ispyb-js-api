@@ -7,7 +7,7 @@ MacromoleculeSaxsDataAdapter.prototype.post = DataAdapter.prototype.post;
 MacromoleculeSaxsDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
 MacromoleculeSaxsDataAdapter.prototype.saveMacromolecule = function(macromolecule){
-    var url = ('/{token}/proposal/{proposal}/saxs/macromolecule/save');
+    	var url = ('/{token}/proposal/{proposal}/saxs/macromolecule/save');
 	this.post(url, {macromolecule : JSON.stringify(macromolecule)});
 };
 
@@ -17,11 +17,7 @@ MacromoleculeSaxsDataAdapter.prototype.getMacromolecules= function(){
 
 
 MacromoleculeSaxsDataAdapter.prototype.getContactDescriptionUploadFileURL= function(macromoleculeId){
-	var connection = EXI.credentialManager.getConnections()[0];
-	return this.getUrl(connection, ('/{token}/proposal/{proposal}/saxs/macromolecule/{0}/contactfile/upload'.format([macromoleculeId])));
-
-	//var url = '/{token}/proposal/{proposal}/saxs/macromolecule/{mmId}/contactfile/upload'.replace("{mmId}", macromoleculeId);
-	//this.get(url);
+	return this.getUrl('/{token}/proposal/{proposal}/saxs/macromolecule/{0}/contactfile/upload'.format([macromoleculeId]));
 };
 
 MacromoleculeSaxsDataAdapter.prototype.removeContactDescriptionFile= function(macromoleculeId){
@@ -30,8 +26,7 @@ MacromoleculeSaxsDataAdapter.prototype.removeContactDescriptionFile= function(ma
 
 
 MacromoleculeSaxsDataAdapter.prototype.getAddPDBURL= function(macromoleculeId){
-	var connection = EXI.credentialManager.getConnections()[0];
-	return this.getUrl(connection, ('/{token}/proposal/{proposal}/saxs/macromolecule/{0}/pdb/upload'.format([macromoleculeId])));
+	return this.getUrl('/{token}/proposal/{proposal}/saxs/macromolecule/{0}/pdb/upload'.format([macromoleculeId]));
 };
 
 MacromoleculeSaxsDataAdapter.prototype.removeStructure= function(macromoleculeId, structureId){

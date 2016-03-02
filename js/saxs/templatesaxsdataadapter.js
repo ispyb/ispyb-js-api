@@ -8,8 +8,7 @@ TemplateSaxsDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
 
 TemplateSaxsDataAdapter.prototype.getTemplateSourceFile = function(experimentId, type){
-	var connections = EXI.credentialManager.getConnections();
-	return this.getUrl(connections[0], ('/{token}/proposal/{proposal}/saxs/experiment/{0}/samplechanger/type/{1}/template'.format([  experimentId, type])));
+	return this.getUrl('/{token}/proposal/{proposal}/saxs/experiment/{0}/samplechanger/type/{1}/template'.format([  experimentId, type]));
 };
 
 

@@ -14,7 +14,7 @@
 **/
 function DataAdapter( args) {
 	this.async = true;
-	
+	alert("test");	
 	this.url = null;
 	this.token = null;
 	this.proposal = null;
