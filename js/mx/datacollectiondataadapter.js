@@ -26,8 +26,7 @@ DataCollectionDataAdapter.prototype.getDataCollectionViewBySessionId= function(s
 
 
 DataCollectionDataAdapter.prototype.getThumbNailById= function(imageId){
-	var connection = EXI.credentialManager.getConnections()[0];
-	return this.getUrl(connection, ('/{token}/proposal/{proposal}/mx/image/{0}/thumbnail'.format([ imageId])));
+	return this.getUrl('/{token}/proposal/{proposal}/mx/image/{0}/thumbnail'.format([ imageId]));
 };
 
 DataCollectionDataAdapter.prototype.getImageById= function(imageId){
