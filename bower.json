@@ -17,8 +17,7 @@
   "authors": [
     "Alejandro de Maria Antolinos"
   ],
-  "license": "MIT",
-  "private": true,
+  "license": "GPL3",
   "ignore": [
     "**/.*",
     "node_modules",
