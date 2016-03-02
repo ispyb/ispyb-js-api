@@ -12,28 +12,28 @@ AutoProcIntegrationDataAdapter.prototype.getByDataCollectionId= function(dataCol
 
 
 AutoProcIntegrationDataAdapter.prototype.getXScaleCompleteness= function(autoProcIntegrationIdList){
-	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/completeness'.format( [autoProcIntegrationIdList.toString()]);
+	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/completeness'.format( [autoProcIntegrationIdList.toString()]));
 };
 
 AutoProcIntegrationDataAdapter.prototype.getXScaleRfactor= function(autoProcIntegrationIdList){
-	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/rfactor'.format( [autoProcIntegrationIdList.toString()]);
+	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/rfactor'.format( [autoProcIntegrationIdList.toString()]));
 };
 
 
 AutoProcIntegrationDataAdapter.prototype.getXScaleISigma= function(autoProcIntegrationIdList){
-	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/isigma'.format( [autoProcIntegrationIdList.toString()]);
+	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/isigma'.format( [autoProcIntegrationIdList.toString()]));
 };
 
 AutoProcIntegrationDataAdapter.prototype.getXScaleCC2= function(autoProcIntegrationIdList){
-	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/cc2'.format( [autoProcIntegrationIdList.toString()]);
+	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/cc2'.format( [autoProcIntegrationIdList.toString()]));
 };
 
 AutoProcIntegrationDataAdapter.prototype.getXScaleSigmaAno= function(autoProcIntegrationIdList){
-	return this.getUrl( '/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/sigmaano'.format( [autoProcIntegrationIdList.toString()]);
+	return this.getUrl( '/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/sigmaano'.format( [autoProcIntegrationIdList.toString()]));
 };
 
 AutoProcIntegrationDataAdapter.prototype.getXScaleWilson= function(autoProcIntegrationIdList){
-	return this.getUrl( '/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/wilson'.format( [autoProcIntegrationIdList.toString()]);
+	return this.getUrl( '/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/wilson'.format( [autoProcIntegrationIdList.toString()]));
 };
 
 AutoProcIntegrationDataAdapter.prototype.getXScaleAnnoCorrection= function(autoProcIntegrationIdList){
@@ -41,7 +41,7 @@ AutoProcIntegrationDataAdapter.prototype.getXScaleAnnoCorrection= function(autoP
 };
 
 AutoProcIntegrationDataAdapter.prototype.getDownloadAttachmentUrl= function(autoProcAttachmentId){
-	return this.getUrl('/{token}/proposal/{proposal}/mx/autoproc/autoprocattachmentid/{0}/download'.format( [autoProcAttachmentId.toString()]);
+	return this.getUrl('/{token}/proposal/{proposal}/mx/autoproc/autoprocattachmentid/{0}/download'.format( [autoProcAttachmentId.toString()]));
 };
 
 
