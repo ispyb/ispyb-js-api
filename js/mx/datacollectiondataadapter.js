@@ -16,7 +16,7 @@ DataCollectionDataAdapter.prototype.getByDataCollectionId= function(dataColletio
 
 
 DataCollectionDataAdapter.prototype.getByAcronymList= function(acronymList){
-	 this.get('/{token}/proposal/{proposal}/mx/datacollection/acronyms/{0}/list'.format( [acronymList.toString()]));
+	 this.get('/{token}/proposal/{proposal}/mx/datacollection/protein_acronym/{0}/list'.format( [acronymList.toString()]));
 };
 
 DataCollectionDataAdapter.prototype.getDataCollectionViewBySessionId= function(sessionId){
