@@ -31,6 +31,10 @@ DataCollectionDataAdapter.prototype.getImageById= function(imageId){
 	return this.getUrl('/{token}/proposal/{proposal}/mx/image/{0}/get'.format([ imageId]));
 };
 
+DataCollectionDataAdapter.prototype.getWilsonPlot= function(dataCollectionId){
+	return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/{0}/wilson'.format([ dataCollectionId]));
+};
+
 
 DataCollectionDataAdapter.prototype.getCrystalSnapshotByDataCollectionId= function(dataCollectionId, id){
 	return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/{0}/crystalsnaphot/{1}/get'.format([ dataCollectionId, id]));
