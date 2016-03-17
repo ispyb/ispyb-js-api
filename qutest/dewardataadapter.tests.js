@@ -83,7 +83,7 @@ QUnit.test( "DewarDataAdapter Class", function( assert ) {
     function testSaveGoodDewar(){
 
         var newGoodDewar = {
-            dewardId        : 252525,
+            dewardId        : 309862,
             barCode         : null,
             code            : "BsaEsrf",
             comments        : "test dewar for TDD",
@@ -96,18 +96,18 @@ QUnit.test( "DewarDataAdapter Class", function( assert ) {
             trackingNumberFromSynchrotron: "",
             trackingNumberToSynchrotron: "",
             transportValue  : 0,
-            type            : "Dewar",
-            containerVOs    : {
+            type            : "Dewar"
+            /*containerVOs    : {
                 beamlineLocation        : null,
                 capacity                : 16,
                 code                    : null,
-                containerId             : 252525,
+                //containerId             : 252525,
                 containerStatus         : null,
                 containerType           : "Puck",
                 sampleChangerLocation   : null,
                 sampleVOs               : [],
                 timeStamp               : new Date(2016,1,1).toJSON()
-            }
+            }*/
 
         };
         function fn_error(sender, error){
@@ -118,7 +118,7 @@ QUnit.test( "DewarDataAdapter Class", function( assert ) {
         function fn_saveDewar(sender, data){
             //console.log("DewarDataAdapter.saveDewar(good): " + typeof(data) );
             //console.log("DewarDataAdapter.saveDewar(good): " + data );
-            //console.table(data)
+            console.log(data)
             assert.ok( (1==1),"DewarDataAdapter.saveDewar(): new good dewar saved.");
         };
 
