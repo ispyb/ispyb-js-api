@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 	  concat : {
 		  prod:{
 			  files : {
-				  'min/ispyb-js-api.min.js' 		: ["js/dataadapter.js", "js/**/*js"]
+				  'min/ispyb-js-api.min.js' 		: ["js/dataadapter.js", "js/**/*.js",  "!js/test/*.js"]
 			  }
 		  }
 	  },
@@ -44,7 +44,18 @@ module.exports = function(grunt) {
 		prod: {
 		  files : {'report' : ['js/**/*.js']}
 		}
-    }
+    },
+    includeSource: {
+	    	options: {
+		      basePath: 'js',
+		      baseUrl: '../js/'
+		},
+		dev: {
+		      files: [{
+		    	  		'html/test.html': 'html/index.tpl.html'
+		      }]
+		}
+	}
 
 
   });
@@ -57,6 +68,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-plato');
   grunt.task.registerTask('default', ['jshint:prod' , 'plato:prod', 'concat:prod', 'uglify:prod']);
-  grunt.task.registerTask('dev', ['jshint:prod' , 'plato:prod', 'concat:prod']);
+  grunt.task.registerTask('dev', ['jshint:prod' , 'plato:prod', 'concat:prod', 'includeSource:dev']);
   
 };

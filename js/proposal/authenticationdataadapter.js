@@ -18,9 +18,12 @@ AuthenticationDataAdapter.prototype.authenticate = function(user, password, url)
 	if (url.indexOf("192.109.31.39") != -1){
 		site = "EMBL";
 	}
-	
-	
-	$.ajax({
+	var url = '/authenticate?site=' + site;
+	this.post(url, {
+			  		login : user,
+			  		password : password
+	});
+	/*$.ajax({
 		  url: url + '/authenticate?site=' + site,
 		  type: 'post',
 		  data: {
@@ -33,5 +36,5 @@ AuthenticationDataAdapter.prototype.authenticate = function(user, password, url)
 		  error: function(error){
 			  _this.onError.notify(error);
 		  }
-	});
+	});*/
 };
