@@ -4,6 +4,19 @@
 module.exports = function(grunt) {
   grunt.initConfig({
           pkg: grunt.file.readJSON('package.json'),
+	yuidoc: {
+	    compile: {
+	      name: '<%= pkg.name %>',
+	      description: '<%= pkg.description %>',
+	      version: '<%= pkg.version %>',
+	      url: '<%= pkg.homepage %>',
+	      options: {
+		paths: 'js/',
+		outdir: 'documentation'
+	      }
+	    }
+	  },
+
 	  concat : {
 		  prod:{
 			  files : {
@@ -45,14 +58,15 @@ module.exports = function(grunt) {
 		  files : {'report' : ['js/**/*.js']}
 		}
     },
+ 
     includeSource: {
 	    	options: {
-		      basePath: 'js',
+		      basePath: ['js'],
 		      baseUrl: '../js/'
 		},
 		dev: {
 		      files: [{
-		    	  		'html/test.html': 'html/index.tpl.html'
+		    	  		'test/index.html': 'test/html/index.tpl.html'
 		      }]
 		}
 	}
@@ -66,8 +80,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-yuidoc');
   grunt.loadNpmTasks('grunt-plato');
-  grunt.task.registerTask('default', ['jshint:prod' , 'plato:prod', 'concat:prod', 'uglify:prod']);
+  grunt.task.registerTask('doc', ['yuidoc:compile']);
+  grunt.task.registerTask('default', ['jshint:prod' , 'plato:prod', 'concat:prod', 'uglify:prod', 'yuidoc:compile']);
   grunt.task.registerTask('dev', ['jshint:prod' , 'plato:prod', 'concat:prod', 'includeSource:dev']);
   
 };

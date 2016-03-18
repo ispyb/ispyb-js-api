@@ -1,0 +1,393 @@
+{
+    "project": {
+        "name": "ispyb-js-api",
+        "description": "Javascript framework agnostic API to retrieve and update information to ISPyB",
+        "version": "1.0.0",
+        "url": "https://github.com/antolinos/ispyb-js-api"
+    },
+    "files": {
+        "js/proposal/proposaldataadapter.js": {
+            "name": "js/proposal/proposaldataadapter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/saxs/experiment.js": {
+            "name": "js/saxs/experiment.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/security/authenticationdataadapter.js": {
+            "name": "js/security/authenticationdataadapter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/test/test.js": {
+            "name": "js/test/test.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/dataadapter.js": {
+            "name": "js/dataadapter.js",
+            "modules": {},
+            "classes": {
+                "DataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/event.js": {
+            "name": "js/event.js",
+            "modules": {},
+            "classes": {
+                "Event": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/proposalmanager.js": {
+            "name": "js/proposalmanager.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "DataAdapter": {
+            "name": "DataAdapter",
+            "shortname": "DataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js/dataadapter.js",
+            "line": 1,
+            "description": "It makes all the calls to the webservices. Either by using get or post.",
+            "is_constructor": 1,
+            "itemtype": "event"
+        },
+        "Event": {
+            "name": "Event",
+            "shortname": "Event",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js/event.js",
+            "line": 1,
+            "description": "This class is in charge of the Event management. An object can create an event and other objects can subscribe to such event by using the function attach.",
+            "is_constructor": 1
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "js/proposal/proposaldataadapter.js",
+            "line": 31,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 1,
+            "description": "This class represents an data Acquisition",
+            "json": "a json with the serialization of Experiment3VO",
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 17,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 68,
+            "description": "If ((specimen1.specimenId <> specimen2.specimenId)&&(specimen1.bufferId == specimen2.bufferId)) then specimen1.color < specimen2.color",
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 104,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 109,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 123,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 140,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 157,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 260,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 376,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 430,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/saxs/experiment.js",
+            "line": 465,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/security/authenticationdataadapter.js",
+            "line": 14,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/test/test.js",
+            "line": 1,
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/dataadapter.js",
+            "line": 9,
+            "description": "By default, all requests are sent asynchronously (i.e. this is set to true by default). If you need synchronous requests, set this option to false.",
+            "itemtype": "property",
+            "name": "async",
+            "type": "String",
+            "default": "\"true\"",
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/dataadapter.js",
+            "line": 17,
+            "description": "ISPyB instance that points to the restful webservices (i.e. http://ispyvalid.esrf.fr:8080/ispyb/ispyb-ws/rest)",
+            "itemtype": "property",
+            "name": "url",
+            "type": "String",
+            "default": "null",
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/dataadapter.js",
+            "line": 25,
+            "description": "Token that will authenticate the restfull calls on the server.",
+            "itemtype": "property",
+            "name": "token",
+            "type": "String",
+            "default": "null",
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/dataadapter.js",
+            "line": 36,
+            "description": "Fired when the get or post are succeed",
+            "itemtype": "event",
+            "name": "onSuccess",
+            "params": [
+                {
+                    "name": "the",
+                    "description": "object which will fire the event",
+                    "type": "Object"
+                }
+            ],
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/dataadapter.js",
+            "line": 43,
+            "description": "Fired when the get or post produces an error",
+            "itemtype": "event",
+            "name": "onError",
+            "params": [
+                {
+                    "name": "the",
+                    "description": "object which will fire the event",
+                    "type": "Object"
+                }
+            ],
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/dataadapter.js",
+            "line": 77,
+            "description": "This method manage the creation of correct the URL. It receices as URL the relative path to the resource and will add the URL to the ISPyB server instance as well as will replace the token, proposal and username automatically.",
+            "itemtype": "method",
+            "name": "getUrl",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "Relative path to the resource to be access. For instance: \"/{token}/proposal/{proposal}/saxs/buffer/list\"",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Returns the effetive URL to access to an ISPyB instance: http://ispyvalid.esrf.fr:8080/ispyb/ispyb-ws/rest/d337d511ecac7sd301407347d66965cb27cbfa6a/proposal/mx415/saxs/buffer/list",
+                "type": "String"
+            },
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/dataadapter.js",
+            "line": 87,
+            "description": "This method makes a ajax call of type GET",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "Relative path to the resource to be access. For instance: \"/{token}/proposal/{proposal}/saxs/buffer/list\"",
+                    "type": "String"
+                }
+            ],
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/dataadapter.js",
+            "line": 122,
+            "description": "This method makes a ajax call of type POST",
+            "itemtype": "method",
+            "name": "post",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "Relative path to the resource to be access. For instance: \"/{token}/proposal/{proposal}/saxs/buffer/list\"",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "It is a string with the data to be sent within the POST call",
+                    "type": "String"
+                }
+            ],
+            "class": "DataAdapter"
+        },
+        {
+            "file": "js/event.js",
+            "line": 12,
+            "description": "It attaches a function to an event. This function will be executed once the event is fired",
+            "itemtype": "method",
+            "name": "attach",
+            "params": [
+                {
+                    "name": "listener",
+                    "description": "It is a callback function",
+                    "type": "String"
+                }
+            ],
+            "class": "Event"
+        },
+        {
+            "file": "js/event.js",
+            "line": 20,
+            "description": "It is called when the event is produced and will executed all the functions attached to such event",
+            "itemtype": "method",
+            "name": "notify",
+            "params": [
+                {
+                    "name": "args",
+                    "description": "It is an object that the sender will send when the event is notified",
+                    "type": "Object"
+                }
+            ],
+            "class": "Event"
+        },
+        {
+            "file": "js/proposalmanager.js",
+            "line": 76,
+            "class": ""
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: json",
+            "line": " js/saxs/experiment.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/proposal/proposaldataadapter.js:31"
+        },
+        {
+            "message": "Missing item type\nThis class represents an data Acquisition",
+            "line": " js/saxs/experiment.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/experiment.js:17"
+        },
+        {
+            "message": "Missing item type\nIf ((specimen1.specimenId <> specimen2.specimenId)&&(specimen1.bufferId == specimen2.bufferId)) then specimen1.color < specimen2.color",
+            "line": " js/saxs/experiment.js:68"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/experiment.js:104"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/experiment.js:109"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/experiment.js:123"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/experiment.js:140"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/experiment.js:157"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/experiment.js:260"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/experiment.js:376"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/experiment.js:430"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/experiment.js:465"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/security/authenticationdataadapter.js:14"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/test/test.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/proposalmanager.js:76"
+        }
+    ]
+}

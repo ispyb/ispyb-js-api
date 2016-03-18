@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Test</title>
+
+	    <!-- 
+	      Automatically include Bower components. Use the "sources" object in your bower.json
+	      to specify which source files are which.
+	    -->
+
+	    <!--
+	      Include CSS files from a "tmp" directory, put there by another task.
+	      This shows how to override the default "basePath" set in the options.
+	    -->
+	    <!-- include: "type": "css", "basePath": "tmp", "files": "styles/**/*.css" -->
+
+	
+	<link rel="stylesheet" type="text/css" href="../bower_components/qunit/qunit/qunit.css">
+	<script src="../bower_components/jquery/dist/jquery.js"></script>
+	<script src="../bower_components/qunit/qunit/qunit.js"></script>
+
+    	
+	<script src="config.js"></script>
+	<script src="../js/test/test.js"></script>
+
+    	<!-- include: "type": "js", "files": "**/*.js" -->
+
+<script>
+/** Init of testing **/
+Config.test();
+</script>
+	
+</head>
+
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+
+
+
+
+</body>
+
+
+</html>

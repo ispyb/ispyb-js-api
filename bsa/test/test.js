@@ -13,7 +13,7 @@ Test.prototype.authenticate = function(username, password, url){
 		}
 		function onAuthenticated(sender, data){
 			_this.token = data.token;
-    		}
+    		};
 		var authenticationDataAdapter = new AuthenticationDataAdapter({
 			onSuccess	: onAuthenticated,
 			async	  	: false,
