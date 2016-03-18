@@ -68,7 +68,8 @@ LabcontactTest.prototype.test = function(token){
 	_this.modify(labContact, "courierAccount", Config.data.labcontacts.courierAccount.original, Config.data.labcontacts.courierAccount.test, assert,  "Labcontact saved with changed courierAccount");
 	_this.modify(labContact, "courierAccount", Config.data.labcontacts.courierAccount.test, Config.data.labcontacts.courierAccount.original,  assert,  "Labcontact saved reverted to original courierAccount");
 
-			assert.ok((labContact.cardName == Config.data.labcontacts.cardName.original), "saveLabContact(): Test object is unchanged");
+	assert.ok((labContact.cardName == Config.data.labcontacts.cardName.original), "saveLabContact(): Test object is unchanged");
+	assert.ok((labContact.courierAccount == Config.data.labcontacts.courierAccount.original), "saveLabContact(): Test object is unchanged");
 
 	});
 };

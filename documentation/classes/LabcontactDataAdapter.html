@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Event - ispyb-js-api</title>
+    <title>LabcontactDataAdapter - ispyb-js-api</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -78,12 +78,12 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>Event Class</h1>
+<h1>LabcontactDataAdapter Class</h1>
 <div class="box meta">
 
 
         <div class="foundat">
-            Defined in: <a href="../files/js_event.js.html#l1"><code>js&#x2F;event.js:1</code></a>
+            Defined in: <a href="../files/js_proposal_labcontactdataadapter.js.html#l1"><code>js&#x2F;proposal&#x2F;labcontactdataadapter.js:1</code></a>
         </div>
 
 
@@ -91,14 +91,14 @@
 
 
 <div class="box intro">
-    <p>This class is in charge of the Event management. An object can create an event and other objects can subscribe to such event by using the function attach.</p>
+    <p>DataADapter read/write information about lab contacts</p>
 
 </div>
 
     <div class="constructor">
         <h2>Constructor</h2>
-<div id="method_Event" class="method item">
-    <h3 class="name"><code>Event</code></h3>
+<div id="method_LabcontactDataAdapter" class="method item">
+    <h3 class="name"><code>LabcontactDataAdapter</code></h3>
 
         <span class="paren">()</span>
 
@@ -112,7 +112,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_event.js.html#l1"><code>js&#x2F;event.js:1</code></a>
+        <a href="../files/js_proposal_labcontactdataadapter.js.html#l1"><code>js&#x2F;proposal&#x2F;labcontactdataadapter.js:1</code></a>
         </p>
 
 
@@ -145,11 +145,19 @@
 
                     <ul class="index-list methods">
                             <li class="index-item method">
-                                <a href="#method_attach">attach</a>
+                                <a href="#method_getLabContactById">getLabContactById</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_notify">notify</a>
+                                <a href="#method_getLabContacts">getLabContacts</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getLabContacts">getLabContacts</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_saveLabContact">saveLabContact</a>
 
                             </li>
                     </ul>
@@ -162,16 +170,10 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method_attach" class="method item">
-    <h3 class="name"><code>attach</code></h3>
+<div id="method_getLabContactById" class="method item">
+    <h3 class="name"><code>getLabContactById</code></h3>
 
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>listener</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
 
 
 
@@ -183,7 +185,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_event.js.html#l12"><code>js&#x2F;event.js:12</code></a>
+        <a href="../files/js_proposal_labcontactdataadapter.js.html#l32"><code>js&#x2F;proposal&#x2F;labcontactdataadapter.js:32</code></a>
         </p>
 
 
@@ -191,41 +193,18 @@
     </div>
 
     <div class="description">
-        <p>It attaches a function to an event. This function will be executed once the event is fired</p>
+        <p>This method retrieves a labcontact based on its labContactId</p>
 
     </div>
 
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">listener</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>It is a callback function</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
 
 
 
 </div>
-<div id="method_notify" class="method item">
-    <h3 class="name"><code>notify</code></h3>
+<div id="method_getLabContacts" class="method item">
+    <h3 class="name"><code>getLabContacts</code></h3>
 
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>args</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
 
 
 
@@ -237,7 +216,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_event.js.html#l20"><code>js&#x2F;event.js:20</code></a>
+        <a href="../files/js_proposal_labcontactdataadapter.js.html#l17"><code>js&#x2F;proposal&#x2F;labcontactdataadapter.js:17</code></a>
         </p>
 
 
@@ -245,27 +224,72 @@
     </div>
 
     <div class="description">
-        <p>It is called when the event is produced and will executed all the functions attached to such event</p>
+        <p>This method retrieves all the labcontacts linked to a proposal</p>
 
     </div>
 
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">args</code>
-                        <span class="type">Object</span>
 
 
-                    <div class="param-description">
-                        <p>It is an object that the sender will send when the event is notified</p>
 
-                    </div>
+</div>
+<div id="method_getLabContacts" class="method item">
+    <h3 class="name"><code>getLabContacts</code></h3>
 
-                </li>
-            </ul>
-        </div>
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_proposal_labcontactdataadapter.js.html#l25"><code>js&#x2F;proposal&#x2F;labcontactdataadapter.js:25</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>This method retrieves all scientists linked to a proposal from the SMIS database</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_saveLabContact" class="method item">
+    <h3 class="name"><code>saveLabContact</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_proposal_labcontactdataadapter.js.html#l39"><code>js&#x2F;proposal&#x2F;labcontactdataadapter.js:39</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>This method updates the information of a labcontact</p>
+
+    </div>
+
 
 
 

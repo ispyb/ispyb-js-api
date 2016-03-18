@@ -6,6 +6,15 @@
         "url": "https://github.com/antolinos/ispyb-js-api"
     },
     "files": {
+        "js/proposal/labcontactdataadapter.js": {
+            "name": "js/proposal/labcontactdataadapter.js",
+            "modules": {},
+            "classes": {
+                "LabcontactDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "js/proposal/proposaldataadapter.js": {
             "name": "js/proposal/proposaldataadapter.js",
             "modules": {},
@@ -62,6 +71,19 @@
     },
     "modules": {},
     "classes": {
+        "LabcontactDataAdapter": {
+            "name": "LabcontactDataAdapter",
+            "shortname": "LabcontactDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js/proposal/labcontactdataadapter.js",
+            "line": 1,
+            "description": "DataADapter read/write information about lab contacts",
+            "is_constructor": 1
+        },
         "DataAdapter": {
             "name": "DataAdapter",
             "shortname": "DataAdapter",
@@ -92,6 +114,38 @@
     },
     "elements": {},
     "classitems": [
+        {
+            "file": "js/proposal/labcontactdataadapter.js",
+            "line": 17,
+            "description": "This method retrieves all the labcontacts linked to a proposal",
+            "itemtype": "method",
+            "name": "getLabContacts",
+            "class": "LabcontactDataAdapter"
+        },
+        {
+            "file": "js/proposal/labcontactdataadapter.js",
+            "line": 25,
+            "description": "This method retrieves all scientists linked to a proposal from the SMIS database",
+            "itemtype": "method",
+            "name": "getLabContacts",
+            "class": "LabcontactDataAdapter"
+        },
+        {
+            "file": "js/proposal/labcontactdataadapter.js",
+            "line": 32,
+            "description": "This method retrieves a labcontact based on its labContactId",
+            "itemtype": "method",
+            "name": "getLabContactById",
+            "class": "LabcontactDataAdapter"
+        },
+        {
+            "file": "js/proposal/labcontactdataadapter.js",
+            "line": 39,
+            "description": "This method updates the information of a labcontact",
+            "itemtype": "method",
+            "name": "saveLabContact",
+            "class": "LabcontactDataAdapter"
+        },
         {
             "file": "js/proposal/proposaldataadapter.js",
             "line": 31,
@@ -285,6 +339,12 @@
             "class": "DataAdapter"
         },
         {
+            "file": "js/dataadapter.js",
+            "line": 152,
+            "description": "This allows to replace a subset of characters on a string",
+            "class": "DataAdapter"
+        },
+        {
             "file": "js/event.js",
             "line": 12,
             "description": "It attaches a function to an event. This function will be executed once the event is fired",
@@ -384,6 +444,10 @@
         {
             "message": "Missing item type",
             "line": " js/test/test.js:1"
+        },
+        {
+            "message": "Missing item type\nThis allows to replace a subset of characters on a string",
+            "line": " js/dataadapter.js:152"
         },
         {
             "message": "Missing item type",

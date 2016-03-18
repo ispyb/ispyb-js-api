@@ -40,6 +40,7 @@
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/DataAdapter.html">DataAdapter</a></li>
                                 <li><a href="../classes/Event.html">Event</a></li>
+                                <li><a href="../classes/LabcontactDataAdapter.html">LabcontactDataAdapter</a></li>
                             </ul>
                 
                 
@@ -229,6 +230,30 @@ DataAdapter.prototype.post = function(url, data){
 	});
 	 
 };
+
+
+
+/**
+* This allows to replace a subset of characters on a string
+*/
+String.prototype.format = function (args) {
+    var str = this;
+    return str.replace(String.prototype.format.regex, function(item) {
+        var intVal = parseInt(item.substring(1, item.length - 1));
+        var replace;
+        if (intVal &gt;= 0) {
+            replace = args[intVal];
+        } else if (intVal === -1) {
+            replace = &quot;{&quot;;
+        } else if (intVal === -2) {
+            replace = &quot;}&quot;;
+        } else {
+            replace = &quot;&quot;;
+        }
+        return replace;
+    });
+};
+String.prototype.format.regex = new RegExp(&quot;{-?[0-9]+}&quot;, &quot;g&quot;);
 
 
 

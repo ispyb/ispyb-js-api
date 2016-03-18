@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>js/test/test.js - ispyb-js-api</title>
+    <title>js/proposal/labcontactdataadapter.js - ispyb-js-api</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -78,51 +78,59 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: js/test/test.js</h1>
+<h1 class="file-heading">File: js/proposal/labcontactdataadapter.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
-/** Super class for testing **/
-function Test(){
-	this.token = null;
-	this.credential = null;
+/**
+* DataADapter read/write information about lab contacts
+*
+* @class LabcontactDataAdapter
+* @constructor
+*/
+function LabcontactDataAdapter(args){
+	DataAdapter.call(this, args);
 }
 
-Test.prototype.authenticate = function(username, password, url){
-		var _this = this;
-
-		if (password == null){
-			alert(&quot;Password is null&quot;);
-			return;
-		}
-		function onAuthenticated(sender, data){
-			_this.token = data.token;
-    		}
-		var authenticationDataAdapter = new AuthenticationDataAdapter({
-			onSuccess	: onAuthenticated,
-			async	  	: false,
-			url		:  url
-	    	});
-	    	authenticationDataAdapter.authenticate(username, password, url);
+LabcontactDataAdapter.prototype.get = DataAdapter.prototype.get;
+LabcontactDataAdapter.prototype.post = DataAdapter.prototype.post;
+LabcontactDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
 
+
+/**
+* This method retrieves all the labcontacts linked to a proposal
+
+* @method getLabContacts
+*/
+LabcontactDataAdapter.prototype.getLabContacts = function(){
+	this.get(&#x27;/{token}/proposal/{proposal}/shipping/labcontact/list&#x27;);
+};
+/**
+* This method retrieves all scientists linked to a proposal from the SMIS database
+* @method getLabContacts
+*/
+LabcontactDataAdapter.prototype.getScientists = function(){
+	this.get(&#x27;/{token}/proposal/{proposal}/shipping/labcontact/smis/list&#x27;);
+};
+/**
+* This method retrieves a labcontact based on its labContactId
+* @method getLabContactById
+*/
+LabcontactDataAdapter.prototype.getLabContactById = function(labContactId){
+	this.get(&#x27;/{token}/proposal/{proposal}/shipping/labcontact/{0}/get&#x27;.format([labContactId]));
+};
+/**
+* This method updates the information of a labcontact
+* @method saveLabContact
+*/
+LabcontactDataAdapter.prototype.saveLabContact = function(labcontact){
+    var url = (&#x27;/{token}/proposal/{proposal}/shipping/labcontact/save&#x27;);
+	this.post(url, {
+		labcontact : JSON.stringify(labcontact)
+	});
 };
 
-Test.prototype.init = function(){
-	this.credential = Config.credentials[0];
-	this.authenticate(this.credential.username, this.credential.password, this.credential.url);
-	if (this.token != null){
-		this.test(this.token);
-	}
-	else{
-		alert(&quot;Authentication failed&quot;);
-	}
-};
-
-Test.prototype.test = function(token){
-
-
-};
 
     </pre>
 </div>
