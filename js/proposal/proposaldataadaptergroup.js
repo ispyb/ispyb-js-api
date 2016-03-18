@@ -4,4 +4,5 @@ function ProposalDataAdapterGroup(args){
 	this.proposal = new ProposalDataAdapter(args);
 	this.shipping = new ShippingDataAdapter(args);
 	this.session = new SessionDataAdapter(args);
+	this.labcontacts = new LabcontactDataAdapter(args);
 }
