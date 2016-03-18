@@ -33,6 +33,21 @@ function DataAdapter( args) {
 	this.proposal = null;
 	this.username = null;
 	
+	/**
+	 * Fired when the get or post are succeed
+	 *
+	 * @event onSuccess
+	 * @param {Object} the object which will fire the event
+	 */
+	this.onSuccess = new Event(this);
+	/**
+	 * Fired when the get or post produces an error
+	 *
+	 * @event onError
+	 * @param {Object} the object which will fire the event
+	 */
+	this.onError = new Event(this);
+
 	if (args != null) {
 		if (args.username != null) {
 			this.username = args.username;
@@ -56,21 +71,6 @@ function DataAdapter( args) {
 			this.proposal = args.proposal;
 		}
 	}
-
-	/**
-	 * Fired when the get or post are succeed
-	 *
-	 * @event onSuccess
-	 * @param {Object} the object which will fire the event
-	 */
-	this.onSuccess = new Event(this);
-	/**
-	 * Fired when the get or post produces an error
-	 *
-	 * @event onError
-	 * @param {Object} the object which will fire the event
-	 */
-	this.onError = new Event(this);
 	
 }
 

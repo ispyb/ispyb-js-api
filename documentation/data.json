@@ -6,13 +6,6 @@
         "url": "https://github.com/antolinos/ispyb-js-api"
     },
     "files": {
-        "js/proposal/authenticationdataadapter.js": {
-            "name": "js/proposal/authenticationdataadapter.js",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "js/proposal/proposaldataadapter.js": {
             "name": "js/proposal/proposaldataadapter.js",
             "modules": {},
@@ -27,8 +20,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "js/test/bsa_utils.js": {
-            "name": "js/test/bsa_utils.js",
+        "js/security/authenticationdataadapter.js": {
+            "name": "js/security/authenticationdataadapter.js",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -100,11 +93,6 @@
     "elements": {},
     "classitems": [
         {
-            "file": "js/proposal/authenticationdataadapter.js",
-            "line": 14,
-            "class": "DataAdapter"
-        },
-        {
             "file": "js/proposal/proposaldataadapter.js",
             "line": 31,
             "class": "DataAdapter"
@@ -173,14 +161,8 @@
             "class": "DataAdapter"
         },
         {
-            "file": "js/test/bsa_utils.js",
-            "line": 1,
-            "description": "Created by bsa on 17/02/2016.",
-            "class": "DataAdapter"
-        },
-        {
-            "file": "js/test/bsa_utils.js",
-            "line": 5,
+            "file": "js/security/authenticationdataadapter.js",
+            "line": 14,
             "class": "DataAdapter"
         },
         {
@@ -220,7 +202,7 @@
         },
         {
             "file": "js/dataadapter.js",
-            "line": 60,
+            "line": 36,
             "description": "Fired when the get or post are succeed",
             "itemtype": "event",
             "name": "onSuccess",
@@ -235,7 +217,7 @@
         },
         {
             "file": "js/dataadapter.js",
-            "line": 67,
+            "line": 43,
             "description": "Fired when the get or post produces an error",
             "itemtype": "event",
             "name": "onError",
@@ -345,10 +327,6 @@
         },
         {
             "message": "Missing item type",
-            "line": " js/proposal/authenticationdataadapter.js:14"
-        },
-        {
-            "message": "Missing item type",
             "line": " js/proposal/proposaldataadapter.js:31"
         },
         {
@@ -400,12 +378,8 @@
             "line": " js/saxs/experiment.js:465"
         },
         {
-            "message": "Missing item type\nCreated by bsa on 17/02/2016.",
-            "line": " js/test/bsa_utils.js:1"
-        },
-        {
             "message": "Missing item type",
-            "line": " js/test/bsa_utils.js:5"
+            "line": " js/security/authenticationdataadapter.js:14"
         },
         {
             "message": "Missing item type",

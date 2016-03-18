@@ -61,12 +61,12 @@ module.exports = function(grunt) {
  
     includeSource: {
 	    	options: {
-		      basePath: 'js',
+		      basePath: ['js'],
 		      baseUrl: '../js/'
 		},
 		dev: {
 		      files: [{
-		    	  		'html/test.html': 'html/index.tpl.html'
+		    	  		'test/index.html': 'test/html/index.tpl.html'
 		      }]
 		}
 	}
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-yuidoc');
   grunt.loadNpmTasks('grunt-plato');
   grunt.task.registerTask('doc', ['yuidoc:compile']);
-  grunt.task.registerTask('default', ['jshint:prod' , 'plato:prod', 'concat:prod', 'uglify:prod']);
+  grunt.task.registerTask('default', ['jshint:prod' , 'plato:prod', 'concat:prod', 'uglify:prod', 'yuidoc:compile']);
   grunt.task.registerTask('dev', ['jshint:prod' , 'plato:prod', 'concat:prod', 'includeSource:dev']);
   
 };

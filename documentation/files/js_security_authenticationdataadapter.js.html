@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>js/test/bsa_utils.js - ispyb-js-api</title>
+    <title>js/security/authenticationdataadapter.js - ispyb-js-api</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -77,33 +77,37 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: js/test/bsa_utils.js</h1>
+<h1 class="file-heading">File: js/security/authenticationdataadapter.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
-/**
- * Created by bsa on 17/02/2016.
- */
+function AuthenticationDataAdapter(args){
+	DataAdapter.call(this, args);
+}
 
-/** Function for String **/
-String.prototype.format = function (args) {
-    var str = this;
-    return str.replace(String.prototype.format.regex, function(item) {
-        var intVal = parseInt(item.substring(1, item.length - 1));
-        var replace;
-        if (intVal &gt;= 0) {
-            replace = args[intVal];
-        } else if (intVal === -1) {
-            replace = &quot;{&quot;;
-        } else if (intVal === -2) {
-            replace = &quot;}&quot;;
-        } else {
-            replace = &quot;&quot;;
-        }
-        return replace;
-    });
+AuthenticationDataAdapter.prototype.get = DataAdapter.prototype.get;
+AuthenticationDataAdapter.prototype.post = DataAdapter.prototype.post;
+AuthenticationDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
+
+
+AuthenticationDataAdapter.prototype.authenticate = function(user, password, url){
+	var _this = this;
+	
+	var site = &quot;ESRF&quot;;
+	/** SITE **/
+	if (url.indexOf(&quot;embl-hamburg&quot;) != -1){
+		site = &quot;EMBL&quot;;
+	}
+	if (url.indexOf(&quot;192.109.31.39&quot;) != -1){
+		site = &quot;EMBL&quot;;
+	}
+	this.post(&#x27;/authenticate?site=&#x27; + site, 
+					{
+			  			login : user,
+			  			password : password
+					}
+	);
 };
-String.prototype.format.regex = new RegExp(&quot;{-?[0-9]+}&quot;, &quot;g&quot;);
 
     </pre>
 </div>
