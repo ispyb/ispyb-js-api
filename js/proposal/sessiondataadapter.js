@@ -11,7 +11,7 @@ SessionDataAdapter.prototype.getSessions = function(){
 };
 
 SessionDataAdapter.prototype.getSessionsByProposal = function(proposal){
-	this.get('/{token}/proposal/{proposal}/session/list').format([proposal]));
+	this.get('/{token}/proposal/{0}/session/list'.format([proposal]));
 };
 
 
