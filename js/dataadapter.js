@@ -1,27 +1,37 @@
 /**
- * Super class for all the data adapters
- * Based on $ and Event it will make a GET/POST call to an given URL
- * if success then onSuccess will be notified otherwise on Error will be notified
- * 
- * Example:
- * 
- * function successed (sender, data){
- * 	alert("It worked");
- * }
- * var adapter = new DataAdapter({async : true, onSuccess: successed }).get("http://example.com/get")
- * 
- * 
-**/
+* It makes all the calls to the webservices. Either by using get or post.
+*
+* @class DataAdapter
+* @constructor
+* @event onSuccess
+*/
 function DataAdapter( args) {
+	/**
+	 * By default, all requests are sent asynchronously (i.e. this is set to true by default). If you need synchronous requests, set this option to false.
+	 *
+	 * @property async
+	 * @type String
+	 * @default "true"
+	 */
 	this.async = true;
+	/**
+	 * ISPyB instance that points to the restful webservices (i.e. http://ispyvalid.esrf.fr:8080/ispyb/ispyb-ws/rest)
+	 *
+	 * @property url
+	 * @type String
+	 * @default null
+	 */
 	this.url = null;
+	/**
+	 * Token that will authenticate the restfull calls on the server.
+	 *
+	 * @property token
+	 * @type String
+	 * @default null
+	 */
 	this.token = null;
 	this.proposal = null;
 	this.username = null;
-	
-	this.onSuccess = new Event(this);
-	this.onError = new Event(this);
-	
 	
 	if (args != null) {
 		if (args.username != null) {
@@ -46,20 +56,42 @@ function DataAdapter( args) {
 			this.proposal = args.proposal;
 		}
 	}
+
+	/**
+	 * Fired when the get or post are succeed
+	 *
+	 * @event onSuccess
+	 * @param {Object} the object which will fire the event
+	 */
+	this.onSuccess = new Event(this);
+	/**
+	 * Fired when the get or post produces an error
+	 *
+	 * @event onError
+	 * @param {Object} the object which will fire the event
+	 */
+	this.onError = new Event(this);
 	
 }
 
 /**
- * Input: url = "http://server.com/{token}/proposal/{proposal}/shipment/list"
- * Output will be the url with the strings {token} and {proposal} replaced by the values connection.token and connection.proposal
- */
+* This method manage the creation of correct the URL. It receices as URL the relative path to the resource and will add the URL to the ISPyB server instance as well as will replace the token, proposal and username automatically.
+* @method getUrl
+* @param {String} url Relative path to the resource to be access. For instance: "/{token}/proposal/{proposal}/saxs/buffer/list"
+* @return {String} Returns the effetive URL to access to an ISPyB instance: http://ispyvalid.esrf.fr:8080/ispyb/ispyb-ws/rest/d337d511ecac7sd301407347d66965cb27cbfa6a/proposal/mx415/saxs/buffer/list
+*/
 DataAdapter.prototype.getUrl = function(url){
 	return this.url + url.replace("{token}", this.token).replace("{proposal}", this.proposal).replace("{username}", this.username);
 };
 
+/**
+* This method makes a ajax call of type GET
+
+* @method get
+* @param {String} url Relative path to the resource to be access. For instance: "/{token}/proposal/{proposal}/saxs/buffer/list"
+*/
 DataAdapter.prototype.get = function(url){
 	var _this = this;
-
 		$.ajax({
 			  url: this.getUrl( url),
 			  type: 'get',
@@ -87,6 +119,13 @@ DataAdapter.prototype.get = function(url){
 			});
 };
 
+/**
+* This method makes a ajax call of type POST
+
+* @method post
+* @param {String} url Relative path to the resource to be access. For instance: "/{token}/proposal/{proposal}/saxs/buffer/list"
+* @param {String} data It is a string with the data to be sent within the POST call
+*/
 DataAdapter.prototype.post = function(url, data){
 	var _this = this;
 	
