@@ -1,6 +1,8 @@
 report/
 .bowerrc
 
+js/test/config.js
+
 *~
 
 bower_components

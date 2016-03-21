@@ -19,22 +19,19 @@ ShippingDataAdapter.prototype.getDewarsByShipmentId = function(shippingId){
 };
 
 ShippingDataAdapter.prototype.getLabContacts = function(){
-	this.get('/{token}/proposal/{proposal}/shipping/labcontact/list');
+	alert("This method has been moved to labcontactDataAdapter");
 };
 
 ShippingDataAdapter.prototype.getScientists = function(){
-	this.get('/{token}/proposal/{proposal}/shipping/labcontact/smis/list');
+	alert("This method has been moved to labcontactDataAdapter");
 };
 
 ShippingDataAdapter.prototype.getLabContactById = function(labContactId){
-	this.get('/{token}/proposal/{proposal}/shipping/labcontact/{0}/get'.format([labContactId]));
+	alert("This method has been moved to labcontactDataAdapter");
 };
 
 ShippingDataAdapter.prototype.saveLabContact = function(labcontact){
-    var url = ('/{token}/proposal/{proposal}/shipping/labcontact/save');
-	this.post(url, {
-		labcontact : JSON.stringify(labcontact)
-	});
+   	alert("This method has been moved to labcontactDataAdapter");
 };
 
 ShippingDataAdapter.prototype.saveShipment = function(shipment ){

@@ -10,6 +10,9 @@ SessionDataAdapter.prototype.getSessions = function(){
 	this.get('/{token}/proposal/{proposal}/session/list');
 };
 
+SessionDataAdapter.prototype.getSessionsByProposal = function(proposal){
+	this.get('/{token}/proposal/{0}/session/list'.format([proposal]));
+};
 
 
 SessionDataAdapter.prototype.getSessionsByDate = function(startDate, endDate){

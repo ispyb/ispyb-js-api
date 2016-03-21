@@ -174,6 +174,10 @@ ProposalManager.prototype.getProteins = function() {
 	return this.get()[0].proteins;
 };
 
+ProposalManager.prototype.getCrystals = function() {
+	return this.get()[0].crystals;
+};
+
 ProposalManager.prototype.getProteinByAcronym = function(acronym) {
 	var proteins = this.getProteins();
 	for (var i = 0; i < proteins.length; i++) {
@@ -182,6 +186,17 @@ ProposalManager.prototype.getProteinByAcronym = function(acronym) {
 		}
 	}
 	return null;
+};
+
+ProposalManager.prototype.getCrystalsByAcronym = function(acronym) {
+	var crystals = this.getCrystals();
+	var result = [];
+		for (var i = 0; i < crystals.length; i++) {
+			if (crystals[i].protein.acronym == acronym){
+				result = result.concat(crystals[i]);
+			}
+	}
+	return result;
 };
 
 ProposalManager.prototype.getStockSolutionsBySpecimen = function(macromoleculeId, bufferId) {

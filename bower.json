@@ -1,8 +1,8 @@
 {
-  "name": "exi-ui",
-  "version": "0.0.0",
-  "homepage": "https://github.com/antolinos/ExiSAXS",
-  "description": "Extended ISPyB User Interface",
+  "name": "ispyb-js-api",
+  "version": "0.1",
+  "homepage": "https://github.com/antolinos/ispyb-js-api",
+  "description": "ISPyB javascript API",
   "main": "index.html",
   "moduleType": [
     "node"
@@ -17,8 +17,7 @@
   "authors": [
     "Alejandro de Maria Antolinos"
   ],
-  "license": "MIT",
-  "private": true,
+  "license": "GPL3",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -26,9 +25,10 @@
     "test",
     "tests"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "qunit": "^1.22.0"
+  },
   "devDependencies": {
-    "jshint-stylish": "~2.1.0",
-	"jquery-lazy": "~0.6.1"
+    "jquery-lazy": "~0.6.1"
   }
 }

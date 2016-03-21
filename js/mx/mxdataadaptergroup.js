@@ -3,6 +3,7 @@ function MxDataAdapterGroup(args){
 	this.dataCollection = new DataCollectionDataAdapter(args);
 	this.crystal = new CrystalDataAdapter(args);
 	this.protein = new ProteinDataAdapter(args);
+	this.workflowStepDataAdapter = new WorkflowStepDataAdapter(args);
 }
 
 
