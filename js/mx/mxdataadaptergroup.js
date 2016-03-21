@@ -4,6 +4,9 @@ function MxDataAdapterGroup(args){
 	this.crystal = new CrystalDataAdapter(args);
 	this.protein = new ProteinDataAdapter(args);
 	this.workflowStepDataAdapter = new WorkflowStepDataAdapter(args);
+	this.phasingDataAdapter = new PhasingDataAdapter(args);
+	
+	
 }
 
 
