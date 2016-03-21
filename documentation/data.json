@@ -10,7 +10,7 @@
             "name": "js/mx/phasingdataadapter.js",
             "modules": {},
             "classes": {
-                "MyClass": 1
+                "PhasingDataAdapter": 1
             },
             "fors": {},
             "namespaces": {}
@@ -80,9 +80,9 @@
     },
     "modules": {},
     "classes": {
-        "MyClass": {
-            "name": "MyClass",
-            "shortname": "MyClass",
+        "PhasingDataAdapter": {
+            "name": "PhasingDataAdapter",
+            "shortname": "PhasingDataAdapter",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -149,7 +149,7 @@
                     "type": "String"
                 }
             ],
-            "class": "MyClass"
+            "class": "PhasingDataAdapter"
         },
         {
             "file": "js/proposal/labcontactdataadapter.js",

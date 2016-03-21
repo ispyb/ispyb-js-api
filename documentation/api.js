@@ -4,7 +4,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "DataAdapter",
         "Event",
         "LabcontactDataAdapter",
-        "MyClass"
+        "PhasingDataAdapter"
     ],
     "modules": [],
     "allModules": [],
