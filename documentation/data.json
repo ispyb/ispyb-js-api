@@ -6,6 +6,15 @@
         "url": "https://github.com/antolinos/ispyb-js-api"
     },
     "files": {
+        "js/mx/phasingdataadapter.js": {
+            "name": "js/mx/phasingdataadapter.js",
+            "modules": {},
+            "classes": {
+                "MyClass": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "js/proposal/labcontactdataadapter.js": {
             "name": "js/proposal/labcontactdataadapter.js",
             "modules": {},
@@ -71,6 +80,19 @@
     },
     "modules": {},
     "classes": {
+        "MyClass": {
+            "name": "MyClass",
+            "shortname": "MyClass",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js/mx/phasingdataadapter.js",
+            "line": 1,
+            "description": "Interface implementing the API for phasing",
+            "is_constructor": 1
+        },
         "LabcontactDataAdapter": {
             "name": "LabcontactDataAdapter",
             "shortname": "LabcontactDataAdapter",
@@ -114,6 +136,21 @@
     },
     "elements": {},
     "classitems": [
+        {
+            "file": "js/mx/phasingdataadapter.js",
+            "line": 15,
+            "description": "It retrieves the phasing view from ISPyB",
+            "itemtype": "method",
+            "name": "getViewByDataCollectionId",
+            "params": [
+                {
+                    "name": "dataCollectionId",
+                    "description": "It may be a comma-separated list of data collection ids",
+                    "type": "String"
+                }
+            ],
+            "class": "MyClass"
+        },
         {
             "file": "js/proposal/labcontactdataadapter.js",
             "line": 17,
