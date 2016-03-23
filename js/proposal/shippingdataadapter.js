@@ -59,7 +59,6 @@ ShippingDataAdapter.prototype.saveContainer = function(shippingId, dewarId, cont
 
 
 ShippingDataAdapter.prototype.getDewarLabelURL = function(shippingId, dewarId){
-	var connection = EXI.credentialManager.getConnections()[0];
-	return this.getUrl(connection, ('/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/labels'.format([ shippingId, dewarId])));
+	return this.getUrl('/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/labels'.format([ shippingId, dewarId]));
 };
 
