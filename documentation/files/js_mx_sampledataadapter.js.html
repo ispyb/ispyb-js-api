@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>js\event.js - ispyb-js-api</title>
+    <title>js\mx\sampledataadapter.js - ispyb-js-api</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -80,41 +80,45 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: js\event.js</h1>
+<h1 class="file-heading">File: js\mx\sampledataadapter.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
-* This class is in charge of the Event management. An object can create an event and other objects can subscribe to such event by using the function attach.
-* @class Event
+* DataAdDapter read/write information about sample
+*
+* @class SampleDataAdapter
 * @constructor
 */
-function Event(sender) {
-	this._sender = sender;
-	this._listeners = [];
+function SampleDataAdapter(args){
+	DataAdapter.call(this, args);
 }
 
-Event.prototype = {
-	/**
-	* It attaches a function to an event. This function will be executed once the event is fired
-	* @method attach
-	* @param {String} listener It is a callback function
-	*/
-	attach : function(listener) {
-		this._listeners.push(listener);
-	},
-	/**
-	* It is called when the event is produced and will executed all the functions attached to such event
-	* @method notify
-	* @param {Object} args It is an object that the sender will send when the event is notified
-	*/
-	notify : function(args) {
-		for (var i = 0; i &lt; this._listeners.length; i++) {
-			this._listeners[i](this._sender, args);
-		}
-	}
+SampleDataAdapter.prototype.get = DataAdapter.prototype.get;
+SampleDataAdapter.prototype.post = DataAdapter.prototype.post;
+SampleDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
+/**
+* This method retrieves all the samples by crystal id
+
+* @method getSamplesByCrystalId
+*/
+SampleDataAdapter.prototype.getSamplesByCrystalId = function(){
+	alert(&#x27;To be implemented&#x27;);
+	 this.get(&#x27;/{token}/proposal/{proposal}/mx/sample/crystalId/{0}/list&#x27;.format( [crystalId.toString()]));
 };
+
+
+
+
+
+
+
+
+
+
+
+
 
     </pre>
 </div>

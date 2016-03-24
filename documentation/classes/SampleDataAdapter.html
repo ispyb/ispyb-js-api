@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>js\event.js - ispyb-js-api</title>
+    <title>SampleDataAdapter - ispyb-js-api</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -80,43 +80,122 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: js\event.js</h1>
+<h1>SampleDataAdapter Class</h1>
+<div class="box meta">
 
-<div class="file">
-    <pre class="code prettyprint linenums">
-/**
-* This class is in charge of the Event management. An object can create an event and other objects can subscribe to such event by using the function attach.
-* @class Event
-* @constructor
-*/
-function Event(sender) {
-	this._sender = sender;
-	this._listeners = [];
-}
 
-Event.prototype = {
-	/**
-	* It attaches a function to an event. This function will be executed once the event is fired
-	* @method attach
-	* @param {String} listener It is a callback function
-	*/
-	attach : function(listener) {
-		this._listeners.push(listener);
-	},
-	/**
-	* It is called when the event is produced and will executed all the functions attached to such event
-	* @method notify
-	* @param {Object} args It is an object that the sender will send when the event is notified
-	*/
-	notify : function(args) {
-		for (var i = 0; i &lt; this._listeners.length; i++) {
-			this._listeners[i](this._sender, args);
-		}
-	}
+        <div class="foundat">
+            Defined in: <a href="../files/js_mx_sampledataadapter.js.html#l1"><code>js\mx\sampledataadapter.js:1</code></a>
+        </div>
 
-};
 
-    </pre>
+</div>
+
+
+<div class="box intro">
+    <p>DataAdDapter read/write information about sample</p>
+
+</div>
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+<div id="method_SampleDataAdapter" class="method item">
+    <h3 class="name"><code>SampleDataAdapter</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_mx_sampledataadapter.js.html#l1"><code>js\mx\sampledataadapter.js:1</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+
+</div>
+    </div>
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_getSamplesByCrystalId">getSamplesByCrystalId</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_getSamplesByCrystalId" class="method item">
+    <h3 class="name"><code>getSamplesByCrystalId</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_mx_sampledataadapter.js.html#l15"><code>js\mx\sampledataadapter.js:15</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>This method retrieves all the samples by crystal id</p>
+
+    </div>
+
+
+
+
+</div>
+            </div>
+
+
+
+    </div>
 </div>
                     </div>
                 </div>
