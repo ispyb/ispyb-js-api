@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">50</p>
+      <p class="stat">88</p>
     </div>
   </div>
   <div class="row historical">
@@ -89,7 +89,13 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="col-md-12">function AutoProcIntegrationDataAdapter(args){
+    <textarea id="file-source" class="col-md-12">/**
+* API for AutoProcIntegration
+*
+* @class AutoProcIntegrationDataAdapter
+* @constructor
+*/
+function AutoProcIntegrationDataAdapter(args){
 	DataAdapter.call(this, args);
 }
 
@@ -97,45 +103,83 @@ AutoProcIntegrationDataAdapter.prototype.get = DataAdapter.prototype.get;
 AutoProcIntegrationDataAdapter.prototype.post = DataAdapter.prototype.post;
 AutoProcIntegrationDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
+
+/**
+* @method getByDataCollectionId
+*/
 AutoProcIntegrationDataAdapter.prototype.getByDataCollectionId= function(dataCollectionId){
 	this.get(&#039;/{token}/proposal/{proposal}/mx/autoprocintegration/datacollection/{0}/list&#039;.format( [dataCollectionId]));
 };
 
-
+/**
+* It gets the URL for getting the completeness of XScale by a list autoprocintegration Id
+* @method getXScaleCompleteness
+*/
 AutoProcIntegrationDataAdapter.prototype.getXScaleCompleteness= function(autoProcIntegrationIdList){
 	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/completeness&#039;.format( [autoProcIntegrationIdList.toString()]));
 };
 
+/**
+* It gets the URL for getting the RFactor of XScale by a list autoprocintegration Id
+* @method getXScaleRfactor
+*/
 AutoProcIntegrationDataAdapter.prototype.getXScaleRfactor= function(autoProcIntegrationIdList){
 	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/rfactor&#039;.format( [autoProcIntegrationIdList.toString()]));
 };
 
-
+/**
+* It gets the URL for getting the ISigma of XScale by a list autoprocintegration Id
+* @method getXScaleISigma
+*/
 AutoProcIntegrationDataAdapter.prototype.getXScaleISigma= function(autoProcIntegrationIdList){
 	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/isigma&#039;.format( [autoProcIntegrationIdList.toString()]));
 };
 
+/**
+* It gets the URL for getting the CC2 of XScale by a list autoprocintegration Id
+* @method getXScaleCC2
+*/
 AutoProcIntegrationDataAdapter.prototype.getXScaleCC2= function(autoProcIntegrationIdList){
 	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/cc2&#039;.format( [autoProcIntegrationIdList.toString()]));
 };
 
+/**
+* It gets the URL for getting the SigmaAnp of XScale by a list autoprocintegration Id
+* @method getXScaleSigmaAno
+*/
 AutoProcIntegrationDataAdapter.prototype.getXScaleSigmaAno= function(autoProcIntegrationIdList){
 	return this.getUrl( &#039;/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/sigmaano&#039;.format( [autoProcIntegrationIdList.toString()]));
 };
 
+/**
+* It gets the URL for getting the Wilson of XScale by a list autoprocintegration Id
+* @method getXScaleWilson
+*/
 AutoProcIntegrationDataAdapter.prototype.getXScaleWilson= function(autoProcIntegrationIdList){
 	return this.getUrl( &#039;/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/wilson&#039;.format( [autoProcIntegrationIdList.toString()]));
 };
 
+/**
+* It gets the URL for getting the AnnoCorrection of XScale by a list autoprocintegration Id
+* @method getXScaleAnnoCorrection
+*/
 AutoProcIntegrationDataAdapter.prototype.getXScaleAnnoCorrection= function(autoProcIntegrationIdList){
 	return this.getUrl(connection, &#039;/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/anomcorr&#039;.format( [autoProcIntegrationIdList.toString()]));
 };
 
+/**
+* It gets the URL for downloading an attachement from an autoProcAttachmentId
+* @method getDownloadAttachmentUrl
+*/
 AutoProcIntegrationDataAdapter.prototype.getDownloadAttachmentUrl= function(autoProcAttachmentId){
 	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/autoproc/autoprocattachmentid/{0}/download&#039;.format( [autoProcAttachmentId.toString()]));
 };
 
-
+/**
+* It gets the phasing data by autoProcListId
+* @deprecated Use PhasingDataAdapter
+* @method getPhasingByAutoprocIds
+*/
 AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoprocIds= function(autoProcListId){
 	 this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/autoprocid/{0}/list&#039;.format( [autoProcListId.toString()]));
 };</textarea>

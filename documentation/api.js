@@ -1,10 +1,17 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
+        "AutoProcIntegrationDataAdapter",
+        "CrystalDataAdapter",
         "DataAdapter",
+        "DataCollectionDataAdapter",
         "Event",
         "LabcontactDataAdapter",
-        "MyClass"
+        "MxDataAdapterFactory",
+        "PhasingDataAdapter",
+        "ProposalManager",
+        "ProteinDataAdapter",
+        "WorkflowStepDataAdapter"
     ],
     "modules": [],
     "allModules": [],

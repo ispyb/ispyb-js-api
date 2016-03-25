@@ -1,8 +1,19 @@
-
+/**
+* Class used to manage the common points for a single or several proposals. It deals with methods to help the management of crystals, proteins, macromolecules, buffer, stockSolutions and labcontacts
+*
+* @class ProposalManager
+* @constructor
+*/
 function ProposalManager() {
 
 }
 
+
+/**
+* It gets the information of the proposals that are found on the local Storage in the field called proposal. If it does not exist it will load form the server and store them on the local storage
+* @method get
+* @param {Boolean} forceUpdate if true the proposals information will be reloaded from the server syncrhonously
+*/
 ProposalManager.prototype.get = function(forceUpdate) {
 	if ((localStorage.getItem("proposals") == null)||(forceUpdate)){
 		var onSuccess= function(sender, proposals){
@@ -13,11 +24,18 @@ ProposalManager.prototype.get = function(forceUpdate) {
 	return JSON.parse(localStorage.getItem("proposals"));
 };
 
+/**
+* It removes the information from the local storage. It means it remove the proposals item
+* @method clear
+*/
 ProposalManager.prototype.clear = function() {
 	localStorage.removeItem('proposals');
 };
 
-
+/**
+* It gets a list of sessions from the local storage or retrieve them from the server if the proposals have not been loaded yet. It is synchronous.
+* @method getSessions
+*/
 ProposalManager.prototype.getSessions = function() {
 	if (localStorage.getItem("sessions") == null){
 		var onSuccess= function(sender, sessions){
@@ -28,6 +46,10 @@ ProposalManager.prototype.getSessions = function() {
 	return JSON.parse(localStorage.getItem("sessions"));
 };
 
+/**
+* It gets a list of sessions which start date comes after today.
+* @method getFutureSessions
+*/
 ProposalManager.prototype.getFutureSessions = function() {
 	var sessions = this.getSessions();
 	var today = moment();
@@ -40,31 +62,54 @@ ProposalManager.prototype.getFutureSessions = function() {
 	return futureSessions;
 };
 
-
+/**
+* It gets a list of colors
+* @method getBufferColors
+*/
 ProposalManager.prototype.getBufferColors = function() {
 	return [ "#ffffcc", "#c7e9b4", "#7fcdbb", "#41b6c4", "#2c7fb8", "#253494" ];
 };
 
+/**
+* It gets a list of labcontacts from the current proposal
+* @method getLabcontacts
+*/
 ProposalManager.prototype.getLabcontacts = function() {
 	return this.get()[0].labcontacts;
 };
 
+/**
+* @method getLabcontactById
+*/
 ProposalManager.prototype.getLabcontactById = function(labContactId) {
 	return _.find(this.getLabcontacts(), function(o) { return o.labContactId == labContactId; });
 };
 
+/**
+* @method getPlateTypeById
+*/
 ProposalManager.prototype.getPlateTypeById = function(plateTypeId) {
 	return _.find(this.getPlateTypes(), function(o) { return o.plateTypeId == plateTypeId; });
 };
 
+/**
+* @method getPlateTypes
+*/
 ProposalManager.prototype.getPlateTypes = function() {
 	return this.get()[0].plateTypes;
 };
 
-ProposalManager.prototype.getPlateByFlavour = function() {
+/**
+* This methods is supposed to retrieve the plate configuration by flavour. However, it is not used yet
+* @method getPlateByFlavour
+*/
+ProposalManager.prototype.getPlateByFlavour = function(flavour) {
 	return [ this.getPlateTypes()[0], this.getPlateTypes()[2], this.getPlateTypes()[3] ];
 };
 
+/**
+* @method getBufferById
+*/
 ProposalManager.prototype.getBufferById = function(bufferId) {
 	var proposals = this.get();
 	var f = function(o) { return o.bufferId == bufferId; };
@@ -74,6 +119,9 @@ ProposalManager.prototype.getBufferById = function(bufferId) {
 	}
 };
 
+/**
+* @method getMacromoleculeById
+*/
 ProposalManager.prototype.getMacromoleculeById = function(macromoleculeId) {
 	var proposals = this.get();
 	var f = function(o) { return o.macromoleculeId == macromoleculeId; };
@@ -84,6 +132,9 @@ ProposalManager.prototype.getMacromoleculeById = function(macromoleculeId) {
 	return null;
 };
 
+/**
+* @method getMacromoleculeByAcronym
+*/
 ProposalManager.prototype.getMacromoleculeByAcronym = function(acronym) {
 	var proposals = this.get();
 	var f = function(o) { return o.acronym == acronym; };
@@ -94,6 +145,9 @@ ProposalManager.prototype.getMacromoleculeByAcronym = function(acronym) {
 	return null;
 };
 
+/**
+* @method getStockSolutionById
+*/
 ProposalManager.prototype.getStockSolutionById = function(stockSolutionId) {
 	var proposals = this.get();
 	var f = function(o) { return o.stockSolutionId == stockSolutionId; };
@@ -103,6 +157,9 @@ ProposalManager.prototype.getStockSolutionById = function(stockSolutionId) {
 	}
 };
 
+/**
+* @method getBuffers
+*/
 ProposalManager.prototype.getBuffers = function() {
 	var proposals = this.get();
 	var buffers = [];
@@ -112,6 +169,9 @@ ProposalManager.prototype.getBuffers = function() {
 	return buffers;
 };
 
+/**
+* @method getMacromolecules
+*/
 ProposalManager.prototype.getMacromolecules = function() {
 	var proposals = this.get();
 	var macromolecules = [];
@@ -121,6 +181,9 @@ ProposalManager.prototype.getMacromolecules = function() {
 	return macromolecules;
 };
 
+/**
+* @method getProposals
+*/
 ProposalManager.prototype.getProposals = function() {
 	var proposals = this.get();
 	var result = [];
@@ -131,6 +194,9 @@ ProposalManager.prototype.getProposals = function() {
 	return result;
 };
 
+/**
+* @method getProposalById
+*/
 ProposalManager.prototype.getProposalById = function(proposalId) {
 	var proposals = this.get();
 	var result = [];
@@ -142,22 +208,37 @@ ProposalManager.prototype.getProposalById = function(proposalId) {
 	return result;
 };
 
+/**
+* @method getStockSolutions
+*/
 ProposalManager.prototype.getStockSolutions = function() {
 	return this.get()[0].stockSolutions;
 };
 
+/**
+* @method getProteins
+*/
 ProposalManager.prototype.getProteins = function() {
 	return this.get()[0].proteins;
 };
 
+/**
+* @method getCrystals
+*/
 ProposalManager.prototype.getCrystals = function() {
 	return this.get()[0].crystals;
 };
 
+/**
+* @method getProteinByAcronym
+*/
 ProposalManager.prototype.getProteinByAcronym = function(acronym) {
 	return _.filter(this.getProteins(), function(o) { return o.acronym == acronym; });
 };
 
+/**
+* @method getCrystalsByAcronym
+*/
 ProposalManager.prototype.getCrystalsByAcronym = function(acronym) {
 	return _.filter(this.getCrystals(), 
 						function(o) { 
@@ -167,11 +248,17 @@ ProposalManager.prototype.getCrystalsByAcronym = function(acronym) {
 	);
 };
 
+/**
+* @method getStockSolutionsBySpecimen
+*/
 ProposalManager.prototype.getStockSolutionsBySpecimen = function(macromoleculeId, bufferId) {
 	var aux = _.filter(this.getStockSolutions(), function(o) { return o.macromoleculeId == macromoleculeId; });
 	return _.filter(aux, function(o) { return o.bufferId == bufferId; });
 };
 
+/**
+* @method getUnpackedStockSolutions
+*/
 ProposalManager.prototype.getUnpackedStockSolutions = function() {
 	var stockSolutions = this.getStockSolutions();
 	var result = [];
@@ -183,6 +270,9 @@ ProposalManager.prototype.getUnpackedStockSolutions = function() {
 	return result;
 };
 
+/**
+* @method getStockSolutionsByDewarId
+*/
 ProposalManager.prototype.getStockSolutionsByDewarId = function(dewarId) {
 	return _.find(this.getStockSolutions(), function(o) { return o.boxId == dewarId; });
 };

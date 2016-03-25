@@ -1,7 +1,7 @@
 /**
 * Interface implementing the API for phasing
 *
-* @class MyClass
+* @class PhasingDataAdapter
 * @constructor
 */
 function PhasingDataAdapter(args){

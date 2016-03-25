@@ -55,7 +55,7 @@ module.exports = function(grunt) {
 		options: {
 		},
 		prod: {
-		  files : {'report' : ['js/**/*.js']}
+		  files : {'report' : [ 'js/**/*.js']}
 		}
     },
  
