@@ -69,13 +69,6 @@
             },
             "fors": {},
             "namespaces": {}
-        },
-        "js/proposalmanager.js": {
-            "name": "js/proposalmanager.js",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
         }
     },
     "modules": {},
@@ -410,11 +403,6 @@
                 }
             ],
             "class": "Event"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 76,
-            "class": ""
         }
     ],
     "warnings": [
@@ -485,10 +473,6 @@
         {
             "message": "Missing item type\nThis allows to replace a subset of characters on a string",
             "line": " js/dataadapter.js:152"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/proposalmanager.js:76"
         }
     ]
 }

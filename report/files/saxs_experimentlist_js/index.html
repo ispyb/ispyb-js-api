@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - saxs/experimentlist.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>saxs/experimentlist.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">65.93</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">201</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">53.18</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.94</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">function ExperimentList(experiments){
+	this.experiments = experiments;
+	
+	this.macromoleculeColors = {}; 
+	
+	for (var i = 0; i &lt; experiments.length; i++) {
+		this.macromoleculeColors = $.extend({}, this.macromoleculeColors, experiments[i].macromoleculeColors); 
+	}
+}
+
+ExperimentList.prototype.getSpecimenColorByBufferId = function (bufferId){
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var experiment = this.experiments[i];
+		var color = experiment.getSpecimenColorByBufferId(bufferId);
+		if (color != null){
+			return color;
+		}
+	}
+	return &#039;black&#039;;
+};
+
+ExperimentList.prototype.getColorByMacromoleculeId = function (bufferId){
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var experiment = this.experiments[i];
+		var color = experiment.getColorByMacromoleculeId(bufferId);
+		if (color != null){
+			return color;
+		}
+	}
+	return &#039;black&#039;;
+};
+
+
+ExperimentList.prototype.getMeasurements = function (){
+	var result = [];
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var experiment = this.experiments[i];
+		var measurements = experiment.getMeasurements();
+		for ( var j = 0; j &lt; measurements.length; j++) {
+			result.push(measurements[j]);
+		} 
+	} 
+	return result;
+};
+
+ExperimentList.prototype.getMeasurementByDataCollectionId = function (dataCollectionId){
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var dataCollection = this.experiments[i].getMeasurementByDataCollectionId(dataCollectionId);
+		if (dataCollection.length != 0){
+			return dataCollection;
+		}
+	}
+	return [];
+};
+
+ExperimentList.prototype.getMergesByMeasurements = function (measurements){
+	var merges = [];
+	for ( var i = 0; i &lt; measurements.length; i++) {
+		if (measurements[i].merge3VOs != null){
+			for ( var j = 0; j &lt; measurements[i].merge3VOs.length; j++) {
+				merges.push(measurements[i].merge3VOs[j]);
+			}
+		}
+	}
+	return merges;
+};
+
+ExperimentList.prototype.getSamplePlateById = function (samplePlateId){
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var samplePlate = this.experiments[i].getSamplePlateById(samplePlateId);
+		if (samplePlate != null){
+			return samplePlate;
+		}
+	}
+	return null;
+};
+
+ExperimentList.prototype.getMergesByDataCollectionId = function (dataCollectionId){
+	return this.getMergesByMeasurements(this.getMeasurementByDataCollectionId(dataCollectionId));
+};
+
+ExperimentList.prototype.getMerges = function (){
+	return this.getMergesByMeasurements(this.getMeasurements());
+};
+
+ExperimentList.prototype.getDataCollectionById = function (dataCollectionId){
+	var result = [];
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var experiment = this.experiments[i];
+		var dc = experiment.getDataCollectionById(dataCollectionId);
+		if (dc != null){
+			return dc;
+		}
+	}
+	return result;
+};
+
+ExperimentList.prototype.getDataCollectionByMeasurementId = function (measurementId){
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var experiment = this.experiments[i];
+		var result = experiment.getDataCollectionByMeasurementId(measurementId);
+		if (result != null){
+			return result;
+		}
+	}
+	return null;
+};
+
+
+ExperimentList.prototype.getMeasurementsNotCollected = function (){
+	var result = [];
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var experiment = this.experiments[i];
+		var measurements = experiment.getMeasurements();
+		for ( var j = 0; j &lt; measurements.length; j++) {
+			if (measurements[j].run3VO == null){
+				result.push(measurements[j]);
+			}
+		}
+	}
+	return result;
+};
+
+ExperimentList.prototype.getMeasurementsCollected = function (){
+	var result = [];
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var experiment = this.experiments[i];
+		var measurements = experiment.getMeasurements();
+		for ( var j = 0; j &lt; measurements.length; j++) {
+			if (measurements[j].run3VO != null){
+				result.push(measurements[j]);
+			}
+		}
+	}
+	return result;
+};
+
+ExperimentList.prototype.getMeasurementById = function (specimenId){
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var specimen = this.experiments[i].getMeasurementById(specimenId);
+		if (specimen != null){
+			return specimen;
+		}
+	}
+	return null;
+};
+
+ExperimentList.prototype.getBufferById = function (bufferId){
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var buffer = this.experiments[i].getBufferById(bufferId);
+		if (buffer != null){
+			return buffer;
+		}
+	}
+	return null;
+};
+
+ExperimentList.prototype.getSampleById = function (sampleId){
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var sample = this.experiments[i].getSampleById(sampleId);
+		if (sample != null){
+			return sample;
+		}
+	}
+	return null;
+};
+
+ExperimentList.prototype.getSamplesByCondition = function (macromoleculeId, bufferId){
+	var result = [];
+	for ( var i = 0; i &lt; this.experiments.length; i++) {
+		var samples = this.experiments[i].getSamples();
+		for ( var j = 0; j &lt; samples.length; j++) {
+			if (samples[j].macromolecule3VO != null){
+				if (samples[j].macromolecule3VO.macromoleculeId == macromoleculeId){
+					if (samples[j].bufferId == bufferId){
+						result.push(samples[j]);
+					}
+				}
+			}
+		}
+	}
+	return result;
+};
+
+ExperimentList.prototype.getFrames = function (mergesList){
+	var frames = [];
+	for ( var i = 0; i &lt; mergesList.length; i++) {
+		var merge = mergesList[i];
+		if (merge.framelist3VO != null){
+			if (merge.framelist3VO.frametolist3VOs != null){
+				for ( var j = 0; j &lt; merge.framelist3VO.frametolist3VOs.length; j++) {
+					var frame = merge.framelist3VO.frametolist3VOs[j].frame3VO;
+					if (frame!= null){
+						frames.push(frame);
+					}
+				}
+			}
+		}
+	}
+	return frames;
+};</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

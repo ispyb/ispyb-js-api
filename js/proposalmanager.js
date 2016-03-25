@@ -9,9 +9,7 @@ ProposalManager.prototype.get = function(forceUpdate) {
 			localStorage.setItem("proposals", JSON.stringify(proposals));
 		};
 		EXI.getDataAdapter({async : false, onSuccess : onSuccess}).proposal.proposal.getProposalsInfo();
-		
-		
-	}
+	}	
 	return JSON.parse(localStorage.getItem("proposals"));
 };
 
@@ -48,82 +46,60 @@ ProposalManager.prototype.getBufferColors = function() {
 };
 
 ProposalManager.prototype.getLabcontacts = function() {
-	var proposals = this.get();
-	return proposals[0].labcontacts;
+	return this.get()[0].labcontacts;
 };
 
 ProposalManager.prototype.getLabcontactById = function(labContactId) {
-	var labContacts = this.getLabcontacts();
-	for (var i = 0; i < labContacts.length; i++) {
-		if (labContacts[i].labContactId == labContactId){
-			return labContacts[i];
-		}
-	}
+	return _.find(this.getLabcontacts(), function(o) { return o.labContactId == labContactId; });
 };
 
 ProposalManager.prototype.getPlateTypeById = function(plateTypeId) {
-	var types = this.getPlateTypes();
-	for (var i = 0; i < types.length; i++) {
-		if (types[i].plateTypeId == plateTypeId) {
-			return types[i];
-		}
-	}
-	return null;
+	return _.find(this.getPlateTypes(), function(o) { return o.plateTypeId == plateTypeId; });
 };
 
 ProposalManager.prototype.getPlateTypes = function() {
-	var proposals = this.get();
-	/** TODO: This depends on proposal **/
-	return proposals[0].plateTypes;
-
+	return this.get()[0].plateTypes;
 };
 
 ProposalManager.prototype.getPlateByFlavour = function() {
-	var plateTypes = this.get()[0].plateTypes;
-	return [ plateTypes[0], plateTypes[2], plateTypes[3] ];
+	return [ this.getPlateTypes()[0], this.getPlateTypes()[2], this.getPlateTypes()[3] ];
 };
 
 ProposalManager.prototype.getBufferById = function(bufferId) {
 	var proposals = this.get();
+	var f = function(o) { return o.bufferId == bufferId; };
 	for (var i = 0; i < proposals.length; i++) {
-		for (var j = 0; j < proposals[i].buffers.length; j++) {
-			if (proposals[i].buffers[j].bufferId == bufferId) {
-				return proposals[i].buffers[j];
-			}
-		}
+		var found = _.find(proposals[i].buffers, f);
+		if (found != null) {return found;}
 	}
 };
 
 ProposalManager.prototype.getMacromoleculeById = function(macromoleculeId) {
 	var proposals = this.get();
+	var f = function(o) { return o.macromoleculeId == macromoleculeId; };
 	for (var i = 0; i < proposals.length; i++) {
-		for (var j = 0; j < proposals[i].macromolecules.length; j++) {
-			if (proposals[i].macromolecules[j].macromoleculeId == macromoleculeId) {
-				return proposals[i].macromolecules[j];
-			}
-		}
+		var found = _.find(proposals[i].macromolecules, f);
+		if (found != null) {return found;}
 	}
+	return null;
 };
 
 ProposalManager.prototype.getMacromoleculeByAcronym = function(acronym) {
 	var proposals = this.get();
+	var f = function(o) { return o.acronym == acronym; };
 	for (var i = 0; i < proposals.length; i++) {
-		for (var j = 0; j < proposals[i].macromolecules.length; j++) {
-			if (proposals[i].macromolecules[j].acronym == acronym) {
-				return proposals[i].macromolecules[j];
-			}
-		}
+		var found = _.find(proposals[i].macromolecules, f);
+		if (found != null) {return found;}
 	}
+	return null;
 };
 
 ProposalManager.prototype.getStockSolutionById = function(stockSolutionId) {
 	var proposals = this.get();
+	var f = function(o) { return o.stockSolutionId == stockSolutionId; };
 	for (var i = 0; i < proposals.length; i++) {
-		for (var j = 0; j < proposals[i].stockSolutions.length; j++) {
-			if (proposals[i].stockSolutions[j].stockSolutionId == stockSolutionId) {
-				return proposals[i].stockSolutions[j];
-			}
-		}
+		var found = _.find(proposals[i].stockSolutions, f);
+		if (found != null) {return found;}
 	}
 };
 
@@ -179,37 +155,21 @@ ProposalManager.prototype.getCrystals = function() {
 };
 
 ProposalManager.prototype.getProteinByAcronym = function(acronym) {
-	var proteins = this.getProteins();
-	for (var i = 0; i < proteins.length; i++) {
-		if (proteins[i].acronym == acronym){
-			return proteins[i];
-		}
-	}
-	return null;
+	return _.filter(this.getProteins(), function(o) { return o.acronym == acronym; });
 };
 
 ProposalManager.prototype.getCrystalsByAcronym = function(acronym) {
-	var crystals = this.getCrystals();
-	var result = [];
-		for (var i = 0; i < crystals.length; i++) {
-			if (crystals[i].protein.acronym == acronym){
-				result = result.concat(crystals[i]);
-			}
-	}
-	return result;
+	return _.filter(this.getCrystals(), 
+						function(o) { 
+								if (o.proteinVO == null) {return false;} 
+								else {return o.proteinVO.acronym == acronym;} 
+						}
+	);
 };
 
 ProposalManager.prototype.getStockSolutionsBySpecimen = function(macromoleculeId, bufferId) {
-	var result = [];
-	var stockSolutions = this.getStockSolutions();
-	for (var i = 0; i < stockSolutions.length; i++) {
-		if (stockSolutions[i].macromoleculeId == macromoleculeId) {
-			if (stockSolutions[i].bufferId == bufferId) {
-				result.push(stockSolutions[i]);
-			}
-		}
-	}
-	return result;
+	var aux = _.filter(this.getStockSolutions(), function(o) { return o.macromoleculeId == macromoleculeId; });
+	return _.filter(aux, function(o) { return o.bufferId == bufferId; });
 };
 
 ProposalManager.prototype.getUnpackedStockSolutions = function() {
@@ -224,12 +184,5 @@ ProposalManager.prototype.getUnpackedStockSolutions = function() {
 };
 
 ProposalManager.prototype.getStockSolutionsByDewarId = function(dewarId) {
-	var stockSolutions = this.getStockSolutions();
-	var result = [];
-	for (var i = 0; i < stockSolutions.length; i++) {
-		if (stockSolutions[i].boxId == dewarId) {
-			result.push(stockSolutions[i]);
-		}
-	}
-	return result;
+	return _.find(this.getStockSolutions(), function(o) { return o.boxId == dewarId; });
 };
