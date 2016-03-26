@@ -73,7 +73,7 @@ AutoProcIntegrationDataAdapter.prototype.getXScaleWilson= function(autoProcInteg
 * @method getXScaleAnnoCorrection
 */
 AutoProcIntegrationDataAdapter.prototype.getXScaleAnnoCorrection= function(autoProcIntegrationIdList){
-	return this.getUrl(connection, '/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/anomcorr'.format( [autoProcIntegrationIdList.toString()]));
+	return this.getUrl( '/{token}/proposal/{proposal}/mx/autoprocintegration/{0}/xscale/anomcorr'.format( [autoProcIntegrationIdList.toString()]));
 };
 
 /**
