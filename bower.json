@@ -26,7 +26,8 @@
     "tests"
   ],
   "dependencies": {
-    "qunit": "^1.22.0"
+    "qunit": "^1.22.0",
+    "lodash": "^4.6.1"
   },
   "devDependencies": {
     "jquery-lazy": "~0.6.1"

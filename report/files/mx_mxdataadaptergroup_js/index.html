@@ -89,6 +89,7 @@
 
 <div class="container">
   <div class="row">
+<<<<<<< HEAD
     <textarea id="file-source" class="col-md-12">function MxDataAdapterGroup(args){
 	this.autoproc = new AutoProcIntegrationDataAdapter(args);
 	this.dataCollection = new DataCollectionDataAdapter(args);
@@ -96,6 +97,23 @@
 	this.protein = new ProteinDataAdapter(args);
 	this.workflowstep = new WorkflowStepDataAdapter(args);
 	this.phasing = new PhasingDataAdapter(args);
+=======
+    <textarea id="file-source" class="col-md-12">/**
+* This class groups the necessary data adapter for MX as technique
+* It contains: AutoProcIntegrationDataAdapter, DataCollectionDataAdapter, CrystalDataAdapter, ProteinDataAdapter, WorkflowStepDataAdapter, and PhasingDataAdapter
+*
+* @class MxDataAdapterFactory
+* @constructor
+*/
+
+function MxDataAdapterGroup(args){
+	this.autoProcIntegrationDataAdapter = new AutoProcIntegrationDataAdapter(args);
+	this.dataCollection = new DataCollectionDataAdapter(args);
+	this.crystal = new CrystalDataAdapter(args);
+	this.protein = new ProteinDataAdapter(args);
+	this.workflowStepDataAdapter = new WorkflowStepDataAdapter(args);
+	this.phasingDataAdapter = new PhasingDataAdapter(args);
+>>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
 	
 	
 }</textarea>

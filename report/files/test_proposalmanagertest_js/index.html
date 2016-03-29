@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - test/proposalmanagertest.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>test/proposalmanagertest.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">75.30</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">70</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">20.40</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.22</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">function ProposalManagerTest(){
+	Test.call(this);
+	localStorage.setItem(&quot;proposals&quot;, JSON.stringify(Config.data.proposalManager.proposal));
+	this.proposalManager = new ProposalManager();
+}
+
+
+
+ProposalManagerTest.prototype.init = function(){
+	var _this = this;
+	QUnit.test( &quot;ProposalManager&quot;, function( assert ) {
+			   assert.ok((_this.proposalManager != null), &quot;Proposal Manager Exists&quot;);
+	});
+	QUnit.test( &quot;ProposalManager.Macromolecules &quot;, function( assert ) {
+			   assert.ok((_this.proposalManager.getMacromolecules().length &gt; 0), &quot;Macromolecules.length &quot; + _this.proposalManager.getMacromolecules().length );
+
+			    _(_this.proposalManager.getMacromolecules()).forEach(function(value) {
+  			 		 var m = _this.proposalManager.getMacromoleculeById(value.macromoleculeId);
+			  		 assert.ok((m != null), &quot;Macromolecule &quot; + m.macromoleculeId +&quot; found &quot;);
+			    });
+			    _(_this.proposalManager.getMacromolecules()).forEach(function(value) {
+  			 		 var m = _this.proposalManager.getMacromoleculeByAcronym(value.acronym);
+			  		 assert.ok((m != null), &quot;Macromolecule &quot; + m.acronym +&quot; found &quot;);
+			    });
+			   var m = _this.proposalManager.getMacromoleculeById(Config.data.proposalManager.macromoleculeId);
+			   assert.ok((m != null), &quot;Macromolecule &quot; + m.macromoleculeId +&quot; found &quot;);
+			   m = _this.proposalManager.getMacromoleculeByAcronym(Config.data.proposalManager.acronym);
+			   assert.ok((m != null), &quot;Macromolecule &quot; + m.acronym +&quot; found &quot;);
+	});
+	QUnit.test( &quot;ProposalManager.StockSolutions&quot;, function( assert ) {
+			   assert.ok((_this.proposalManager.getStockSolutions().length &gt; 0), &quot;StockSolutions.length &quot; + _this.proposalManager.getStockSolutions().length );
+			   var s = _this.proposalManager.getStockSolutionById(Config.data.proposalManager.stockSolutionId); 
+			   assert.ok((s.stockSolutionId == Config.data.proposalManager.stockSolutionId ), &quot;StockSolutions found id &quot; + s.stockSolutionId );
+
+			   _(_this.proposalManager.getStockSolutions()).forEach(function(value) {
+  					var stockSolutions = _this.proposalManager.getStockSolutionsBySpecimen(value.macromoleculeId, value.bufferId);
+					assert.ok((stockSolutions.length &gt; 0  ), stockSolutions.length + &quot; StockSolutions found for &quot; +  value.macromoleculeId + &quot; and &quot; + value.bufferId);
+			    });
+	});
+	QUnit.test( &quot;ProposalManager.Plate Types&quot;, function( assert ) {
+			   var plateTypes = _this.proposalManager.getPlateTypes();
+			   assert.ok((plateTypes.length &gt; 0 ), &quot;Plate types length &quot; + plateTypes.length );
+
+			   _(plateTypes).forEach(function(value) {
+  					var plateType = _this.proposalManager.getPlateTypeById(value.plateTypeId);
+					assert.ok((plateType != null ), &quot;Plate type  &quot; + plateType.plateTypeId + &quot; found&quot; );
+			    });
+	});
+
+	QUnit.test( &quot;ProposalManager.Crystals&quot;, function( assert ) {
+			   var crystals = _this.proposalManager.getCrystals();
+			   assert.ok((crystals.length &gt; 0), &quot;Crystals.length &quot; + crystals.length );
+			   _(crystals).forEach(function(value) {
+  					var crystals = _this.proposalManager.getCrystalsByAcronym(value.proteinVO.acronym);
+					assert.ok((crystals.length &gt; 0 ), &quot;Crystal acronym  &quot; + value.proteinVO.acronym + &quot; found &quot; +  crystals.length + &quot; times&quot;);
+			    });
+	});
+
+	QUnit.test( &quot;ProposalManager.Proteins&quot;, function( assert ) {
+			   var proteins = _this.proposalManager.getProteins();
+			   assert.ok((proteins.length &gt; 0), &quot;Proteins.length &quot; + proteins.length );
+			   _(proteins).forEach(function(value) {
+				
+  					var proteins = _this.proposalManager.getProteinByAcronym(value.acronym);
+					assert.ok((proteins.length &gt; 0 ), &quot;Protein acronym  &quot; + value.acronym + &quot; found &quot; +  proteins.length + &quot; times&quot;);
+			    });
+	});
+
+
+};</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

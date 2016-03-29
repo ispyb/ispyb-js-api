@@ -1,3 +1,10 @@
+/**
+* This class groups the necessary data adapter for MX experiments all together
+* It contains: proposalDataAdapter, mxDataAdapterGroup, saxsDataAdapterGroup and exiDataAdapterGroup
+*
+* @class MxDataAdapterFactory
+* @constructor
+*/
 function MxDataAdapterFactory(args){
 	this.proposal = new ProposalDataAdapterGroup(args);
 	this.mx = new MxDataAdapterGroup(args);
