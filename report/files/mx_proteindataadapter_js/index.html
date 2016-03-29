@@ -94,6 +94,7 @@
 <div class="container">
   <div class="row">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <textarea id="file-source" class="col-md-12">function ProteinDataAdapter(args){
 =======
     <textarea id="file-source" class="col-md-12">/**
@@ -119,6 +120,27 @@ ProteinDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 >>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
 ProteinDataAdapter.prototype.getProteinByProposalId= function(){
 	 this.get(&#039;/{token}/proposal/{proposal}/mx/protein/list&#039;);
+=======
+    <textarea id="file-source" class="col-md-12">/**
+* API for protein
+*
+* @class ProteinDataAdapter
+* @constructor
+*/
+function ProteinDataAdapter(args){
+	DataAdapter.call(this, args);
+}
+
+ProteinDataAdapter.prototype.get = DataAdapter.prototype.get;
+ProteinDataAdapter.prototype.post = DataAdapter.prototype.post;
+ProteinDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
+
+/**
+* @method getProteinByProposalId
+*/
+ProteinDataAdapter.prototype.getProteinByProposalId= function(){
+	 this.get(&#039;/{token}/proposal/{proposal}/mx/protein/list&#039;);
+>>>>>>> 726d361ea59ff4af0a4a6fd7c32902ec2993600c
 };</textarea>
   </div>
 </div>

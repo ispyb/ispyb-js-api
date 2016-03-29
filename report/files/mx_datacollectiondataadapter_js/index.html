@@ -94,6 +94,7 @@
 <div class="container">
   <div class="row">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <textarea id="file-source" class="col-md-12">function DataCollectionDataAdapter(args){
 =======
     <textarea id="file-source" class="col-md-12">/**
@@ -190,6 +191,75 @@ DataCollectionDataAdapter.prototype.getWilsonPlot= function(dataCollectionId){
 >>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
 DataCollectionDataAdapter.prototype.getCrystalSnapshotByDataCollectionId= function(dataCollectionId, id){
 	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/datacollection/{0}/crystalsnaphot/{1}/get&#039;.format([ dataCollectionId, id]));
+=======
+    <textarea id="file-source" class="col-md-12">/**
+* @class DataCollectionDataAdapter
+* @constructor
+*/
+function DataCollectionDataAdapter(args){
+	DataAdapter.call(this, args);
+}
+
+DataCollectionDataAdapter.prototype.get = DataAdapter.prototype.get;
+DataCollectionDataAdapter.prototype.post = DataAdapter.prototype.post;
+DataCollectionDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
+
+
+/**
+* @method getBySessionsId
+*/
+DataCollectionDataAdapter.prototype.getBySessionsId= function(sessionsId){
+	 this.get(&#039;/{token}/proposal/{proposal}/mx/datacollection/session/{0}/list&#039;.format( [sessionsId.toString()]));
+};
+
+/**
+* @method getByDataCollectionId
+*/
+DataCollectionDataAdapter.prototype.getByDataCollectionId= function(dataColletionIds){
+	 this.get(&#039;/{token}/proposal/{proposal}/mx/datacollection/{0}/get&#039;.format( [dataColletionIds.toString()]));
+};
+
+/**
+* @method getByAcronymList
+*/
+DataCollectionDataAdapter.prototype.getByAcronymList= function(acronymList){
+	 this.get(&#039;/{token}/proposal/{proposal}/mx/datacollection/protein_acronym/{0}/view&#039;.format( [acronymList.toString()]));
+};
+
+/**
+* @method getDataCollectionViewBySessionId
+*/
+DataCollectionDataAdapter.prototype.getDataCollectionViewBySessionId= function(sessionId){
+	 this.get(&#039;/{token}/proposal/{proposal}/mx/datacollection/session/{0}/view&#039;.format( [sessionId.toString()]));
+};
+
+/**
+* @method getThumbNailById
+*/
+DataCollectionDataAdapter.prototype.getThumbNailById= function(imageId){
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/image/{0}/thumbnail&#039;.format([ imageId]));
+};
+
+/**
+* @method getImageById
+*/
+DataCollectionDataAdapter.prototype.getImageById= function(imageId){
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/image/{0}/get&#039;.format([ imageId]));
+};
+
+/**
+* @method getWilsonPlot
+*/
+DataCollectionDataAdapter.prototype.getWilsonPlot= function(dataCollectionId){
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/datacollection/{0}/wilson&#039;.format([ dataCollectionId]));
+};
+
+/**
+* @method getCrystalSnapshotByDataCollectionId
+*/
+DataCollectionDataAdapter.prototype.getCrystalSnapshotByDataCollectionId= function(dataCollectionId, id){
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/datacollection/{0}/crystalsnaphot/{1}/get&#039;.format([ dataCollectionId, id]));
+>>>>>>> 726d361ea59ff4af0a4a6fd7c32902ec2993600c
 };</textarea>
   </div>
 </div>

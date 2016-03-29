@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">10</p>
+      <p class="stat">8</p>
     </div>
   </div>
   <div class="row historical">
@@ -90,6 +90,7 @@
 <div class="container">
   <div class="row">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <textarea id="file-source" class="col-md-12">function MxDataAdapterGroup(args){
 	this.autoproc = new AutoProcIntegrationDataAdapter(args);
 	this.dataCollection = new DataCollectionDataAdapter(args);
@@ -116,6 +117,23 @@ function MxDataAdapterGroup(args){
 >>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
 	
 	
+=======
+    <textarea id="file-source" class="col-md-12">/**
+* This class groups the necessary data adapter for MX as technique
+* It contains: AutoProcIntegrationDataAdapter, DataCollectionDataAdapter, CrystalDataAdapter, ProteinDataAdapter, WorkflowStepDataAdapter, and PhasingDataAdapter
+*
+* @class MxDataAdapterFactory
+* @constructor
+*/
+
+function MxDataAdapterGroup(args){
+	this.autoProcIntegrationDataAdapter = new AutoProcIntegrationDataAdapter(args);
+	this.dataCollection = new DataCollectionDataAdapter(args);
+	this.crystal = new CrystalDataAdapter(args);
+	this.protein = new ProteinDataAdapter(args);
+	this.workflowStepDataAdapter = new WorkflowStepDataAdapter(args);
+	this.sample = new SampleDataAdapter(args);
+>>>>>>> 726d361ea59ff4af0a4a6fd7c32902ec2993600c
 }</textarea>
   </div>
 </div>
