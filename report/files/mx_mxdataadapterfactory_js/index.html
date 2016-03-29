@@ -89,7 +89,14 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="col-md-12">function MxDataAdapterFactory(args){
+    <textarea id="file-source" class="col-md-12">/**
+* This class groups the necessary data adapter for MX experiments all together
+* It contains: proposalDataAdapter, mxDataAdapterGroup, saxsDataAdapterGroup and exiDataAdapterGroup
+*
+* @class MxDataAdapterFactory
+* @constructor
+*/
+function MxDataAdapterFactory(args){
 	this.proposal = new ProposalDataAdapterGroup(args);
 	this.mx = new MxDataAdapterGroup(args);
 	this.saxs = new SaxsDataAdapterGroup(args);

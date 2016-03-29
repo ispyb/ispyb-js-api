@@ -6,6 +6,49 @@
         "url": "https://github.com/antolinos/ispyb-js-api"
     },
     "files": {
+        "js\\mx\\autoprocintegrationdataadapter.js": {
+            "name": "js\\mx\\autoprocintegrationdataadapter.js",
+            "modules": {},
+            "classes": {
+                "AutoProcIntegrationDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\mx\\crystaldataadapter.js": {
+            "name": "js\\mx\\crystaldataadapter.js",
+            "modules": {},
+            "classes": {
+                "CrystalDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\mx\\datacollectiondataadapter.js": {
+            "name": "js\\mx\\datacollectiondataadapter.js",
+            "modules": {},
+            "classes": {
+                "DataCollectionDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\mx\\mxdataadapterfactory.js": {
+            "name": "js\\mx\\mxdataadapterfactory.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\mx\\mxdataadaptergroup.js": {
+            "name": "js\\mx\\mxdataadaptergroup.js",
+            "modules": {},
+            "classes": {
+                "MxDataAdapterFactory": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "js\\mx\\phasingdataadapter.js": {
             "name": "js\\mx\\phasingdataadapter.js",
             "modules": {},
@@ -15,11 +58,29 @@
             "fors": {},
             "namespaces": {}
         },
+        "js\\mx\\proteindataadapter.js": {
+            "name": "js\\mx\\proteindataadapter.js",
+            "modules": {},
+            "classes": {
+                "ProteinDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "js\\mx\\sampledataadapter.js": {
             "name": "js\\mx\\sampledataadapter.js",
             "modules": {},
             "classes": {
                 "SampleDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\mx\\workflowstepdataadapter.js": {
+            "name": "js\\mx\\workflowstepdataadapter.js",
+            "modules": {},
+            "classes": {
+                "WorkflowStepDataAdapter": 1
             },
             "fors": {},
             "namespaces": {}
@@ -82,13 +143,65 @@
         "js\\proposalmanager.js": {
             "name": "js\\proposalmanager.js",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "ProposalManager": 1
+            },
             "fors": {},
             "namespaces": {}
         }
     },
     "modules": {},
     "classes": {
+        "AutoProcIntegrationDataAdapter": {
+            "name": "AutoProcIntegrationDataAdapter",
+            "shortname": "AutoProcIntegrationDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 1,
+            "description": "API for AutoProcIntegration",
+            "is_constructor": 1
+        },
+        "CrystalDataAdapter": {
+            "name": "CrystalDataAdapter",
+            "shortname": "CrystalDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\mx\\crystaldataadapter.js",
+            "line": 1,
+            "is_constructor": 1
+        },
+        "DataCollectionDataAdapter": {
+            "name": "DataCollectionDataAdapter",
+            "shortname": "DataCollectionDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\mx\\datacollectiondataadapter.js",
+            "line": 1,
+            "is_constructor": 1
+        },
+        "MxDataAdapterFactory": {
+            "name": "MxDataAdapterFactory",
+            "shortname": "MxDataAdapterFactory",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\mx\\mxdataadaptergroup.js",
+            "line": 1,
+            "description": "This class groups the necessary data adapter for MX as technique\nIt contains: AutoProcIntegrationDataAdapter, DataCollectionDataAdapter, CrystalDataAdapter, ProteinDataAdapter, WorkflowStepDataAdapter, and PhasingDataAdapter",
+            "is_constructor": 1
+        },
         "PhasingDataAdapter": {
             "name": "PhasingDataAdapter",
             "shortname": "PhasingDataAdapter",
@@ -102,6 +215,19 @@
             "description": "Interface implementing the API for phasing",
             "is_constructor": 1
         },
+        "ProteinDataAdapter": {
+            "name": "ProteinDataAdapter",
+            "shortname": "ProteinDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\mx\\proteindataadapter.js",
+            "line": 1,
+            "description": "API for protein",
+            "is_constructor": 1
+        },
         "SampleDataAdapter": {
             "name": "SampleDataAdapter",
             "shortname": "SampleDataAdapter",
@@ -113,6 +239,19 @@
             "file": "js\\mx\\sampledataadapter.js",
             "line": 1,
             "description": "DataAdDapter read/write information about sample",
+            "is_constructor": 1
+        },
+        "WorkflowStepDataAdapter": {
+            "name": "WorkflowStepDataAdapter",
+            "shortname": "WorkflowStepDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\mx\\workflowstepdataadapter.js",
+            "line": 1,
+            "description": "Interface implementing the API for workflows",
             "is_constructor": 1
         },
         "LabcontactDataAdapter": {
@@ -154,10 +293,174 @@
             "line": 1,
             "description": "This class is in charge of the Event management. An object can create an event and other objects can subscribe to such event by using the function attach.",
             "is_constructor": 1
+        },
+        "ProposalManager": {
+            "name": "ProposalManager",
+            "shortname": "ProposalManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\proposalmanager.js",
+            "line": 1,
+            "description": "Class used to manage the common points for a single or several proposals. It deals with methods to help the management of crystals, proteins, macromolecules, buffer, stockSolutions and labcontacts",
+            "is_constructor": 1
         }
     },
     "elements": {},
     "classitems": [
+        {
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 16,
+            "itemtype": "method",
+            "name": "getByDataCollectionId",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 23,
+            "description": "It gets the URL for getting the completeness of XScale by a list autoprocintegration Id",
+            "itemtype": "method",
+            "name": "getXScaleCompleteness",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 31,
+            "description": "It gets the URL for getting the RFactor of XScale by a list autoprocintegration Id",
+            "itemtype": "method",
+            "name": "getXScaleRfactor",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 39,
+            "description": "It gets the URL for getting the ISigma of XScale by a list autoprocintegration Id",
+            "itemtype": "method",
+            "name": "getXScaleISigma",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 47,
+            "description": "It gets the URL for getting the CC2 of XScale by a list autoprocintegration Id",
+            "itemtype": "method",
+            "name": "getXScaleCC2",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 55,
+            "description": "It gets the URL for getting the SigmaAnp of XScale by a list autoprocintegration Id",
+            "itemtype": "method",
+            "name": "getXScaleSigmaAno",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 63,
+            "description": "It gets the URL for getting the Wilson of XScale by a list autoprocintegration Id",
+            "itemtype": "method",
+            "name": "getXScaleWilson",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 71,
+            "description": "It gets the URL for getting the AnnoCorrection of XScale by a list autoprocintegration Id",
+            "itemtype": "method",
+            "name": "getXScaleAnnoCorrection",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 79,
+            "description": "It gets the URL for downloading an attachement from an autoProcAttachmentId",
+            "itemtype": "method",
+            "name": "getDownloadAttachmentUrl",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js\\mx\\autoprocintegrationdataadapter.js",
+            "line": 87,
+            "description": "It gets the phasing data by autoProcListId",
+            "deprecated": true,
+            "deprecationMessage": "Use PhasingDataAdapter",
+            "itemtype": "method",
+            "name": "getPhasingByAutoprocIds",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js\\mx\\crystaldataadapter.js",
+            "line": 14,
+            "itemtype": "method",
+            "name": "getCrystalsByProposalId",
+            "class": "CrystalDataAdapter"
+        },
+        {
+            "file": "js\\mx\\crystaldataadapter.js",
+            "line": 21,
+            "itemtype": "method",
+            "name": "getCrystalById",
+            "class": "CrystalDataAdapter"
+        },
+        {
+            "file": "js\\mx\\datacollectiondataadapter.js",
+            "line": 14,
+            "itemtype": "method",
+            "name": "getBySessionsId",
+            "class": "DataCollectionDataAdapter"
+        },
+        {
+            "file": "js\\mx\\datacollectiondataadapter.js",
+            "line": 21,
+            "itemtype": "method",
+            "name": "getByDataCollectionId",
+            "class": "DataCollectionDataAdapter"
+        },
+        {
+            "file": "js\\mx\\datacollectiondataadapter.js",
+            "line": 28,
+            "itemtype": "method",
+            "name": "getByAcronymList",
+            "class": "DataCollectionDataAdapter"
+        },
+        {
+            "file": "js\\mx\\datacollectiondataadapter.js",
+            "line": 35,
+            "itemtype": "method",
+            "name": "getDataCollectionViewBySessionId",
+            "class": "DataCollectionDataAdapter"
+        },
+        {
+            "file": "js\\mx\\datacollectiondataadapter.js",
+            "line": 42,
+            "itemtype": "method",
+            "name": "getThumbNailById",
+            "class": "DataCollectionDataAdapter"
+        },
+        {
+            "file": "js\\mx\\datacollectiondataadapter.js",
+            "line": 49,
+            "itemtype": "method",
+            "name": "getImageById",
+            "class": "DataCollectionDataAdapter"
+        },
+        {
+            "file": "js\\mx\\datacollectiondataadapter.js",
+            "line": 56,
+            "itemtype": "method",
+            "name": "getWilsonPlot",
+            "class": "DataCollectionDataAdapter"
+        },
+        {
+            "file": "js\\mx\\datacollectiondataadapter.js",
+            "line": 63,
+            "itemtype": "method",
+            "name": "getCrystalSnapshotByDataCollectionId",
+            "class": "DataCollectionDataAdapter"
+        },
         {
             "file": "js\\mx\\phasingdataadapter.js",
             "line": 15,
@@ -174,12 +477,47 @@
             "class": "PhasingDataAdapter"
         },
         {
+            "file": "js\\mx\\proteindataadapter.js",
+            "line": 15,
+            "itemtype": "method",
+            "name": "getProteinByProposalId",
+            "class": "ProteinDataAdapter"
+        },
+        {
             "file": "js\\mx\\sampledataadapter.js",
             "line": 15,
             "description": "This method retrieves all the samples by crystal id",
             "itemtype": "method",
             "name": "getSamplesByCrystalId",
             "class": "SampleDataAdapter"
+        },
+        {
+            "file": "js\\mx\\workflowstepdataadapter.js",
+            "line": 16,
+            "itemtype": "method",
+            "name": "getImageByWorkflowStepId",
+            "class": "WorkflowStepDataAdapter"
+        },
+        {
+            "file": "js\\mx\\workflowstepdataadapter.js",
+            "line": 23,
+            "itemtype": "method",
+            "name": "getHtmlByWorkflowStepId",
+            "class": "WorkflowStepDataAdapter"
+        },
+        {
+            "file": "js\\mx\\workflowstepdataadapter.js",
+            "line": 29,
+            "itemtype": "method",
+            "name": "getResultByWorkflowStepId",
+            "class": "WorkflowStepDataAdapter"
+        },
+        {
+            "file": "js\\mx\\workflowstepdataadapter.js",
+            "line": 35,
+            "itemtype": "method",
+            "name": "getWorkflowstepByIdList",
+            "class": "WorkflowStepDataAdapter"
         },
         {
             "file": "js\\proposal\\labcontactdataadapter.js",
@@ -443,8 +781,199 @@
         },
         {
             "file": "js\\proposalmanager.js",
-            "line": 76,
-            "class": ""
+            "line": 12,
+            "description": "It gets the information of the proposals that are found on the local Storage in the field called proposal. If it does not exist it will load form the server and store them on the local storage",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "forceUpdate",
+                    "description": "if true the proposals information will be reloaded from the server syncrhonously",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 27,
+            "description": "It removes the information from the local storage. It means it remove the proposals item",
+            "itemtype": "method",
+            "name": "clear",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 35,
+            "description": "It gets a list of sessions from the local storage or retrieve them from the server if the proposals have not been loaded yet. It is synchronous.",
+            "itemtype": "method",
+            "name": "getSessions",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 49,
+            "description": "It gets a list of sessions which start date comes after today.",
+            "itemtype": "method",
+            "name": "getFutureSessions",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 65,
+            "description": "It gets a list of colors",
+            "itemtype": "method",
+            "name": "getBufferColors",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 73,
+            "description": "It gets a list of labcontacts from the current proposal",
+            "itemtype": "method",
+            "name": "getLabcontacts",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 81,
+            "itemtype": "method",
+            "name": "getLabcontactById",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 88,
+            "itemtype": "method",
+            "name": "getPlateTypeById",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 95,
+            "itemtype": "method",
+            "name": "getPlateTypes",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 102,
+            "description": "This methods is supposed to retrieve the plate configuration by flavour. However, it is not used yet",
+            "itemtype": "method",
+            "name": "getPlateByFlavour",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 110,
+            "itemtype": "method",
+            "name": "getBufferById",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 122,
+            "itemtype": "method",
+            "name": "getMacromoleculeById",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 135,
+            "itemtype": "method",
+            "name": "getMacromoleculeByAcronym",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 148,
+            "itemtype": "method",
+            "name": "getStockSolutionById",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 160,
+            "itemtype": "method",
+            "name": "getBuffers",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 172,
+            "itemtype": "method",
+            "name": "getMacromolecules",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 184,
+            "itemtype": "method",
+            "name": "getProposals",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 197,
+            "itemtype": "method",
+            "name": "getProposalById",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 211,
+            "itemtype": "method",
+            "name": "getStockSolutions",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 218,
+            "itemtype": "method",
+            "name": "getProteins",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 225,
+            "itemtype": "method",
+            "name": "getCrystals",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 232,
+            "itemtype": "method",
+            "name": "getProteinByAcronym",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 239,
+            "itemtype": "method",
+            "name": "getCrystalsByAcronym",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 251,
+            "itemtype": "method",
+            "name": "getStockSolutionsBySpecimen",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 259,
+            "itemtype": "method",
+            "name": "getUnpackedStockSolutions",
+            "class": "ProposalManager"
+        },
+        {
+            "file": "js\\proposalmanager.js",
+            "line": 273,
+            "itemtype": "method",
+            "name": "getStockSolutionsByDewarId",
+            "class": "ProposalManager"
         }
     ],
     "warnings": [
@@ -515,10 +1044,6 @@
         {
             "message": "Missing item type\nThis allows to replace a subset of characters on a string",
             "line": " js\\dataadapter.js:152"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js\\proposalmanager.js:76"
         }
     ]
 }
