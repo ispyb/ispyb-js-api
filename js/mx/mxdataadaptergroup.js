@@ -7,12 +7,13 @@
 */
 
 function MxDataAdapterGroup(args){
-	this.autoProcIntegrationDataAdapter = new AutoProcIntegrationDataAdapter(args);
+	this.autoproc = new AutoProcIntegrationDataAdapter(args);
 	this.dataCollection = new DataCollectionDataAdapter(args);
 	this.crystal = new CrystalDataAdapter(args);
 	this.protein = new ProteinDataAdapter(args);
-	this.workflowStepDataAdapter = new WorkflowStepDataAdapter(args);
+	this.workflowstep = new WorkflowStepDataAdapter(args);
 	this.sample = new SampleDataAdapter(args);
+	this.phasing = new PhasingDataAdapter(args);
 }
 
 
