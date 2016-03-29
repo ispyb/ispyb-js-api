@@ -17,8 +17,7 @@ SampleDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
 * @method getSamplesByCrystalId
 */
-SampleDataAdapter.prototype.getSamplesByCrystalId = function(){
-	alert('To be implemented');
+SampleDataAdapter.prototype.getSamplesByCrystalId = function(crystalId){
 	 this.get('/{token}/proposal/{proposal}/mx/sample/crystalId/{0}/list'.format( [crystalId.toString()]));
 };
 
