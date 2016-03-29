@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - dataadapter.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>dataadapter.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">70.40</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">165</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">34.59</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.89</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">/**
+* It makes all the calls to the webservices. Either by using get or post.
+*
+* @class DataAdapter
+* @constructor
+* @event onSuccess
+*/
+function DataAdapter( args) {
+	/**
+	 * By default, all requests are sent asynchronously (i.e. this is set to true by default). If you need synchronous requests, set this option to false.
+	 *
+	 * @property async
+	 * @type String
+	 * @default &quot;true&quot;
+	 */
+	this.async = true;
+	/**
+	 * ISPyB instance that points to the restful webservices (i.e. http://ispyvalid.esrf.fr:8080/ispyb/ispyb-ws/rest)
+	 *
+	 * @property url
+	 * @type String
+	 * @default null
+	 */
+	this.url = null;
+	/**
+	 * Token that will authenticate the restfull calls on the server.
+	 *
+	 * @property token
+	 * @type String
+	 * @default null
+	 */
+	this.token = null;
+	this.proposal = null;
+	this.username = null;
+	
+	/**
+	 * Fired when the get or post are succeed
+	 *
+	 * @event onSuccess
+	 * @param {Object} the object which will fire the event
+	 */
+	this.onSuccess = new Event(this);
+	/**
+	 * Fired when the get or post produces an error
+	 *
+	 * @event onError
+	 * @param {Object} the object which will fire the event
+	 */
+	this.onError = new Event(this);
+
+	if (args != null) {
+		if (args.username != null) {
+			this.username = args.username;
+		}
+		if (args.async != null) {
+			this.async = args.async;
+		}
+		if (args.onSuccess != null) {
+			this.onSuccess.attach(args.onSuccess);
+		}
+		if (args.onError != null) {
+			this.onError.attach(args.onError);
+		}
+		if (args.url != null) {
+			this.url = args.url;
+		}
+		if (args.token != null) {
+			this.token = args.token;
+		}
+		if (args.proposal != null) {
+			this.proposal = args.proposal;
+		}
+	}
+	
+}
+
+/**
+* This method manage the creation of correct the URL. It receices as URL the relative path to the resource and will add the URL to the ISPyB server instance as well as will replace the token, proposal and username automatically.
+* @method getUrl
+* @param {String} url Relative path to the resource to be access. For instance: &quot;/{token}/proposal/{proposal}/saxs/buffer/list&quot;
+* @return {String} Returns the effetive URL to access to an ISPyB instance: http://ispyvalid.esrf.fr:8080/ispyb/ispyb-ws/rest/d337d511ecac7sd301407347d66965cb27cbfa6a/proposal/mx415/saxs/buffer/list
+*/
+DataAdapter.prototype.getUrl = function(url){
+	return this.url + url.replace(&quot;{token}&quot;, this.token).replace(&quot;{proposal}&quot;, this.proposal).replace(&quot;{username}&quot;, this.username);
+};
+
+/**
+* This method makes a ajax call of type GET
+
+* @method get
+* @param {String} url Relative path to the resource to be access. For instance: &quot;/{token}/proposal/{proposal}/saxs/buffer/list&quot;
+*/
+DataAdapter.prototype.get = function(url){
+	var _this = this;
+		$.ajax({
+			  url: this.getUrl( url),
+			  type: &#039;get&#039;,
+			  async : this.async,
+			  statusCode: {
+		            404 : function(){
+		            	_this.onError.notify(&#039;404 : not found&#039;);
+		            },
+		            415 : function(){
+		                _this.onError.notify(&#039;415 : type not allowed&#039;);
+		            },
+		            500 : function(){
+		                _this.onError.notify(&#039;500 : internal server error&#039;);
+		            }
+		        },
+			  success: function(data){ 
+				 
+				  _this.onSuccess.notify(data);
+			  },
+			  error: function(error){
+
+				  _this.onError.notify(error);
+				   
+			  }
+			});
+};
+
+/**
+* This method makes a ajax call of type POST
+
+* @method post
+* @param {String} url Relative path to the resource to be access. For instance: &quot;/{token}/proposal/{proposal}/saxs/buffer/list&quot;
+* @param {String} data It is a string with the data to be sent within the POST call
+*/
+DataAdapter.prototype.post = function(url, data){
+	var _this = this;
+	
+	 url = this.getUrl(url);
+	 $.ajax({
+		  type: &quot;POST&quot;,
+		  async : this.async,
+		  url: url,
+		  data: data,
+		  success: function(data){ 
+			  _this.onSuccess.notify(data);
+			 
+		  },
+		  error: function(error){
+			  _this.onError.notify(error);
+			 
+		  }
+	});
+	 
+};
+
+
+
+/**
+* This allows to replace a subset of characters on a string
+*/
+String.prototype.format = function (args) {
+    var str = this;
+    return str.replace(String.prototype.format.regex, function(item) {
+        var intVal = parseInt(item.substring(1, item.length - 1));
+        var replace;
+        if (intVal &gt;= 0) {
+            replace = args[intVal];
+        } else if (intVal === -1) {
+            replace = &quot;{&quot;;
+        } else if (intVal === -2) {
+            replace = &quot;}&quot;;
+        } else {
+            replace = &quot;&quot;;
+        }
+        return replace;
+    });
+};
+String.prototype.format.regex = new RegExp(&quot;{-?[0-9]+}&quot;, &quot;g&quot;);</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>
