@@ -11,6 +11,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "PhasingDataAdapter",
         "ProposalManager",
         "ProteinDataAdapter",
+        "SampleDataAdapter",
         "WorkflowStepDataAdapter"
     ],
     "modules": [],

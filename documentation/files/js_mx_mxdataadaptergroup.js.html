@@ -48,6 +48,7 @@
                                 <li><a href="../classes/PhasingDataAdapter.html">PhasingDataAdapter</a></li>
                                 <li><a href="../classes/ProposalManager.html">ProposalManager</a></li>
                                 <li><a href="../classes/ProteinDataAdapter.html">ProteinDataAdapter</a></li>
+                                <li><a href="../classes/SampleDataAdapter.html">SampleDataAdapter</a></li>
                                 <li><a href="../classes/WorkflowStepDataAdapter.html">WorkflowStepDataAdapter</a></li>
                             </ul>
                 
@@ -99,14 +100,12 @@
 */
 
 function MxDataAdapterGroup(args){
-	this.autoproc = new AutoProcIntegrationDataAdapter(args);
+	this.autoProcIntegrationDataAdapter = new AutoProcIntegrationDataAdapter(args);
 	this.dataCollection = new DataCollectionDataAdapter(args);
 	this.crystal = new CrystalDataAdapter(args);
 	this.protein = new ProteinDataAdapter(args);
-	this.workflowstep = new WorkflowStepDataAdapter(args);
-	this.phasing = new PhasingDataAdapter(args);
-	
-	
+	this.workflowStepDataAdapter = new WorkflowStepDataAdapter(args);
+	this.sample = new SampleDataAdapter(args);
 }
 
 

@@ -94,6 +94,7 @@
 <div class="container">
   <div class="row">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <textarea id="file-source" class="col-md-12">function CrystalDataAdapter(args){
 =======
     <textarea id="file-source" class="col-md-12">/**
@@ -128,6 +129,33 @@ CrystalDataAdapter.prototype.getCrystalsByProposalId= function(){
 >>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
 CrystalDataAdapter.prototype.getCrystalById= function(crystalId){
 	 this.get(&#039;/{token}/proposal/{proposal}/mx/crystal/{0}/get&#039;.format( [crystalId.toString()]));
+=======
+    <textarea id="file-source" class="col-md-12">/**
+*
+* @class CrystalDataAdapter
+* @constructor
+*/
+function CrystalDataAdapter(args){
+	DataAdapter.call(this, args);
+}
+
+CrystalDataAdapter.prototype.get = DataAdapter.prototype.get;
+CrystalDataAdapter.prototype.post = DataAdapter.prototype.post;
+CrystalDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
+
+/**
+* @method getCrystalsByProposalId
+*/
+CrystalDataAdapter.prototype.getCrystalsByProposalId= function(){
+	 this.get(&#039;/{token}/proposal/{proposal}/mx/crystal/list&#039;);
+};
+
+/**
+* @method getCrystalById
+*/
+CrystalDataAdapter.prototype.getCrystalById= function(crystalId){
+	 this.get(&#039;/{token}/proposal/{proposal}/mx/crystal/{0}/get&#039;.format( [crystalId.toString()]));
+>>>>>>> 726d361ea59ff4af0a4a6fd7c32902ec2993600c
 };</textarea>
   </div>
 </div>

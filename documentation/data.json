@@ -67,6 +67,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "js/mx/sampledataadapter.js": {
+            "name": "js/mx/sampledataadapter.js",
+            "modules": {},
+            "classes": {
+                "SampleDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "js/mx/workflowstepdataadapter.js": {
             "name": "js/mx/workflowstepdataadapter.js",
             "modules": {},
@@ -217,6 +226,19 @@
             "file": "js/mx/proteindataadapter.js",
             "line": 1,
             "description": "API for protein",
+            "is_constructor": 1
+        },
+        "SampleDataAdapter": {
+            "name": "SampleDataAdapter",
+            "shortname": "SampleDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js/mx/sampledataadapter.js",
+            "line": 1,
+            "description": "DataAdDapter read/write information about sample",
             "is_constructor": 1
         },
         "WorkflowStepDataAdapter": {
@@ -460,6 +482,14 @@
             "itemtype": "method",
             "name": "getProteinByProposalId",
             "class": "ProteinDataAdapter"
+        },
+        {
+            "file": "js/mx/sampledataadapter.js",
+            "line": 15,
+            "description": "This method retrieves all the samples by crystal id",
+            "itemtype": "method",
+            "name": "getSamplesByCrystalId",
+            "class": "SampleDataAdapter"
         },
         {
             "file": "js/mx/workflowstepdataadapter.js",
