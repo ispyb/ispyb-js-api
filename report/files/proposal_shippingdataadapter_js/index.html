@@ -44,11 +44,27 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+<<<<<<< HEAD
+<<<<<<< HEAD
       <p class="stat">89.58</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
       <p class="stat">63</p>
+=======
+      <p class="stat">88.62</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">64</p>
+>>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
+=======
+      <p class="stat">89.58</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">63</p>
+>>>>>>> 726d361ea59ff4af0a4a6fd7c32902ec2993600c
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +78,27 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+<<<<<<< HEAD
+<<<<<<< HEAD
       <p class="stat">16.70</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
       <p class="stat">0.55</p>
+=======
+      <p class="stat">15.57</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.59</p>
+>>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
+=======
+      <p class="stat">16.70</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.55</p>
+>>>>>>> 726d361ea59ff4af0a4a6fd7c32902ec2993600c
     </div>
   </div>
 </div>
@@ -89,6 +121,75 @@
 
 <div class="container">
   <div class="row">
+<<<<<<< HEAD
+    <textarea id="file-source" class="col-md-12">function ShippingDataAdapter(args){
+	DataAdapter.call(this, args);
+}
+
+ShippingDataAdapter.prototype.get = DataAdapter.prototype.get;
+ShippingDataAdapter.prototype.post = DataAdapter.prototype.post;
+ShippingDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
+
+ShippingDataAdapter.prototype.getShippings = function(){
+	this.get(&#039;/{token}/proposal/{proposal}/shipping/list&#039;);
+};
+
+ShippingDataAdapter.prototype.getShipment = function(shippingId){
+	this.get(&#039;/{token}/proposal/{proposal}/shipping/{0}/get&#039;.format([shippingId]));
+};
+
+ShippingDataAdapter.prototype.getDewarsByShipmentId = function(shippingId){
+	this.get(&#039;/{token}/proposal/{proposal}/shipping/{0}/dewar/list&#039;.format([shippingId]));
+};
+
+ShippingDataAdapter.prototype.getLabContacts = function(){
+	alert(&quot;This method has been moved to labcontactDataAdapter&quot;);
+};
+
+ShippingDataAdapter.prototype.getScientists = function(){
+	alert(&quot;This method has been moved to labcontactDataAdapter&quot;);
+};
+
+ShippingDataAdapter.prototype.getLabContactById = function(labContactId){
+	alert(&quot;This method has been moved to labcontactDataAdapter&quot;);
+};
+
+ShippingDataAdapter.prototype.saveLabContact = function(labcontact){
+   	alert(&quot;This method has been moved to labcontactDataAdapter&quot;);
+};
+
+ShippingDataAdapter.prototype.saveShipment = function(shipment ){
+	this.post(&#039;/{token}/proposal/{proposal}/shipping/save&#039;, shipment);
+};
+
+ShippingDataAdapter.prototype.addPuck = function(shippingId, dewarId){
+	this.get(&#039;/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/puck/add&#039;.format([shippingId, dewarId]));
+};
+
+ShippingDataAdapter.prototype.getContainerById = function(shippingId, dewarId, containerId){
+	this.get(&#039;/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/puck/{2}/get&#039;.format([shippingId, dewarId, containerId]));
+};
+
+ShippingDataAdapter.prototype.removeContainerById = function(shippingId, dewarId, containerId){
+	this.get(&#039;/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/puck/{2}/remove&#039;.format([shippingId, dewarId, containerId]));
+};
+
+ShippingDataAdapter.prototype.saveContainer = function(shippingId, dewarId, containerId, puck){
+    var url = (&#039;/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/puck/{2}/save&#039;.format([shippingId, dewarId, containerId]));
+	this.post(url, {
+		puck : JSON.stringify(puck)
+	});
+};
+
+
+ShippingDataAdapter.prototype.getDewarLabelURL = function(shippingId, dewarId){
+<<<<<<< HEAD
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/labels&#039;.format([ shippingId, dewarId]));
+=======
+	var connection = EXI.credentialManager.getConnections()[0];
+	return this.getUrl(connection, (&#039;/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/labels&#039;.format([ shippingId, dewarId])));
+>>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
+=======
     <textarea id="file-source" class="col-md-12">function ShippingDataAdapter(args){
 	DataAdapter.call(this, args);
 }
@@ -151,6 +252,7 @@ ShippingDataAdapter.prototype.saveContainer = function(shippingId, dewarId, cont
 
 ShippingDataAdapter.prototype.getDewarLabelURL = function(shippingId, dewarId){
 	return this.getUrl(&#039;/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/labels&#039;.format([ shippingId, dewarId]));
+>>>>>>> 726d361ea59ff4af0a4a6fd7c32902ec2993600c
 };</textarea>
   </div>
 </div>

@@ -11,6 +11,5 @@ HPLCSaxsDataAdapter.prototype.getHPLCOverviewByExperimentId= function(experiment
 };
 
 HPLCSaxsDataAdapter.prototype.getHPLCFramesScatteringURL= function(experimentId, frameIdList){
-	var connection = EXI.credentialManager.getConnections()[0];
-	return this.getUrl(connection, ('/{token}/proposal/{proposal}/saxs/experiment/{0}/hplc/frame/{1}/get?operation=log'.format( [experimentId, frameIdList.toString()])));
+	return this.getUrl('/{token}/proposal/{proposal}/saxs/experiment/{0}/hplc/frame/{1}/get?operation=log'.format( [experimentId, frameIdList.toString()]));
 };

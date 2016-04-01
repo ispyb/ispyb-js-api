@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - test/dewardataadapter.tests.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>test/dewardataadapter.tests.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">71.51</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">221</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">27.16</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.35</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;
+//* NEEDED PARAMETERS FOR CONNECTION **/
+var proposal = &quot;mx415&quot;;
+var user = &quot;mx415&quot;;
+var password = &quot;pimx415&quot;;
+var url = &quot;http://ispyvalid.esrf.fr:8080/ispyb/ispyb-ws/rest&quot;;
+var token = null;
+var shippingId = null;
+
+
+QUnit.test( &quot;DewarDataAdapter Class&quot;, function( assert ) {
+    assert.ok(true,&quot;Running...&quot;);
+
+    function getShippingDataAdapter(fn_success, fn_error){
+        return new ShippingDataAdapter({
+            proposal 	: proposal,
+            token 		: token,
+            url 		: url,
+            onSuccess	: fn_success,
+            onError     : fn_error
+        });
+    };
+
+    function getDewarDataAdapter(fn_success, fn_error){
+        return new DewarDataAdapter({
+            proposal 	: proposal,
+            token 		: token,
+            url 		: url,
+            onSuccess	: fn_success,
+            onError     : fn_error
+        });
+    };
+
+//* NEEDED PARAMETERS FOR CONNECTION **/
+
+    function fn_auth(sender, data){
+        token = data.token;
+        //console.log(&quot;Token is: &quot; + token);
+        testGetShippings();
+        setTimeout(testSaveGoodDewar, 1000);
+        //setTimeout(testSaveBadDewar, 1200);
+        setTimeout(testDeleteDewars, 3000);
+    };
+
+// AUTHENTICATION
+    var authenticationDataAdapter = new AuthenticationDataAdapter({
+        onSuccess: fn_auth
+    });
+    authenticationDataAdapter.authenticate(user, password, url);
+
+// FIRST TEST AFTER AUTHENTICATION **/
+
+    // First call getShippings to store a shippingId needed for next tests
+    // ShippingDataAdapter.prototype.getShippings = function()
+
+    function testGetShippings(){
+
+        function fn_error(sender, error){
+            console.log(&quot;ShippingDataAdapter.getShippings(error): &quot; + error.responseText);
+            assert.ok((1==0),&quot;ShippingDataAdapter.getShippings(): failed. &quot; + error.responseText);
+        };
+
+        function fn_shippings(sender, data){
+            //console.log(&quot;Shipping data.length: &quot; + data.length);
+            //assert.ok((data.length&gt;0),&quot;ShippingDataAdapter.getShippings(): There&#039;s at least one shipping.&quot;);
+            //console.log(data[0]);
+            shippingId = data[0].Shipping_shippingId ;
+            //console.log(&quot;ShippingDataAdapter.getShippings() shippingId: &quot; + shippingId);
+        };
+
+        var sda = getShippingDataAdapter(fn_shippings, fn_error);
+        sda.getShippings();
+
+    } // END testGetShippings()
+
+    // DewarDataAdapter.prototype.saveDewar= function(shippingId, dewar)
+    // TODO: when saving the same dewar again no error returned. Bug or feature ?
+    //       the same dewar is saved multiple time with a different Id.
+
+    // TODO: when saving a malformed dewar no error returned. Bug or feature ?
+    //       again the same dewar is saved multiple time with a different Id.
+
+    function testSaveGoodDewar(){
+
+        var newGoodDewar = {
+            dewardId        : 309862,
+            barCode         : null,
+            code            : &quot;BsaEsrf&quot;,
+            comments        : &quot;test dewar for TDD&quot;,
+            customsValue    : null,
+            dewarStatus     : &quot;opened&quot;,
+            isStorageDewar  : false,
+            sessionVO       : null,
+            storageLocation : &quot;-80&quot;,
+            timeStamp       : new Date(2016,1,1).toJSON() ,
+            trackingNumberFromSynchrotron: &quot;&quot;,
+            trackingNumberToSynchrotron: &quot;&quot;,
+            transportValue  : 0,
+            type            : &quot;Dewar&quot;
+            /*containerVOs    : {
+                beamlineLocation        : null,
+                capacity                : 16,
+                code                    : null,
+                //containerId             : 252525,
+                containerStatus         : null,
+                containerType           : &quot;Puck&quot;,
+                sampleChangerLocation   : null,
+                sampleVOs               : [],
+                timeStamp               : new Date(2016,1,1).toJSON()
+            }*/
+
+        };
+        function fn_error(sender, error){
+            console.log(&quot;DewarDataAdapter.saveDewar(error): &quot; + error.responseText);
+            assert.ok((1==0),&quot;DewarDataAdapter.saveDewar(good one): failed. &quot; + error.responseText);
+        };
+
+        function fn_saveDewar(sender, data){
+            //console.log(&quot;DewarDataAdapter.saveDewar(good): &quot; + typeof(data) );
+            //console.log(&quot;DewarDataAdapter.saveDewar(good): &quot; + data );
+            console.log(data)
+            assert.ok( (1==1),&quot;DewarDataAdapter.saveDewar(): new good dewar saved.&quot;);
+        };
+
+        var dda = getDewarDataAdapter(fn_saveDewar, fn_error);
+        dda.saveDewar(shippingId, newGoodDewar);
+
+    } // END testSaveGoodDewar()
+
+    function testSaveBadDewar(){
+
+        var newBadDewar = {
+            dewardId        : -1,
+            barCode         : null,
+            code            : &quot;bla&quot;,
+            comments        : &quot;test dewar for TDD&quot;,
+            customsValue    : null,
+            dewarStatus     : &quot;opened&quot;,
+            isStorageDewar  : false,
+            sessionVO       : null,
+            storageLocation : &quot;-80&quot;,
+            timeStamp       : -1 ,
+            trackingNumberFromSynchrotron: &quot;&quot;,
+            trackingNumberToSynchrotron: &quot;&quot;,
+            transportValue  : 0,
+            type            : &quot;Dewar&quot;,
+            containerVOs    : -1
+
+        };
+        function fn_error(sender, error){
+            console.log(&quot;DewarDataAdapter.saveDewar(error): &quot; + error.responseText);
+            assert.ok((1==0),&quot;DewarDataAdapter.saveDewar(bad one): failed. &quot; + error.responseText);
+        };
+
+        function fn_saveDewar(sender, data){
+            //console.log(&quot;DewarDataAdapter.saveDewar(good): &quot; + typeof(data) );
+            //console.log(&quot;DewarDataAdapter.saveDewar(good): &quot; + data );
+            //console.table(data)
+            assert.ok( (1==1),&quot;DewarDataAdapter.saveDewar(): new bad dewar saved.&quot;);
+        };
+
+        var dda = getDewarDataAdapter(fn_saveDewar, fn_error);
+        dda.saveDewar(shippingId, newBadDewar);
+
+    } // END testSaveBadDewar()
+
+    // DewarDataAdapter.prototype.removeDewar= function(shippingId, dewarId)
+    // TODO: the structure of dewars data is not the same (from what I can see)
+    //       and the delete does not delete anything because the getDewars call
+    //       return something else the saveDewar call did stored. Or I did not
+    //       understand the flow of calls and data.
+    //
+    // TODO: general need to document data/object structures for all classes ??
+    //
+    function testDeleteDewars(){
+
+        var sda = {};
+        var dda = {};
+
+        function fn_error(sender, error){
+            console.log(&quot;ShippingDataAdapter.getDewarsByShipmentId(error): &quot; + error.responseText);
+            assert.ok((1==0),&quot;ShippingDataAdapter.getDewarsByShipmentId(): failed. &quot; + error.responseText);
+        };
+
+        function removeThisDewar(dewar, idx,arr) {
+            dda.removeDewar(shippingId, dewar.dewarId);
+        }
+
+        function fn_delDewar(sender,data){
+            console.log(&quot;DewarDataAdapter.removeDewar(done): &quot; + typeof(data) );
+            console.log(&quot;DewarDataAdapter.removeDewar(done): &quot; + data );
+        }
+
+        function fn_delError(sender, error){
+            console.log(&quot;DewarDataAdapter.removeDewar(error): &quot; + error.responseText);
+            assert.ok((1==0),&quot;DewarDataAdapter.removeDewar(): failed. &quot; + error.responseText);
+        };
+
+        function fn_dewars(sender, data){
+            console.log(&quot;ShippingDataAdapter.getDewarsByShipmentId(): &quot; + typeof(data) );
+            assert.ok((typeof(data) == &#039;object&#039;),&quot;ShippingDataAdapter.getDewarsByShipmentId(): There is at least one dewar.&quot;);
+            console.table(data);
+            var searchedDW = [];
+            searchedDW = data.filter(function (obj) {
+                return ( (obj.code === &quot;bla&quot;) || (obj.code === &quot;BsaEsrf&quot; ) );
+            });
+            console.log(&quot;DewarDataAdapter.removeDewar(search): &quot; + typeof(searchedDW) );
+            console.table(searchedDW);
+            if ( searchedDW.length &gt; 0) {
+                dda = getDewarDataAdapter(fn_delDewar, fn_delError);
+                searchedDW.forEach(removeThisDewar);
+            }
+        };
+
+        sda = getShippingDataAdapter(fn_dewars, fn_error);
+        //console.log(&quot;ShippingDataAdapter.getDewarsByShipmentId() shippingId: &quot; + shippingId);
+        sda.getDewarsByShipmentId(shippingId);
+
+    } // END testDeleteDewars()
+
+});</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

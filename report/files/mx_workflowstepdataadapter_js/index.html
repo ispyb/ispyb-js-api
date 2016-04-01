@@ -48,7 +48,11 @@
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+<<<<<<< HEAD
+      <p class="stat">23</p>
+=======
       <p class="stat">34</p>
+>>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
     </div>
   </div>
   <div class="row historical">
@@ -89,6 +93,9 @@
 
 <div class="container">
   <div class="row">
+<<<<<<< HEAD
+    <textarea id="file-source" class="col-md-12">function WorkflowStepDataAdapter(args){
+=======
     <textarea id="file-source" class="col-md-12">/**
 * Interface implementing the API for workflows
 *
@@ -96,6 +103,7 @@
 * @constructor
 */
 function WorkflowStepDataAdapter(args){
+>>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
 	DataAdapter.call(this, args);
 }
 
@@ -103,14 +111,27 @@ WorkflowStepDataAdapter.prototype.get = DataAdapter.prototype.get;
 WorkflowStepDataAdapter.prototype.post = DataAdapter.prototype.post;
 WorkflowStepDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
+<<<<<<< HEAD
+=======
 
 /**
 * @method getImageByWorkflowStepId
 */
+>>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
 WorkflowStepDataAdapter.prototype.getImageByWorkflowStepId = function(workflowStepId){
 	 return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/workflow/step/{0}/image&#039;.format( [workflowStepId.toString()]));
 };
 
+<<<<<<< HEAD
+WorkflowStepDataAdapter.prototype.getHtmlByWorkflowStepId = function(workflowStepId){
+	 return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/workflow/step/{0}/html&#039;.format( [workflowStepId.toString()]));
+};
+
+WorkflowStepDataAdapter.prototype.getResultByWorkflowStepId = function(workflowStepId){
+	 return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/workflow/step/{0}/result&#039;.format( [workflowStepId.toString()]));
+};
+
+=======
 /**
 * @method getHtmlByWorkflowStepId
 */
@@ -126,6 +147,7 @@ WorkflowStepDataAdapter.prototype.getResultByWorkflowStepId = function(workflowS
 /**
 * @method getWorkflowstepByIdList
 */
+>>>>>>> 64a4d23bf6ecb3ae1cf445e4bb07fc2843cbe047
 WorkflowStepDataAdapter.prototype.getWorkflowstepByIdList = function(workflowStepIds){
 	 this.get(&#039;/{token}/proposal/{proposal}/mx/workflow/step/{0}/list&#039;.format( [workflowStepIds.toString()]));
 };</textarea>
