@@ -7,16 +7,21 @@ DewarDataAdapter.prototype.post = DataAdapter.prototype.post;
 DewarDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
 DewarDataAdapter.prototype.saveDewar= function(shippingId, dewar){
-    var url = ('/{token}/proposal/{proposal}/shipping/{0}/dewar/save'.format( [shippingId]));
-	this.post(url, dewar);
+	this.post( ('/{token}/proposal/{proposal}/shipping/{0}/dewar/save'.format( [shippingId])), dewar);
 };
 
 DewarDataAdapter.prototype.removeDewar= function(shippingId, dewarId){
-	var url = ('/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/remove'.format( [shippingId, dewarId]));
-	this.get(url);
+	this.get(('/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/remove'.format( [shippingId, dewarId])));
 };
 
 DewarDataAdapter.prototype.addDewar= function(shippingId){
    this.saveDewar(shippingId, {});
 };
 
+DewarDataAdapter.prototype.getDewarsByProposal = function(){
+	this.get('/{token}/proposal/{proposal}/dewar/list');
+};
+
+DewarDataAdapter.prototype.getDewarsByStatus = function(status){
+	this.get(('/{token}/proposal/{proposal}/dewar/status/{0}/list'.format( [status])));
+};
