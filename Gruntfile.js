@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 	  concat : {
 		  prod:{
 			  files : {
-				  'min/ispyb-js-api.min.js' 		: ["js/dataadapter.js", "js/**/*.js",  "!js/test/*.js"]
+				  'min/ispyb-js-api.min.js' 		: ["js/dataadapter.js", "js/*.js", "js/**/*.js",  "!js/test/*.js"]
 			  }
 		  }
 	  },
