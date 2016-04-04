@@ -1,3 +1,5 @@
+report/
+documentation/
 .bowerrc
 
 js/test/config.js

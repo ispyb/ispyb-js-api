@@ -21,6 +21,14 @@ SampleDataAdapter.prototype.getSamplesByCrystalId = function(crystalId){
 	 this.get('/{token}/proposal/{proposal}/mx/sample/crystalId/{0}/list'.format( [crystalId.toString()]));
 };
 
+SampleDataAdapter.prototype.getSampleInfoByCrystalId = function(crystalId){
+	 this.get('/{token}/proposal/{proposal}/mx/sampleinfo/crystalId/{0}/list'.format( [crystalId.toString()]));
+};
+
+SampleDataAdapter.prototype.getSampleInfoByProposalId = function(){
+	 this.get('/{token}/proposal/{proposal}/mx/sampleinfo/list');
+};
+
 
 
 
