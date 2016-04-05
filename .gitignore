@@ -1,6 +1,7 @@
 report/
 documentation/
 .bowerrc
+test/config.js
 
 js/test/config.js
 
