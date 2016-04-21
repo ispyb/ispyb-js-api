@@ -8,8 +8,12 @@ Test.prototype.authenticate = function(username, password, url){
 		var _this = this;
 
 		if (password == null){
-			alert("Password is null");
-			return;
+			 var p = prompt("Please enter the password for proposal " +  Config.credentials[0].username, "");
+            if (p != null) {
+                 Config.credentials[0].password = p;
+                 password = p;
+            }
+			
 		}
 		function onAuthenticated(sender, data){
 			_this.token = data.token;
@@ -19,7 +23,8 @@ Test.prototype.authenticate = function(username, password, url){
 			async	  	: false,
 			url		:  url
 	    	});
-	    	authenticationDataAdapter.authenticate(username, password, url);
+            
+	    authenticationDataAdapter.authenticate(username, password, url);
 
 
 };

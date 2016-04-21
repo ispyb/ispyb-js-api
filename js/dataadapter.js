@@ -97,6 +97,10 @@ DataAdapter.prototype.get = function(url){
 			  type: 'get',
 			  async : this.async,
 			  statusCode: {
+                  
+                   401 : function(){  
+		            	_this.onError.notify('401 Unauthorized');
+		            },
 		            404 : function(){
 		            	_this.onError.notify('404 : not found');
 		            },
@@ -108,11 +112,9 @@ DataAdapter.prototype.get = function(url){
 		            }
 		        },
 			  success: function(data){ 
-				 
 				  _this.onSuccess.notify(data);
 			  },
 			  error: function(error){
-
 				  _this.onError.notify(error);
 				   
 			  }
@@ -133,6 +135,20 @@ DataAdapter.prototype.post = function(url, data){
 	 $.ajax({
 		  type: "POST",
 		  async : this.async,
+           statusCode: {
+                   401 : function(){                      
+		            	_this.onError.notify('401 Unauthorized');
+		            },
+		            404 : function(){
+		            	_this.onError.notify('404 : not found');
+		            },
+		            415 : function(){
+		                _this.onError.notify('415 : type not allowed');
+		            },
+		            500 : function(){
+		                _this.onError.notify('500 : internal server error');
+		            }
+		        },
 		  url: url,
 		  data: data,
 		  success: function(data){ 

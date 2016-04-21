@@ -30,7 +30,7 @@ WorkflowStepDataAdapter.prototype.getHtmlByWorkflowStepId = function(workflowSte
 * @method getResultByWorkflowStepId
 */
 WorkflowStepDataAdapter.prototype.getResultByWorkflowStepId = function(workflowStepId){
-	 return this.getUrl('/{token}/proposal/{proposal}/mx/workflow/step/{0}/result'.format( [workflowStepId.toString()]));
+	 this.get('/{token}/proposal/{proposal}/mx/workflow/step/{0}/result'.format( [workflowStepId.toString()]));
 };
 /**
 * @method getWorkflowstepByIdList

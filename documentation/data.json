@@ -33,6 +33,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "js/mx/energyscandataadapter.js": {
+            "name": "js/mx/energyscandataadapter.js",
+            "modules": {},
+            "classes": {
+                "EnergyScanDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "js/mx/mxdataadapterfactory.js": {
             "name": "js/mx/mxdataadapterfactory.js",
             "modules": {},
@@ -139,15 +148,6 @@
             },
             "fors": {},
             "namespaces": {}
-        },
-        "js/proposalmanager.js": {
-            "name": "js/proposalmanager.js",
-            "modules": {},
-            "classes": {
-                "ProposalManager": 1
-            },
-            "fors": {},
-            "namespaces": {}
         }
     },
     "modules": {},
@@ -187,6 +187,19 @@
             "extension_for": [],
             "file": "js/mx/datacollectiondataadapter.js",
             "line": 1,
+            "is_constructor": 1
+        },
+        "EnergyScanDataAdapter": {
+            "name": "EnergyScanDataAdapter",
+            "shortname": "EnergyScanDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js/mx/energyscandataadapter.js",
+            "line": 1,
+            "description": "API for protein",
             "is_constructor": 1
         },
         "MxDataAdapterFactory": {
@@ -292,19 +305,6 @@
             "file": "js/event.js",
             "line": 1,
             "description": "This class is in charge of the Event management. An object can create an event and other objects can subscribe to such event by using the function attach.",
-            "is_constructor": 1
-        },
-        "ProposalManager": {
-            "name": "ProposalManager",
-            "shortname": "ProposalManager",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "file": "js/proposalmanager.js",
-            "line": 1,
-            "description": "Class used to manage the common points for a single or several proposals. It deals with methods to help the management of crystals, proteins, macromolecules, buffer, stockSolutions and labcontacts",
             "is_constructor": 1
         }
     },
@@ -460,6 +460,13 @@
             "itemtype": "method",
             "name": "getCrystalSnapshotByDataCollectionId",
             "class": "DataCollectionDataAdapter"
+        },
+        {
+            "file": "js/mx/energyscandataadapter.js",
+            "line": 15,
+            "itemtype": "method",
+            "name": "getProteinByProposalId",
+            "class": "EnergyScanDataAdapter"
         },
         {
             "file": "js/mx/phasingdataadapter.js",
@@ -725,7 +732,7 @@
         },
         {
             "file": "js/dataadapter.js",
-            "line": 122,
+            "line": 124,
             "description": "This method makes a ajax call of type POST",
             "itemtype": "method",
             "name": "post",
@@ -745,7 +752,7 @@
         },
         {
             "file": "js/dataadapter.js",
-            "line": 152,
+            "line": 168,
             "description": "This allows to replace a subset of characters on a string",
             "class": "DataAdapter"
         },
@@ -778,202 +785,6 @@
                 }
             ],
             "class": "Event"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 12,
-            "description": "It gets the information of the proposals that are found on the local Storage in the field called proposal. If it does not exist it will load form the server and store them on the local storage",
-            "itemtype": "method",
-            "name": "get",
-            "params": [
-                {
-                    "name": "forceUpdate",
-                    "description": "if true the proposals information will be reloaded from the server syncrhonously",
-                    "type": "Boolean"
-                }
-            ],
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 27,
-            "description": "It removes the information from the local storage. It means it remove the proposals item",
-            "itemtype": "method",
-            "name": "clear",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 35,
-            "description": "It gets a list of sessions from the local storage or retrieve them from the server if the proposals have not been loaded yet. It is synchronous.",
-            "itemtype": "method",
-            "name": "getSessions",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 49,
-            "description": "It gets a list of sessions which start date comes after today.",
-            "itemtype": "method",
-            "name": "getFutureSessions",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 65,
-            "description": "It gets a list of colors",
-            "itemtype": "method",
-            "name": "getBufferColors",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 73,
-            "description": "It gets a list of labcontacts from the current proposal",
-            "itemtype": "method",
-            "name": "getLabcontacts",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 81,
-            "itemtype": "method",
-            "name": "getLabcontactById",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 88,
-            "itemtype": "method",
-            "name": "getPlateTypeById",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 95,
-            "itemtype": "method",
-            "name": "getPlateTypes",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 102,
-            "description": "This methods is supposed to retrieve the plate configuration by flavour. However, it is not used yet",
-            "itemtype": "method",
-            "name": "getPlateByFlavour",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 110,
-            "itemtype": "method",
-            "name": "getBufferById",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 122,
-            "itemtype": "method",
-            "name": "getMacromoleculeById",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 135,
-            "itemtype": "method",
-            "name": "getMacromoleculeByAcronym",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 148,
-            "itemtype": "method",
-            "name": "getStockSolutionById",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 160,
-            "itemtype": "method",
-            "name": "getBuffers",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 172,
-            "itemtype": "method",
-            "name": "getMacromolecules",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 184,
-            "itemtype": "method",
-            "name": "getProposals",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 197,
-            "itemtype": "method",
-            "name": "getProposalById",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 211,
-            "itemtype": "method",
-            "name": "getStockSolutions",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 218,
-            "itemtype": "method",
-            "name": "getProteins",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 225,
-            "itemtype": "method",
-            "name": "getCrystals",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 232,
-            "itemtype": "method",
-            "name": "getProteinByAcronym",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 239,
-            "itemtype": "method",
-            "name": "getCrystalsByAcronym",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 251,
-            "itemtype": "method",
-            "name": "getStockSolutionsBySpecimen",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 259,
-            "itemtype": "method",
-            "name": "getUnpackedStockSolutions",
-            "class": "ProposalManager"
-        },
-        {
-            "file": "js/proposalmanager.js",
-            "line": 273,
-            "itemtype": "method",
-            "name": "getStockSolutionsByDewarId",
-            "class": "ProposalManager"
         }
     ],
     "warnings": [
@@ -1043,7 +854,7 @@
         },
         {
             "message": "Missing item type\nThis allows to replace a subset of characters on a string",
-            "line": " js/dataadapter.js:152"
+            "line": " js/dataadapter.js:168"
         }
     ]
 }

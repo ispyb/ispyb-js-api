@@ -39,9 +39,13 @@ module.exports = function(grunt) {
 					dead_code: true
 			      },
 			  },
-			  files : {
-				  'min/ispyb-js-api.min.js' 		: ['bower_components/jquery/dist/jquery.js', 'bower_components/lodash/lodash.js','min/ispyb-js-api.min.js']
+			 files : {
+				  'min/ispyb-js-api.min.js' 		: ['min/ispyb-js-api.min.js']
+
 			  }
+			  /*files : {
+				  'min/ispyb-js-api.min.js' 		: ['bower_components/jquery/dist/jquery.js', 'bower_components/lodash/lodash.js','min/ispyb-js-api.min.js']
+			  }*/
 		  }
 	  },
 	jshint: {
