@@ -14,6 +14,7 @@ function MxDataAdapterGroup(args){
 	this.workflowstep = new WorkflowStepDataAdapter(args);
 	this.sample = new SampleDataAdapter(args);
 	this.phasing = new PhasingDataAdapter(args);
+    this.energyscan = new EnergyScanDataAdapter(args);
 }
 
 

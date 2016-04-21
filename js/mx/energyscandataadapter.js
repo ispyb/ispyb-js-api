@@ -1,5 +1,5 @@
 /**
-* API for protein
+* API for EnergyScanDataAdapter
 *
 * @class EnergyScanDataAdapter
 * @constructor
@@ -13,13 +13,32 @@ EnergyScanDataAdapter.prototype.post = DataAdapter.prototype.post;
 EnergyScanDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
 /**
-* @method getProteinByProposalId
+* @method get the energy scan by sessionId and proposalId
 */
-EnergyScanDataAdapter.prototype.getEnergyScanBySessionId = function(sessionId){
+EnergyScanDataAdapter.prototype.getEnergyScanListBySessionId = function(sessionId){
 	 this.get('/{token}/proposal/{proposal}/mx/energyscan/session/{0}/list'.format([sessionId]));
 };
 
+/**
+* @method get the URL to retrieve the Jpef produced by Chooch
+*/
+WorkflowStepDataAdapter.prototype.getChoochJpegByEnergyScanId = function(energyScanId){
+	 return this.getUrl('/{token}/proposal/{proposal}/mx/energyscan/energyscanId/{0}/jpegchooch'.format( [energyScanId.toString()]));
+};
 
+/**
+* @method get the URL to retrieve the raw data produced by Chooch
+*/
+WorkflowStepDataAdapter.prototype.getChoochFileByEnergyScanId = function(energyScanId){
+	 return this.getUrl('/{token}/proposal/{proposal}/mx/energyscan/energyscanId/{0}/chooch'.format( [energyScanId.toString()]));
+};
+
+/**
+* @method get the URL to retrieve the scan file. It is empty currently!!
+*/
+WorkflowStepDataAdapter.prototype.getScanFileByEnergyScanId = function(energyScanId){
+	 return this.getUrl('/{token}/proposal/{proposal}/mx/energyscan/energyscanId/{0}/scanfile'.format( [energyScanId.toString()]));
+};
 
 
 

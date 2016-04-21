@@ -199,7 +199,7 @@
             "extension_for": [],
             "file": "js/mx/energyscandataadapter.js",
             "line": 1,
-            "description": "API for protein",
+            "description": "API for EnergyScanDataAdapter",
             "is_constructor": 1
         },
         "MxDataAdapterFactory": {
@@ -465,7 +465,28 @@
             "file": "js/mx/energyscandataadapter.js",
             "line": 15,
             "itemtype": "method",
-            "name": "getProteinByProposalId",
+            "name": "get the energy scan by sessionId and proposalId",
+            "class": "EnergyScanDataAdapter"
+        },
+        {
+            "file": "js/mx/energyscandataadapter.js",
+            "line": 22,
+            "itemtype": "method",
+            "name": "get the URL to retrieve the Jpef produced by Chooch",
+            "class": "EnergyScanDataAdapter"
+        },
+        {
+            "file": "js/mx/energyscandataadapter.js",
+            "line": 29,
+            "itemtype": "method",
+            "name": "get the URL to retrieve the raw data produced by Chooch",
+            "class": "EnergyScanDataAdapter"
+        },
+        {
+            "file": "js/mx/energyscandataadapter.js",
+            "line": 36,
+            "itemtype": "method",
+            "name": "get the URL to retrieve the scan file. It is empty currently!!",
             "class": "EnergyScanDataAdapter"
         },
         {
