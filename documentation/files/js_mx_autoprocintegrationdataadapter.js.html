@@ -194,14 +194,13 @@ AutoProcIntegrationDataAdapter.prototype.getAttachmentListByautoProcProgramsIdLi
 	return this.get(&#x27;/{token}/proposal/{proposal}/mx/autoprocintegration/attachment/autoprocprogramid/{0}/list&#x27;.format( [autoProcProgramId.toString()]));
 };
 /**
-* It gets the phasing data by autoProcListId
-* @deprecated Use PhasingDataAdapter
-* @method getPhasingByAutoprocIds
-
-AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoprocIds= function(autoProcListId){
-	 this.get(&#x27;/{token}/proposal/{proposal}/mx/phasing/autoprocid/{0}/list&#x27;.format( [autoProcListId.toString()]));
-};
+* It gets the phasing data by autoProccesingListId
+* @method getPhasingByAutoproccesingIds
 */
+AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoproccesingIds = function(autoProcListId){
+	 this.get(&#x27;/{token}/proposal/{proposal}/mx/autoprocintegration/autoprocintegrationid/{0}/phasing&#x27;.format( [autoProcListId.toString()]));
+};
+
 
     </pre>
 </div>

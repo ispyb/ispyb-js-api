@@ -99,9 +99,9 @@ MacromoleculeTest.prototype.authenticate = Test.prototype.authenticate;
 MacromoleculeTest.prototype.getDataAdapter = function(token, callback){
 	return new MacromoleculeSaxsDataAdapter({
             proposal 	: this.credential.proposal,
-            token 	: this.token,
-            url 	: this.credential.url,
-	    async	: false,
+            token 	    : this.token,
+            url 	    : this.credential.url,
+	        async	    : false,
             onSuccess	: callback
         });
 };
@@ -112,7 +112,7 @@ MacromoleculeTest.prototype.test = function(token){
 		    	function callback(sender, data){
 			    assert.ok((data.length&gt;0), &quot;MacromoleculeSaxsDataAdapter.getMacromolecules(): There&#039;s at least one macromolecule.&quot;);
 			}
-        		_this.getDataAdapter(_this.token, callback).getMacromolecules();
+        	_this.getDataAdapter(_this.token, callback).getMacromolecules();
 	});
 };</textarea>
   </div>
