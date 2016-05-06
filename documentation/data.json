@@ -94,6 +94,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "js/mx/xfescandataadapter.js": {
+            "name": "js/mx/xfescandataadapter.js",
+            "modules": {},
+            "classes": {
+                "XFEScanDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "js/proposal/labcontactdataadapter.js": {
             "name": "js/proposal/labcontactdataadapter.js",
             "modules": {},
@@ -267,6 +276,19 @@
             "description": "Interface implementing the API for workflows",
             "is_constructor": 1
         },
+        "XFEScanDataAdapter": {
+            "name": "XFEScanDataAdapter",
+            "shortname": "XFEScanDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js/mx/xfescandataadapter.js",
+            "line": 1,
+            "description": "API for XFEScanDataAdapter",
+            "is_constructor": 1
+        },
         "LabcontactDataAdapter": {
             "name": "LabcontactDataAdapter",
             "shortname": "LabcontactDataAdapter",
@@ -312,14 +334,29 @@
     "classitems": [
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 16,
+            "line": 15,
+            "description": "It retrieves the autoprocessing view from ISPyB",
+            "itemtype": "method",
+            "name": "getViewByDataCollectionId",
+            "params": [
+                {
+                    "name": "dataCollectionId",
+                    "description": "It may be a comma-separated list of data collection ids",
+                    "type": "String"
+                }
+            ],
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js/mx/autoprocintegrationdataadapter.js",
+            "line": 24,
             "itemtype": "method",
             "name": "getByDataCollectionId",
             "class": "AutoProcIntegrationDataAdapter"
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 23,
+            "line": 31,
             "description": "It gets the URL for getting the completeness of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleCompleteness",
@@ -327,7 +364,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 31,
+            "line": 39,
             "description": "It gets the URL for getting the RFactor of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleRfactor",
@@ -335,7 +372,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 39,
+            "line": 47,
             "description": "It gets the URL for getting the ISigma of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleISigma",
@@ -343,7 +380,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 47,
+            "line": 55,
             "description": "It gets the URL for getting the CC2 of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleCC2",
@@ -351,7 +388,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 55,
+            "line": 63,
             "description": "It gets the URL for getting the SigmaAnp of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleSigmaAno",
@@ -359,7 +396,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 63,
+            "line": 71,
             "description": "It gets the URL for getting the Wilson of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleWilson",
@@ -367,7 +404,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 71,
+            "line": 79,
             "description": "It gets the URL for getting the AnnoCorrection of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleAnnoCorrection",
@@ -375,7 +412,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 79,
+            "line": 87,
             "description": "It gets the URL for downloading an attachement from an autoProcAttachmentId",
             "itemtype": "method",
             "name": "getDownloadAttachmentUrl",
@@ -383,12 +420,21 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 87,
+            "line": 95,
+            "description": "It gets the list of attachments linked to a list of autoProcPrograms id",
+            "itemtype": "method",
+            "name": "getDownloadAttachmentUrl",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js/mx/autoprocintegrationdataadapter.js",
+            "line": 102,
             "description": "It gets the phasing data by autoProcListId",
             "deprecated": true,
             "deprecationMessage": "Use PhasingDataAdapter",
             "itemtype": "method",
-            "name": "getPhasingByAutoprocIds",
+            "name": "getPhasingByAutoprocIds!~YUIDOC_LINE~!!~YUIDOC_LINE~!AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoprocIds= function(autoProcListId)/proposal/{proposal}/mx/phasing/autoprocid/{0}/list'.format( [autoProcListId.toString()]));!~YUIDOC_LINE~!};",
+            "type": "!~YUIDOC_LINE~!\t this.get('/{token",
             "class": "AutoProcIntegrationDataAdapter"
         },
         {
@@ -546,6 +592,20 @@
             "itemtype": "method",
             "name": "getWorkflowstepByIdList",
             "class": "WorkflowStepDataAdapter"
+        },
+        {
+            "file": "js/mx/xfescandataadapter.js",
+            "line": 15,
+            "itemtype": "method",
+            "name": "get the xrf scan by sessionId and proposalId",
+            "class": "XFEScanDataAdapter"
+        },
+        {
+            "file": "js/mx/xfescandataadapter.js",
+            "line": 22,
+            "itemtype": "method",
+            "name": "get the URL to retrieve the Jpef dynamacally",
+            "class": "XFEScanDataAdapter"
         },
         {
             "file": "js/proposal/labcontactdataadapter.js",

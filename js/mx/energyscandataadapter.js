@@ -22,21 +22,21 @@ EnergyScanDataAdapter.prototype.getEnergyScanListBySessionId = function(sessionI
 /**
 * @method get the URL to retrieve the Jpef produced by Chooch
 */
-WorkflowStepDataAdapter.prototype.getChoochJpegByEnergyScanId = function(energyScanId){
+EnergyScanDataAdapter.prototype.getChoochJpegByEnergyScanId = function(energyScanId){
 	 return this.getUrl('/{token}/proposal/{proposal}/mx/energyscan/energyscanId/{0}/jpegchooch'.format( [energyScanId.toString()]));
 };
 
 /**
 * @method get the URL to retrieve the raw data produced by Chooch
 */
-WorkflowStepDataAdapter.prototype.getChoochFileByEnergyScanId = function(energyScanId){
+EnergyScanDataAdapter.prototype.getChoochFileByEnergyScanId = function(energyScanId){
 	 return this.getUrl('/{token}/proposal/{proposal}/mx/energyscan/energyscanId/{0}/chooch'.format( [energyScanId.toString()]));
 };
 
 /**
 * @method get the URL to retrieve the scan file. It is empty currently!!
 */
-WorkflowStepDataAdapter.prototype.getScanFileByEnergyScanId = function(energyScanId){
+EnergyScanDataAdapter.prototype.getScanFileByEnergyScanId = function(energyScanId){
 	 return this.getUrl('/{token}/proposal/{proposal}/mx/energyscan/energyscanId/{0}/scanfile'.format( [energyScanId.toString()]));
 };
 

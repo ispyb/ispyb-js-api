@@ -50,6 +50,7 @@
                                 <li><a href="../classes/ProteinDataAdapter.html">ProteinDataAdapter</a></li>
                                 <li><a href="../classes/SampleDataAdapter.html">SampleDataAdapter</a></li>
                                 <li><a href="../classes/WorkflowStepDataAdapter.html">WorkflowStepDataAdapter</a></li>
+                                <li><a href="../classes/XFEScanDataAdapter.html">XFEScanDataAdapter</a></li>
                             </ul>
                 
                 
@@ -161,10 +162,18 @@
                                 <a href="#method_getDownloadAttachmentUrl">getDownloadAttachmentUrl</a>
 
                             </li>
+                            <li class="index-item method">
+                                <a href="#method_getDownloadAttachmentUrl">getDownloadAttachmentUrl</a>
+
+                            </li>
                             <li class="index-item method deprecated">
-                                <a href="#method_getPhasingByAutoprocIds">getPhasingByAutoprocIds</a>
+                                <a href="#method_getPhasingByAutoprocIds!~YUIDOC_LINE~!!~YUIDOC_LINE~!AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoprocIds= function(autoProcListId)/proposal/{proposal}/mx/phasing/autoprocid/{0}/list&#x27;.format( [autoProcListId.toString()]));!~YUIDOC_LINE~!};">getPhasingByAutoprocIds!~YUIDOC_LINE~!!~YUIDOC_LINE~!AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoprocIds= function(autoProcListId)/proposal/{proposal}/mx/phasing/autoprocid/{0}/list&#x27;.format( [autoProcListId.toString()]));!~YUIDOC_LINE~!};</a>
 
                                     <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getViewByDataCollectionId">getViewByDataCollectionId</a>
+
                             </li>
                             <li class="index-item method">
                                 <a href="#method_getXScaleAnnoCorrection">getXScaleAnnoCorrection</a>
@@ -219,7 +228,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l16"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:16</code></a>
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l24"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:24</code></a>
         </p>
 
 
@@ -249,7 +258,38 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l79"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:79</code></a>
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l95"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:95</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>It gets the list of attachments linked to a list of autoProcPrograms id</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_getDownloadAttachmentUrl" class="method item">
+    <h3 class="name"><code>getDownloadAttachmentUrl</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l87"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:87</code></a>
         </p>
 
 
@@ -265,8 +305,8 @@
 
 
 </div>
-<div id="method_getPhasingByAutoprocIds" class="method item deprecated">
-    <h3 class="name"><code>getPhasingByAutoprocIds</code></h3>
+<div id="method_getPhasingByAutoprocIds!~YUIDOC_LINE~!!~YUIDOC_LINE~!AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoprocIds= function(autoProcListId)/proposal/{proposal}/mx/phasing/autoprocid/{0}/list&#x27;.format( [autoProcListId.toString()]));!~YUIDOC_LINE~!};" class="method item deprecated">
+    <h3 class="name"><code>getPhasingByAutoprocIds!~YUIDOC_LINE~!!~YUIDOC_LINE~!AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoprocIds= function(autoProcListId)/proposal/{proposal}/mx/phasing/autoprocid/{0}/list&#x27;.format( [autoProcListId.toString()]));!~YUIDOC_LINE~!};</code></h3>
 
         <span class="paren">()</span>
 
@@ -281,7 +321,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l87"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:87</code></a>
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l102"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:102</code></a>
         </p>
 
 
@@ -294,6 +334,60 @@
 
     </div>
 
+
+
+
+</div>
+<div id="method_getViewByDataCollectionId" class="method item">
+    <h3 class="name"><code>getViewByDataCollectionId</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>dataCollectionId</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l15"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:15</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>It retrieves the autoprocessing view from ISPyB</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">dataCollectionId</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>It may be a comma-separated list of data collection ids</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
 
 
 
@@ -313,7 +407,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l71"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:71</code></a>
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l79"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:79</code></a>
         </p>
 
 
@@ -344,7 +438,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l47"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:47</code></a>
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l55"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:55</code></a>
         </p>
 
 
@@ -375,7 +469,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l23"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:23</code></a>
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l31"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:31</code></a>
         </p>
 
 
@@ -406,7 +500,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l39"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:39</code></a>
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l47"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:47</code></a>
         </p>
 
 
@@ -437,7 +531,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l31"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:31</code></a>
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l39"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:39</code></a>
         </p>
 
 
@@ -468,7 +562,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l55"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:55</code></a>
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l63"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:63</code></a>
         </p>
 
 
@@ -499,7 +593,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l63"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:63</code></a>
+        <a href="../files/js_mx_autoprocintegrationdataadapter.js.html#l71"><code>js&#x2F;mx&#x2F;autoprocintegrationdataadapter.js:71</code></a>
         </p>
 
 

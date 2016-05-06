@@ -12,6 +12,14 @@ AutoProcIntegrationDataAdapter.prototype.get = DataAdapter.prototype.get;
 AutoProcIntegrationDataAdapter.prototype.post = DataAdapter.prototype.post;
 AutoProcIntegrationDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
+/**
+* It retrieves the autoprocessing view from ISPyB
+* @method getViewByDataCollectionId
+* @param {String} dataCollectionId It may be a comma-separated list of data collection ids
+*/
+AutoProcIntegrationDataAdapter.prototype.getViewByDataCollectionId= function(dataCollectionId){
+	this.get('/{token}/proposal/{proposal}/mx/autoprocintegration/datacollection/{0}/view'.format( [dataCollectionId]));
+};
 
 /**
 * @method getByDataCollectionId
@@ -81,14 +89,21 @@ AutoProcIntegrationDataAdapter.prototype.getXScaleAnnoCorrection= function(autoP
 * @method getDownloadAttachmentUrl
 */
 AutoProcIntegrationDataAdapter.prototype.getDownloadAttachmentUrl= function(autoProcAttachmentId){
-	return this.getUrl('/{token}/proposal/{proposal}/mx/autoproc/autoprocattachmentid/{0}/download'.format( [autoProcAttachmentId.toString()]));
+	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/autoprocattachmentid/{0}/download'.format( [autoProcAttachmentId.toString()]));
 };
 
 /**
-* It gets the phasing data by autoProcListId
-* @deprecated Use PhasingDataAdapter
-* @method getPhasingByAutoprocIds
+* It gets the list of attachments linked to a list of autoProcPrograms id
+* @method getDownloadAttachmentUrl
 */
-AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoprocIds= function(autoProcListId){
-	 this.get('/{token}/proposal/{proposal}/mx/phasing/autoprocid/{0}/list'.format( [autoProcListId.toString()]));
+AutoProcIntegrationDataAdapter.prototype.getAttachmentListByautoProcProgramsIdList = function(autoProcProgramId){
+	return this.get('/{token}/proposal/{proposal}/mx/autoprocintegration/attachment/autoprocprogramid/{0}/list'.format( [autoProcProgramId.toString()]));
 };
+/**
+* It gets the phasing data by autoProccesingListId
+* @method getPhasingByAutoproccesingIds
+*/
+AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoproccesingIds = function(autoProcListId){
+	 this.get('/{token}/proposal/{proposal}/mx/autoprocintegration/autoprocintegrationid/{0}/phasing'.format( [autoProcListId.toString()]));
+};
+

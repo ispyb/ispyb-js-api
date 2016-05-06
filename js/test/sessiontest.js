@@ -39,7 +39,7 @@ SessionTest.prototype.test = function(token){
                     
 			    assert.ok((data.length>0), "SessionDataAdapter.getSessionByProposalSessionId():" + data.length + "There's at least one session.");
 			}
-        	_this.getDataAdapter(_this.token, callback3).getSessionByProposalSessionId('opid231','43684');
+        	_this.getDataAdapter(_this.token, callback3).getSessionByProposalSessionId('mx415','44019');
 	});
     
 };
