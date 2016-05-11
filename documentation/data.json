@@ -691,7 +691,21 @@
             "file": "js/mx/xfescandataadapter.js",
             "line": 22,
             "itemtype": "method",
-            "name": "get the URL to retrieve the Jpef dynamacally",
+            "name": "get the URL to retrieve the Jpeg dynamacally",
+            "class": "XFEScanDataAdapter"
+        },
+        {
+            "file": "js/mx/xfescandataadapter.js",
+            "line": 38,
+            "itemtype": "method",
+            "name": "get the URL to a file by imageType here imageType is the name of the column",
+            "class": "XFEScanDataAdapter"
+        },
+        {
+            "file": "js/mx/xfescandataadapter.js",
+            "line": 45,
+            "itemtype": "method",
+            "name": "get the URL to the csv File",
             "class": "XFEScanDataAdapter"
         },
         {

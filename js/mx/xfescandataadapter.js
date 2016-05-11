@@ -20,7 +20,7 @@ XFEScanDataAdapter.prototype.getXFEScanListBySessionId = function(sessionId){
 };
 
 /**
-* @method get the URL to retrieve the Jpef dynamacally
+* @method get the URL to retrieve the Jpeg dynamacally
 */
 XFEScanDataAdapter.prototype.getXFEJpegByScanId = function(xfeScanId){
 	 return this.getImage(xfeScanId, 'jpegScanFileFullPath');
@@ -35,6 +35,16 @@ XFEScanDataAdapter.prototype.getScanFileScanId = function(xfeScanId){
 	 return this.getFile(xfeScanId, 'scanFileFullPath');
 };
 
+/**
+* @method get the URL to a file by imageType here imageType is the name of the column
+*/
 XFEScanDataAdapter.prototype.getFile = function(xfeScanId, imageType){
 	 return this.getUrl('/{token}/proposal/{proposal}/mx/xrfscan/xrfscanId/{0}/file/{1}}/get'.format( [xfeScanId.toString(), imageType.toString()]));
+};
+
+/**
+* @method get the URL to the csv File
+*/
+XFEScanDataAdapter.prototype.getFile = function(xfeScanId){
+	 return this.getUrl('/{token}/proposal/{proposal}/mx/xrfscan/xrfscanId/{0}/csv'.format( [xfeScanId.toString()]));
 };
