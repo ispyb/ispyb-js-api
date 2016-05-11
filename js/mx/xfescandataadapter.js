@@ -45,6 +45,6 @@ XFEScanDataAdapter.prototype.getFile = function(xfeScanId, imageType){
 /**
 * @method get the URL to the csv File
 */
-XFEScanDataAdapter.prototype.getFile = function(xfeScanId){
+XFEScanDataAdapter.prototype.getCSV = function(xfeScanId){
 	 return this.getUrl('/{token}/proposal/{proposal}/mx/xrfscan/xrfscanId/{0}/csv'.format( [xfeScanId.toString()]));
 };
