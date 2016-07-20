@@ -501,6 +501,13 @@
             "file": "js/mx/datacollectiondataadapter.js",
             "line": 63,
             "itemtype": "method",
+            "name": "getWilsonPlot",
+            "class": "DataCollectionDataAdapter"
+        },
+        {
+            "file": "js/mx/datacollectiondataadapter.js",
+            "line": 71,
+            "itemtype": "method",
             "name": "getCrystalSnapshotByDataCollectionId",
             "class": "DataCollectionDataAdapter"
         },
@@ -626,6 +633,21 @@
             "file": "js/mx/phasingdataadapter.js",
             "line": 73,
             "description": "It retrieves the phasing files by phasing step",
+            "itemtype": "method",
+            "name": "getPhasingFilesByPhasingStepId",
+            "params": [
+                {
+                    "name": "phasingStepId",
+                    "description": "It may be a comma-separated list of session ids",
+                    "type": "String"
+                }
+            ],
+            "class": "PhasingDataAdapter"
+        },
+        {
+            "file": "js/mx/phasingdataadapter.js",
+            "line": 82,
+            "description": "It downloads a phasing file by phasing step attachment id",
             "itemtype": "method",
             "name": "getPhasingFilesByPhasingStepId",
             "params": [
@@ -914,7 +936,7 @@
         },
         {
             "file": "js/dataadapter.js",
-            "line": 124,
+            "line": 126,
             "description": "This method makes a ajax call of type POST",
             "itemtype": "method",
             "name": "post",
@@ -934,7 +956,7 @@
         },
         {
             "file": "js/dataadapter.js",
-            "line": 168,
+            "line": 175,
             "description": "This allows to replace a subset of characters on a string",
             "class": "DataAdapter"
         },
@@ -1036,7 +1058,7 @@
         },
         {
             "message": "Missing item type\nThis allows to replace a subset of characters on a string",
-            "line": " js/dataadapter.js:168"
+            "line": " js/dataadapter.js:175"
         }
     ]
 }

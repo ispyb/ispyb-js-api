@@ -78,3 +78,12 @@ PhasingDataAdapter.prototype.getPhasingViewByPhasingStepId = function(phasingSte
 PhasingDataAdapter.prototype.getPhasingFilesByPhasingStepId = function(phasingStepId){
 	this.get('/{token}/proposal/{proposal}/mx/phasing/phasingStepId/{0}/files'.format( [phasingStepId]));
 };
+
+/**
+* It downloads a phasing file by phasing step attachment id
+* @method getPhasingFilesByPhasingStepId
+* @param {String} phasingStepId It may be a comma-separated list of session ids
+*/
+PhasingDataAdapter.prototype.downloadPhasingFilesByPhasingAttachmentId = function(phasingAttachmentId){
+	return this.getUrl('/{token}/proposal/{proposal}/mx/phasing/phasingProgramAttachmentId/{0}/download'.format( [phasingAttachmentId]));
+};

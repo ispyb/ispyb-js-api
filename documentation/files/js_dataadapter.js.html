@@ -206,9 +206,11 @@ DataAdapter.prototype.get = function(url){
 		            }
 		        },
 			  success: function(data){ 
+                  
 				  _this.onSuccess.notify(data);
 			  },
 			  error: function(error){
+                  
 				  _this.onError.notify(error);
 				   
 			  }
@@ -230,16 +232,20 @@ DataAdapter.prototype.post = function(url, data){
 		  type: &quot;POST&quot;,
 		  async : this.async,
            statusCode: {
-                   401 : function(){                      
+                   401 : function(){     
+                                        
 		            	_this.onError.notify(&#x27;401 Unauthorized&#x27;);
 		            },
 		            404 : function(){
+                        
 		            	_this.onError.notify(&#x27;404 : not found&#x27;);
 		            },
 		            415 : function(){
+                        
 		                _this.onError.notify(&#x27;415 : type not allowed&#x27;);
 		            },
 		            500 : function(){
+                        
 		                _this.onError.notify(&#x27;500 : internal server error&#x27;);
 		            }
 		        },
@@ -250,6 +256,7 @@ DataAdapter.prototype.post = function(url, data){
 			 
 		  },
 		  error: function(error){
+              
 			  _this.onError.notify(error);
 			 
 		  }

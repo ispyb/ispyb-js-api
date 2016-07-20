@@ -116,21 +116,21 @@ DataCollectionDataAdapter.prototype.getBySessionsId= function(sessionsId){
 * @method getByDataCollectionId
 */
 DataCollectionDataAdapter.prototype.getByDataCollectionId= function(dataColletionIds){
-	 this.get(&#x27;/{token}/proposal/{proposal}/mx/datacollection/{0}/get&#x27;.format( [dataColletionIds.toString()]));
+	 this.get(&#x27;/{token}/proposal/{proposal}/mx/datacollection/{0}/list&#x27;.format( [dataColletionIds.toString()]));
 };
 
 /**
 * @method getByAcronymList
 */
 DataCollectionDataAdapter.prototype.getByAcronymList= function(acronymList){
-	 this.get(&#x27;/{token}/proposal/{proposal}/mx/datacollection/protein_acronym/{0}/view&#x27;.format( [acronymList.toString()]));
+	 this.get(&#x27;/{token}/proposal/{proposal}/mx/datacollection/protein_acronym/{0}/list&#x27;.format( [acronymList.toString()]));
 };
 
 /**
 * @method getDataCollectionViewBySessionId
 */
 DataCollectionDataAdapter.prototype.getDataCollectionViewBySessionId= function(sessionId){
-	 this.get(&#x27;/{token}/proposal/{proposal}/mx/datacollection/session/{0}/view&#x27;.format( [sessionId.toString()]));
+	 this.get(&#x27;/{token}/proposal/{proposal}/mx/datacollection/session/{0}/list&#x27;.format( [sessionId.toString()]));
 };
 
 /**
@@ -153,6 +153,14 @@ DataCollectionDataAdapter.prototype.getImageById= function(imageId){
 DataCollectionDataAdapter.prototype.getWilsonPlot= function(dataCollectionId){
 	return this.getUrl(&#x27;/{token}/proposal/{proposal}/mx/datacollection/{0}/wilson&#x27;.format([ dataCollectionId]));
 };
+
+/**
+* @method getWilsonPlot
+*/
+DataCollectionDataAdapter.prototype.getQualityIndicatorPlot= function(dataCollectionId){
+	return this.getUrl(&#x27;/{token}/proposal/{proposal}/mx/datacollection/{0}/qualityindicatorplot&#x27;.format([ dataCollectionId]));
+};
+
 
 /**
 * @method getCrystalSnapshotByDataCollectionId

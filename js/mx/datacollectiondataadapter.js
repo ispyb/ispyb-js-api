@@ -22,21 +22,21 @@ DataCollectionDataAdapter.prototype.getBySessionsId= function(sessionsId){
 * @method getByDataCollectionId
 */
 DataCollectionDataAdapter.prototype.getByDataCollectionId= function(dataColletionIds){
-	 this.get('/{token}/proposal/{proposal}/mx/datacollection/{0}/get'.format( [dataColletionIds.toString()]));
+	 this.get('/{token}/proposal/{proposal}/mx/datacollection/{0}/list'.format( [dataColletionIds.toString()]));
 };
 
 /**
 * @method getByAcronymList
 */
 DataCollectionDataAdapter.prototype.getByAcronymList= function(acronymList){
-	 this.get('/{token}/proposal/{proposal}/mx/datacollection/protein_acronym/{0}/view'.format( [acronymList.toString()]));
+	 this.get('/{token}/proposal/{proposal}/mx/datacollection/protein_acronym/{0}/list'.format( [acronymList.toString()]));
 };
 
 /**
 * @method getDataCollectionViewBySessionId
 */
 DataCollectionDataAdapter.prototype.getDataCollectionViewBySessionId= function(sessionId){
-	 this.get('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/view'.format( [sessionId.toString()]));
+	 this.get('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/list'.format( [sessionId.toString()]));
 };
 
 /**
@@ -59,6 +59,14 @@ DataCollectionDataAdapter.prototype.getImageById= function(imageId){
 DataCollectionDataAdapter.prototype.getWilsonPlot= function(dataCollectionId){
 	return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/{0}/wilson'.format([ dataCollectionId]));
 };
+
+/**
+* @method getWilsonPlot
+*/
+DataCollectionDataAdapter.prototype.getQualityIndicatorPlot= function(dataCollectionId){
+	return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/{0}/qualityindicatorplot'.format([ dataCollectionId]));
+};
+
 
 /**
 * @method getCrystalSnapshotByDataCollectionId

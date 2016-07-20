@@ -25,3 +25,14 @@ DewarDataAdapter.prototype.getDewarsByProposal = function(){
 DewarDataAdapter.prototype.getDewarsByStatus = function(status){
 	this.get(('/{token}/proposal/{proposal}/dewar/status/{0}/list'.format( [status])));
 };
+
+DewarDataAdapter.prototype.getDewarsBySessionId = function(sessionId){
+	this.get('/{token}/proposal/{proposal}/dewar/session/{0}/list'.format( [sessionId]));
+};
+
+DewarDataAdapter.prototype.updateSampleLocation = function(containerIdList, beamlineList, sampleLocation){
+	this.get('/{token}/proposal/{proposal}/container/{0}/beamline/{1}/samplechangerlocation/{2}/update'.format( [containerIdList,beamlineList,sampleLocation]));
+};
+
+
+

@@ -42,6 +42,11 @@ ShippingDataAdapter.prototype.addPuck = function(shippingId, dewarId){
 	this.get('/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/puck/add'.format([shippingId, dewarId]));
 };
 
+ShippingDataAdapter.prototype.updateStatus = function(shippingId, status){	
+    this.get('/{token}/proposal/{proposal}/shipping/{0}/status/{1}/update'.format([shippingId, status]));   
+};
+
+
 ShippingDataAdapter.prototype.getContainerById = function(shippingId, dewarId, containerId){
 	this.get('/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/puck/{2}/get'.format([shippingId, dewarId, containerId]));
 };
