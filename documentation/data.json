@@ -350,13 +350,28 @@
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
             "line": 24,
+            "description": "It retrieves the URL of autoprocessing view from ISPyB",
+            "itemtype": "method",
+            "name": "getViewByDataCollectionId",
+            "params": [
+                {
+                    "name": "dataCollectionId",
+                    "description": "It may be a comma-separated list of data collection ids",
+                    "type": "String"
+                }
+            ],
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js/mx/autoprocintegrationdataadapter.js",
+            "line": 34,
             "itemtype": "method",
             "name": "getByDataCollectionId",
             "class": "AutoProcIntegrationDataAdapter"
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 31,
+            "line": 41,
             "description": "It gets the URL for getting the completeness of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleCompleteness",
@@ -364,7 +379,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 39,
+            "line": 49,
             "description": "It gets the URL for getting the RFactor of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleRfactor",
@@ -372,7 +387,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 47,
+            "line": 57,
             "description": "It gets the URL for getting the ISigma of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleISigma",
@@ -380,7 +395,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 55,
+            "line": 65,
             "description": "It gets the URL for getting the CC2 of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleCC2",
@@ -388,7 +403,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 63,
+            "line": 73,
             "description": "It gets the URL for getting the SigmaAnp of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleSigmaAno",
@@ -396,7 +411,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 71,
+            "line": 81,
             "description": "It gets the URL for getting the Wilson of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleWilson",
@@ -404,7 +419,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 79,
+            "line": 89,
             "description": "It gets the URL for getting the AnnoCorrection of XScale by a list autoprocintegration Id",
             "itemtype": "method",
             "name": "getXScaleAnnoCorrection",
@@ -412,7 +427,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 87,
+            "line": 97,
             "description": "It gets the URL for downloading an attachement from an autoProcAttachmentId",
             "itemtype": "method",
             "name": "getDownloadAttachmentUrl",
@@ -420,7 +435,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 95,
+            "line": 105,
             "description": "It gets the list of attachments linked to a list of autoProcPrograms id",
             "itemtype": "method",
             "name": "getDownloadAttachmentUrl",
@@ -428,7 +443,15 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 102,
+            "line": 113,
+            "description": "It gets the URL of the list of attachments linked to a list of autoProcPrograms id",
+            "itemtype": "method",
+            "name": "getDownloadAttachmentUrl",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js/mx/autoprocintegrationdataadapter.js",
+            "line": 122,
             "description": "It gets the phasing data by autoProccesingListId",
             "itemtype": "method",
             "name": "getPhasingByAutoproccesingIds",
