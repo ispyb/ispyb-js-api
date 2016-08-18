@@ -26,6 +26,6 @@ SessionDataAdapter.prototype.getSessionsByDateAndBeamline = function(startDate, 
 	this.get('/{token}/proposal/session/date/{0}/{1}/list?beamline={2}'.format([startDate, endDate, beamline]));
 };
 
-SessionDataAdapter.prototype.getSessionsByProposalAndDate = function(proposal, startDate, endDate){
-	this.get('/{token}/proposal/{0}/session/date/{1}/{2}/list'.format([startDate, endDate, beamline]));
+SessionDataAdapter.prototype.getSessionsByProposalAndDate = function(startDate, endDate, proposal){
+	this.get('/{token}/proposal/{0}/session/date/{1}/{2}/list'.format([proposal, startDate, endDate]));
 };
