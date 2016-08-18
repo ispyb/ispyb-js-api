@@ -2,6 +2,11 @@
 
 ### Session
 
+#### getSessions()
+
+It retrieves a list of sessions of a given proposal 
+* /{token}/proposal/{proposal}/session/list
+
 |Name   | URL           | Comments      | 
 |-------| ------------- |:-------------:| 
 |getSessions()| /{token}/proposal/{proposal}/session/list|  | 
