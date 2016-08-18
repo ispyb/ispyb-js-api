@@ -15,13 +15,17 @@ SessionDataAdapter.prototype.getSessionsByProposal = function(proposal){
 };
 
 SessionDataAdapter.prototype.getSessionByProposalSessionId = function(proposal, sessionId){
-	this.get('/{token}/proposal/{0}/session/{1}/list'.format([proposal, sessionId]));
+	this.get('/{token}/proposal/{0}/session/sessionId/{1}/list'.format([proposal, sessionId]));
 };
 
 SessionDataAdapter.prototype.getSessionsByDate = function(startDate, endDate){
-	this.get('/{token}/proposal/session/{0}/{1}/list'.format([startDate, endDate]));
+	this.get('/{token}/proposal/session/date/{0}/{1}/list'.format([startDate, endDate]));
 };
 
 SessionDataAdapter.prototype.getSessionsByDateAndBeamline = function(startDate, endDate, beamline){
-	this.get('/{token}/proposal/session/{0}/{1}/list?beamline={2}'.format([startDate, endDate, beamline]));
+	this.get('/{token}/proposal/session/date/{0}/{1}/list?beamline={2}'.format([startDate, endDate, beamline]));
+};
+
+SessionDataAdapter.prototype.getSessionsByProposalAndDate = function(proposal, startDate, endDate){
+	this.get('/{token}/proposal/{0}/session/date/{1}/{2}/list'.format([startDate, endDate, beamline]));
 };
