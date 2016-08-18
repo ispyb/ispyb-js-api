@@ -60,7 +60,7 @@ Output:
       "databackupEurope":null,
       "dewarTransport":null,
       "sessionId":49828,
-      "Person_emailAddress":"monaco@esrf.fr",
+      "Person_emailAddress":"mon@esrf.fr",
       "expSessionPk":null,
       "beamLineSetupId":1049619,
       "Proposal_proposalCode":"MX",
