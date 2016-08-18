@@ -22,24 +22,27 @@ It retrieves a list of sessions by sessionId
 
 #### getSessionsByDate(startDate, endDate)
 It retrieves a list of sessions by start and end date 
+Format of start and end date is YYYYMMDD
 ```
 /{token}/proposal/session/date/{startDate}/{endDate}/list
 ```
-**Format of start and end date is YYYYMMDD** 
+
 
 #### getSessionsByDateAndBeamline(startDate, endDate, beamline)
 It retrieves a list of sessions by start, end and beamline 
+Format of start and end date is YYYYMMDD
 ```
 /{token}/proposal/session/date/{startDate}/{endDate}/list?beamline={2}
 ```
-**Format of start and end date is YYYYMMDD**
+
 
 #### getSessionsByProposalAndDate(startDate, endDate, proposal)
 It retrieves a list of sessions by start, end and proposal 
+Format of start and end date is YYYYMMDD
 ```
 /{token}/proposal/{proposal}/session/date/{startDate}/{endDate}/list
 ```
-**Format of start and end date is YYYYMMDD**
+
 
 
  
