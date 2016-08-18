@@ -44,10 +44,7 @@ Format of start and end date is YYYYMMDD
 ```
 
 ```js
-   {
-       "name" : 'test', 
-       "number" : 5
-       
+   {       "name" : 'test',"number" : 5      
    }
 ```
 
