@@ -535,6 +535,13 @@
             "class": "DataCollectionDataAdapter"
         },
         {
+            "file": "js/mx/datacollectiondataadapter.js",
+            "line": 79,
+            "itemtype": "method",
+            "name": "getDataCollectionByDataCollectionGroupId",
+            "class": "DataCollectionDataAdapter"
+        },
+        {
             "file": "js/mx/energyscandataadapter.js",
             "line": 15,
             "itemtype": "method",
@@ -959,7 +966,7 @@
         },
         {
             "file": "js/dataadapter.js",
-            "line": 126,
+            "line": 127,
             "description": "This method makes a ajax call of type POST",
             "itemtype": "method",
             "name": "post",
@@ -979,7 +986,7 @@
         },
         {
             "file": "js/dataadapter.js",
-            "line": 175,
+            "line": 176,
             "description": "This allows to replace a subset of characters on a string",
             "class": "DataAdapter"
         },
@@ -1081,7 +1088,7 @@
         },
         {
             "message": "Missing item type\nThis allows to replace a subset of characters on a string",
-            "line": " js/dataadapter.js:175"
+            "line": " js/dataadapter.js:176"
         }
     ]
 }

@@ -102,9 +102,11 @@ DataAdapter.prototype.get = function(url){
 		            	_this.onError.notify('401 Unauthorized');
 		            },
 		            404 : function(){
+                        
 		            	_this.onError.notify('404 : not found');
 		            },
 		            415 : function(){
+                        
 		                _this.onError.notify('415 : type not allowed');
 		            },
 		            500 : function(){
@@ -115,10 +117,9 @@ DataAdapter.prototype.get = function(url){
                   
 				  _this.onSuccess.notify(data);
 			  },
-			  error: function(error){
+			  error: function(error, message){
                   
 				  _this.onError.notify(error);
-				   
 			  }
 			});
 };

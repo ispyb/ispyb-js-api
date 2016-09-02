@@ -76,6 +76,12 @@ DataCollectionDataAdapter.prototype.getCrystalSnapshotByDataCollectionId= functi
 };
 
 
+/**
+* @method getDataCollectionByDataCollectionGroupId 
+*/
+DataCollectionDataAdapter.prototype.getDataCollectionsByDataCollectionGroupId = function(datacollectiongroupid){	
+    this.get('/{token}/proposal/{proposal}/mx/datacollection/datacollectiongroupid/{0}/list'.format([ datacollectiongroupid.toString()]));
+};
 
 
 
