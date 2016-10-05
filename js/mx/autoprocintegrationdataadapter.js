@@ -111,6 +111,15 @@ AutoProcIntegrationDataAdapter.prototype.getAttachmentListByautoProcProgramsIdLi
 };
 
 /**
+* It download a zipwith the list of attachments linked to a list of autoProcPrograms id
+* @method downloadAttachmentListByautoProcProgramsIdList
+*/
+AutoProcIntegrationDataAdapter.prototype.downloadAttachmentListByautoProcProgramsIdList = function(autoProcProgramId){
+	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/attachment/autoprocprogramid/{0}/download'.format( [autoProcProgramId.toString()]));
+};
+
+
+/**
 * It gets the URL of the list of attachments linked to a list of autoProcPrograms id
 * @method getDownloadAttachmentUrl
 */
