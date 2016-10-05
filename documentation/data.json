@@ -444,6 +444,14 @@
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
             "line": 113,
+            "description": "It download a zipwith the list of attachments linked to a list of autoProcPrograms id",
+            "itemtype": "method",
+            "name": "downloadAttachmentListByautoProcProgramsIdList",
+            "class": "AutoProcIntegrationDataAdapter"
+        },
+        {
+            "file": "js/mx/autoprocintegrationdataadapter.js",
+            "line": 122,
             "description": "It gets the URL of the list of attachments linked to a list of autoProcPrograms id",
             "itemtype": "method",
             "name": "getDownloadAttachmentUrl",
@@ -451,7 +459,7 @@
         },
         {
             "file": "js/mx/autoprocintegrationdataadapter.js",
-            "line": 122,
+            "line": 131,
             "description": "It gets the phasing data by autoProccesingListId",
             "itemtype": "method",
             "name": "getPhasingByAutoproccesingIds",
