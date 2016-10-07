@@ -26,7 +26,7 @@ SampleDataAdapter.prototype.getSampleInfoByCrystalId = function(crystalId){
 };
 
 SampleDataAdapter.prototype.getSampleInfoByProposalId = function(){
-	 this.get('/{token}/proposal/{proposal}/mx/sampleinfo/list');
+	 this.get('/{token}/proposal/{proposal}/mx/sample/list');
 };
 
 
