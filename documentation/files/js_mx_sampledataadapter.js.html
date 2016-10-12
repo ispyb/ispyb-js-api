@@ -123,9 +123,21 @@ SampleDataAdapter.prototype.getSampleInfoByProposalId = function(){
 	 this.get(&#x27;/{token}/proposal/{proposal}/mx/sample/list&#x27;);
 };
 
+SampleDataAdapter.prototype.getSamplesByDewarId = function(dewarId){
+	 this.get(&#x27;/{token}/proposal/{proposal}/mx/sample/dewarid/{0}/list&#x27;.format( [dewarId]));
+};
 
+SampleDataAdapter.prototype.getSamplesByContainerId = function(containerid){
+	 this.get(&#x27;/{token}/proposal/{proposal}/mx/sample/containerid/{0}/list&#x27;.format( [containerid]));
+};
 
+SampleDataAdapter.prototype.getSamplesBySessionId = function(sessionid){
+	 this.get(&#x27;/{token}/proposal/{proposal}/mx/sample/sessionid/{0}/list&#x27;.format( [sessionid]));
+};
 
+SampleDataAdapter.prototype.getSamplesByShipmentId = function(shipmentid){
+	 this.get(&#x27;/{token}/proposal/{proposal}/mx/sample/shipmentid/{0}/list&#x27;.format( [shipmentid]));
+};
 
 
 
