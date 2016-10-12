@@ -29,9 +29,21 @@ SampleDataAdapter.prototype.getSampleInfoByProposalId = function(){
 	 this.get('/{token}/proposal/{proposal}/mx/sample/list');
 };
 
+SampleDataAdapter.prototype.getSamplesByDewarId = function(dewarId){
+	 this.get('/{token}/proposal/{proposal}/mx/sample/dewarid/{0}/list'.format( [dewarId]));
+};
 
+SampleDataAdapter.prototype.getSamplesByContainerId = function(containerid){
+	 this.get('/{token}/proposal/{proposal}/mx/sample/containerid/{0}/list'.format( [containerid]));
+};
 
+SampleDataAdapter.prototype.getSamplesBySessionId = function(sessionid){
+	 this.get('/{token}/proposal/{proposal}/mx/sample/sessionid/{0}/list'.format( [sessionid]));
+};
 
+SampleDataAdapter.prototype.getSamplesByShipmentId = function(shipmentid){
+	 this.get('/{token}/proposal/{proposal}/mx/sample/shipmentid/{0}/list'.format( [shipmentid]));
+};
 
 
 
