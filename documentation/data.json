@@ -612,6 +612,21 @@
             "line": 36,
             "description": "It retrieves the phasing view",
             "itemtype": "method",
+            "name": "getPhasingViewByDataCollectionId",
+            "params": [
+                {
+                    "name": "dataCollectionGroupId",
+                    "description": "It may be a comma-separated list of data dataCollection Group",
+                    "type": "String"
+                }
+            ],
+            "class": "PhasingDataAdapter"
+        },
+        {
+            "file": "js/mx/phasingdataadapter.js",
+            "line": 46,
+            "description": "It retrieves the phasing view",
+            "itemtype": "method",
             "name": "getPhasingViewBySampleId",
             "params": [
                 {
@@ -624,7 +639,7 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 45,
+            "line": 55,
             "description": "It retrieves the phasing view",
             "itemtype": "method",
             "name": "getPhasingViewByProteinId",
@@ -639,7 +654,7 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 54,
+            "line": 64,
             "description": "It retrieves the phasing view",
             "itemtype": "method",
             "name": "getPhasingViewBySessionId",
@@ -654,7 +669,7 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 63,
+            "line": 73,
             "description": "It retrieves the phasing view",
             "itemtype": "method",
             "name": "getPhasingViewByPhasingStepId",
@@ -669,7 +684,22 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 73,
+            "line": 82,
+            "description": "It retrieves the phasing view",
+            "itemtype": "method",
+            "name": "getPhasingViewByPhasingStepId",
+            "params": [
+                {
+                    "name": "phasingStepId",
+                    "description": "It may be a comma-separated list of session ids",
+                    "type": "String"
+                }
+            ],
+            "class": "PhasingDataAdapter"
+        },
+        {
+            "file": "js/mx/phasingdataadapter.js",
+            "line": 91,
             "description": "It retrieves the phasing files by phasing step",
             "itemtype": "method",
             "name": "getPhasingFilesByPhasingStepId",
@@ -684,8 +714,23 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 82,
+            "line": 100,
             "description": "It downloads a phasing file by phasing step attachment id",
+            "itemtype": "method",
+            "name": "getPhasingFilesByPhasingStepId",
+            "params": [
+                {
+                    "name": "phasingStepId",
+                    "description": "It may be a comma-separated list of session ids",
+                    "type": "String"
+                }
+            ],
+            "class": "PhasingDataAdapter"
+        },
+        {
+            "file": "js/mx/phasingdataadapter.js",
+            "line": 109,
+            "description": "It downloads a csv file by phasing step attachment id",
             "itemtype": "method",
             "name": "getPhasingFilesByPhasingStepId",
             "params": [

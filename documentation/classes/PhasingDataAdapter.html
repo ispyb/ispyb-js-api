@@ -163,11 +163,23 @@
 
                             </li>
                             <li class="index-item method">
+                                <a href="#method_getPhasingFilesByPhasingStepId">getPhasingFilesByPhasingStepId</a>
+
+                            </li>
+                            <li class="index-item method">
                                 <a href="#method_getPhasingViewByAutoProcIntegrationId">getPhasingViewByAutoProcIntegrationId</a>
 
                             </li>
                             <li class="index-item method">
                                 <a href="#method_getPhasingViewByDataCollectionId">getPhasingViewByDataCollectionId</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getPhasingViewByDataCollectionId">getPhasingViewByDataCollectionId</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getPhasingViewByPhasingStepId">getPhasingViewByPhasingStepId</a>
 
                             </li>
                             <li class="index-item method">
@@ -217,7 +229,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_phasingdataadapter.js.html#l73"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:73</code></a>
+        <a href="../files/js_mx_phasingdataadapter.js.html#l109"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:109</code></a>
         </p>
 
 
@@ -225,7 +237,7 @@
     </div>
 
     <div class="description">
-        <p>It retrieves the phasing files by phasing step</p>
+        <p>It downloads a csv file by phasing step attachment id</p>
 
     </div>
 
@@ -271,7 +283,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_phasingdataadapter.js.html#l82"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:82</code></a>
+        <a href="../files/js_mx_phasingdataadapter.js.html#l100"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:100</code></a>
         </p>
 
 
@@ -280,6 +292,60 @@
 
     <div class="description">
         <p>It downloads a phasing file by phasing step attachment id</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">phasingStepId</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>It may be a comma-separated list of session ids</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_getPhasingFilesByPhasingStepId" class="method item">
+    <h3 class="name"><code>getPhasingFilesByPhasingStepId</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>phasingStepId</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_mx_phasingdataadapter.js.html#l91"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:91</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>It retrieves the phasing files by phasing step</p>
 
     </div>
 
@@ -412,6 +478,60 @@
 
 
 </div>
+<div id="method_getPhasingViewByDataCollectionId" class="method item">
+    <h3 class="name"><code>getPhasingViewByDataCollectionId</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>dataCollectionGroupId</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_mx_phasingdataadapter.js.html#l36"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:36</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>It retrieves the phasing view</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">dataCollectionGroupId</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>It may be a comma-separated list of data dataCollection Group</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
 <div id="method_getPhasingViewByPhasingStepId" class="method item">
     <h3 class="name"><code>getPhasingViewByPhasingStepId</code></h3>
 
@@ -433,7 +553,61 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_phasingdataadapter.js.html#l63"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:63</code></a>
+        <a href="../files/js_mx_phasingdataadapter.js.html#l73"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:73</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>It retrieves the phasing view</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">phasingStepId</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>It may be a comma-separated list of session ids</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_getPhasingViewByPhasingStepId" class="method item">
+    <h3 class="name"><code>getPhasingViewByPhasingStepId</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>phasingStepId</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_mx_phasingdataadapter.js.html#l82"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:82</code></a>
         </p>
 
 
@@ -487,7 +661,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_phasingdataadapter.js.html#l45"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:45</code></a>
+        <a href="../files/js_mx_phasingdataadapter.js.html#l55"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:55</code></a>
         </p>
 
 
@@ -541,7 +715,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_phasingdataadapter.js.html#l36"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:36</code></a>
+        <a href="../files/js_mx_phasingdataadapter.js.html#l46"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:46</code></a>
         </p>
 
 
@@ -595,7 +769,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_phasingdataadapter.js.html#l54"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:54</code></a>
+        <a href="../files/js_mx_phasingdataadapter.js.html#l64"><code>js&#x2F;mx&#x2F;phasingdataadapter.js:64</code></a>
         </p>
 
 
