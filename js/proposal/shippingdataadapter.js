@@ -43,7 +43,7 @@ ShippingDataAdapter.prototype.addPuck = function(shippingId, dewarId){
 };
 
 ShippingDataAdapter.prototype.addContainer = function(shippingId, dewarId, containerType, capacity){
-	this.get('/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/container/add'.format([shippingId, dewarId, containerType, capacity]));
+	this.get('/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/containerType/{2}/capacity/{3}/container/add'.format([shippingId, dewarId, containerType, capacity]));
 };
 
 ShippingDataAdapter.prototype.updateStatus = function(shippingId, status){	
