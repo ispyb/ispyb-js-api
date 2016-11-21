@@ -31,7 +31,7 @@ DewarDataAdapter.prototype.getDewarsBySessionId = function(sessionId){
 };
 
 DewarDataAdapter.prototype.updateSampleLocation = function(containerIdList, beamlineList, sampleLocation){
-	this.get('/{token}/proposal/{proposal}/container/{0}/beamline/{1}/samplechangerlocation/{2}/update'.format( [containerIdList,beamlineList,sampleLocation]));
+	this.post('/{token}/proposal/{proposal}/container/{0}/beamline/{1}/samplechangerlocation/update'.format( [containerIdList,beamlineList]), {sampleChangerLocation :sampleLocation});
 };
 
 
