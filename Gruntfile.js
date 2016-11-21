@@ -87,8 +87,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-yuidoc');
   grunt.loadNpmTasks('grunt-plato');
   grunt.task.registerTask('doc', ['yuidoc:compile']);
-  grunt.task.registerTask('report', ['plato:prod']);
-  grunt.task.registerTask('default', ['jshint:prod' ,  'concat:prod', 'uglify:prod', 'yuidoc:compile']);
+  grunt.task.registerTask('report', ['plato']);
+  grunt.task.registerTask('default', ['plato:prod', 'jshint:prod' ,  'concat:prod', 'uglify:prod', 'yuidoc:compile']);
   grunt.task.registerTask('dev', ['jshint:prod' ,  'concat:prod', 'includeSource:dev']);
   
 };

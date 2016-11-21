@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">91.78</p>
+      <p class="stat">91.46</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">74</p>
+      <p class="stat">110</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">8.15</p>
+      <p class="stat">10.61</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">0.31</p>
+      <p class="stat">0.49</p>
     </div>
   </div>
 </div>
@@ -112,7 +112,7 @@ PhasingDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 * @param {String} autoprocIntegrationId It may be a comma-separated list of autoprocIntegrationId
 */
 PhasingDataAdapter.prototype.getPhasingViewByAutoProcIntegrationId = function(autoprocIntegrationId){
-	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/autoprocIntegrationId/{0}/list&#039;.format( [autoprocIntegrationId]));
+	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/autoprocintegrationid/{0}/list&#039;.format( [autoprocIntegrationId]));
 };
 
 /**
@@ -121,8 +121,18 @@ PhasingDataAdapter.prototype.getPhasingViewByAutoProcIntegrationId = function(au
 * @param {String} dataCollectionId It may be a comma-separated list of data collections
 */
 PhasingDataAdapter.prototype.getPhasingViewByDataCollectionId = function(dataCollectionId){
-	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/dataCollectionId/{0}/list&#039;.format( [dataCollectionId]));
+	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/datacollectionid/{0}/list&#039;.format( [dataCollectionId]));
 };
+
+/**
+* It retrieves the phasing view
+* @method getPhasingViewByDataCollectionId
+* @param {String} dataCollectionGroupId It may be a comma-separated list of data dataCollection Group
+*/
+PhasingDataAdapter.prototype.getPhasingViewByDataCollectionGroupId = function(dataCollectionGroupId){
+	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/datacollectiongroupid/{0}/list&#039;.format( [dataCollectionGroupId]));
+};
+
 
 /**
 * It retrieves the phasing view
@@ -130,7 +140,7 @@ PhasingDataAdapter.prototype.getPhasingViewByDataCollectionId = function(dataCol
 * @param {String} sampleId It may be a comma-separated list of sample ids
 */
 PhasingDataAdapter.prototype.getPhasingViewBySampleId = function(sampleId){
-	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/sampleId/{0}/list&#039;.format( [sampleId]));
+	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/sampleid/{0}/list&#039;.format( [sampleId]));
 };
 
 /**
@@ -139,7 +149,7 @@ PhasingDataAdapter.prototype.getPhasingViewBySampleId = function(sampleId){
 * @param {String} proteinId It may be a comma-separated list of protein ids
 */
 PhasingDataAdapter.prototype.getPhasingViewByProteinId = function(proteinId){
-	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/proteinId/{0}/list&#039;.format( [proteinId]));
+	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/proteinid/{0}/list&#039;.format( [proteinId]));
 };
 
 /**
@@ -148,7 +158,7 @@ PhasingDataAdapter.prototype.getPhasingViewByProteinId = function(proteinId){
 * @param {String} sessionId It may be a comma-separated list of session ids
 */
 PhasingDataAdapter.prototype.getPhasingViewBySessionId = function(sessionId){
-	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/sessionId/{0}/list&#039;.format( [sessionId]));
+	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/sessionid/{0}/list&#039;.format( [sessionId]));
 };
 
 /**
@@ -157,9 +167,17 @@ PhasingDataAdapter.prototype.getPhasingViewBySessionId = function(sessionId){
 * @param {String} phasingStepId It may be a comma-separated list of session ids
 */
 PhasingDataAdapter.prototype.getPhasingViewByPhasingStepId = function(phasingStepId){
-	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/phasingStepId/{0}/list&#039;.format( [phasingStepId]));
+	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/phasingstepid/{0}/list&#039;.format( [phasingStepId]));
 };
 
+/**
+* It retrieves the phasing view
+* @method getPhasingViewByPhasingStepId
+* @param {String} phasingStepId It may be a comma-separated list of session ids
+*/
+PhasingDataAdapter.prototype.getDownloadFilesByPhasingStepIdURL = function(phasingStepId){
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/phasing/phasingstepid/{0}/download&#039;.format( [phasingStepId]));
+};
 
 /**
 * It retrieves the phasing files by phasing step
@@ -167,7 +185,25 @@ PhasingDataAdapter.prototype.getPhasingViewByPhasingStepId = function(phasingSte
 * @param {String} phasingStepId It may be a comma-separated list of session ids
 */
 PhasingDataAdapter.prototype.getPhasingFilesByPhasingStepId = function(phasingStepId){
-	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/phasingStepId/{0}/files&#039;.format( [phasingStepId]));
+	this.get(&#039;/{token}/proposal/{proposal}/mx/phasing/phasingstepid/{0}/files&#039;.format( [phasingStepId]));
+};
+
+/**
+* It downloads a phasing file by phasing step attachment id
+* @method getPhasingFilesByPhasingStepId
+* @param {String} phasingStepId It may be a comma-separated list of session ids
+*/
+PhasingDataAdapter.prototype.downloadPhasingFilesByPhasingAttachmentId = function(phasingAttachmentId){
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/phasing/phasingprogramattachmentid/{0}/download&#039;.format( [phasingAttachmentId]));
+};
+
+/**
+* It downloads a csv file by phasing step attachment id
+* @method getPhasingFilesByPhasingStepId
+* @param {String} phasingStepId It may be a comma-separated list of session ids
+*/
+PhasingDataAdapter.prototype.getCSVPhasingFilesByPhasingAttachmentIdURL = function(phasingAttachmentId){
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/phasing/phasingprogramattachmentid/{0}/csv&#039;.format( [phasingAttachmentId]));
 };</textarea>
   </div>
 </div>

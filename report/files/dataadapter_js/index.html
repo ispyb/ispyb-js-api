@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">181</p>
+      <p class="stat">189</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,7 +62,7 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">37.97</p>
+      <p class="stat">37.48</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
@@ -193,9 +193,11 @@ DataAdapter.prototype.get = function(url){
 		            	_this.onError.notify(&#039;401 Unauthorized&#039;);
 		            },
 		            404 : function(){
+                        
 		            	_this.onError.notify(&#039;404 : not found&#039;);
 		            },
 		            415 : function(){
+                        
 		                _this.onError.notify(&#039;415 : type not allowed&#039;);
 		            },
 		            500 : function(){
@@ -203,11 +205,12 @@ DataAdapter.prototype.get = function(url){
 		            }
 		        },
 			  success: function(data){ 
+                  
 				  _this.onSuccess.notify(data);
 			  },
-			  error: function(error){
+			  error: function(error, message){
+                  
 				  _this.onError.notify(error);
-				   
 			  }
 			});
 };
@@ -227,16 +230,20 @@ DataAdapter.prototype.post = function(url, data){
 		  type: &quot;POST&quot;,
 		  async : this.async,
            statusCode: {
-                   401 : function(){                      
+                   401 : function(){     
+                                        
 		            	_this.onError.notify(&#039;401 Unauthorized&#039;);
 		            },
 		            404 : function(){
+                        
 		            	_this.onError.notify(&#039;404 : not found&#039;);
 		            },
 		            415 : function(){
+                        
 		                _this.onError.notify(&#039;415 : type not allowed&#039;);
 		            },
 		            500 : function(){
+                        
 		                _this.onError.notify(&#039;500 : internal server error&#039;);
 		            }
 		        },
@@ -247,6 +254,7 @@ DataAdapter.prototype.post = function(url, data){
 			 
 		  },
 		  error: function(error){
+              
 			  _this.onError.notify(error);
 			 
 		  }

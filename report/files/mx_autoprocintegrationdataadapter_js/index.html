@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">90.67</p>
+      <p class="stat">90.63</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">102</p>
+      <p class="stat">131</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">12.15</p>
+      <p class="stat">13.40</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">0.59</p>
+      <p class="stat">0.74</p>
     </div>
   </div>
 </div>
@@ -111,6 +111,16 @@ AutoProcIntegrationDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 AutoProcIntegrationDataAdapter.prototype.getViewByDataCollectionId= function(dataCollectionId){
 	this.get(&#039;/{token}/proposal/{proposal}/mx/autoprocintegration/datacollection/{0}/view&#039;.format( [dataCollectionId]));
 };
+
+/**
+* It retrieves the URL of autoprocessing view from ISPyB
+* @method getViewByDataCollectionId
+* @param {String} dataCollectionId It may be a comma-separated list of data collection ids
+*/
+AutoProcIntegrationDataAdapter.prototype.getViewByDataCollectionURL= function(dataCollectionId){
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/autoprocintegration/datacollection/{0}/view&#039;.format( [dataCollectionId]));
+};
+
 
 /**
 * @method getByDataCollectionId
@@ -190,6 +200,25 @@ AutoProcIntegrationDataAdapter.prototype.getDownloadAttachmentUrl= function(auto
 AutoProcIntegrationDataAdapter.prototype.getAttachmentListByautoProcProgramsIdList = function(autoProcProgramId){
 	return this.get(&#039;/{token}/proposal/{proposal}/mx/autoprocintegration/attachment/autoprocprogramid/{0}/list&#039;.format( [autoProcProgramId.toString()]));
 };
+
+/**
+* It download a zipwith the list of attachments linked to a list of autoProcPrograms id
+* @method downloadAttachmentListByautoProcProgramsIdList
+*/
+AutoProcIntegrationDataAdapter.prototype.downloadAttachmentListByautoProcProgramsIdList = function(autoProcProgramId){
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/autoprocintegration/attachment/autoprocprogramid/{0}/download&#039;.format( [autoProcProgramId.toString()]));
+};
+
+
+/**
+* It gets the URL of the list of attachments linked to a list of autoProcPrograms id
+* @method getDownloadAttachmentUrl
+*/
+AutoProcIntegrationDataAdapter.prototype.getAttachmentListByautoProcProgramsIdListURL = function(autoProcProgramId){
+	return this.getUrl(&#039;/{token}/proposal/{proposal}/mx/autoprocintegration/attachment/autoprocprogramid/{0}/list&#039;.format( [autoProcProgramId.toString()]));
+};
+
+
 /**
 * It gets the phasing data by autoProccesingListId
 * @method getPhasingByAutoproccesingIds
