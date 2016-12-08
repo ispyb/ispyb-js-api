@@ -13,6 +13,15 @@ PhasingDataAdapter.prototype.post = DataAdapter.prototype.post;
 PhasingDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
 
+/**
+* It retrieves the phasing png image of the model building displaying the PDB
+* @method getPhasingFilesByPhasingProgramAttachmentIdAsImage
+* @param {phasingAttachmentId} aphasingAttachmentId
+*/
+PhasingDataAdapter.prototype.getPhasingFilesByPhasingProgramAttachmentIdAsImage = function(phasingAttachmentId){
+	return this.getUrl('/{token}/proposal/{proposal}/mx/phasing/phasingprogramattachmentid/{0}/image'.format( [phasingAttachmentId]));                                                    
+};
+
 
 
 /**

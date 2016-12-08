@@ -579,7 +579,22 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 18,
+            "line": 16,
+            "description": "It retrieves the phasing png image of the model building displaying the PDB",
+            "itemtype": "method",
+            "name": "getPhasingFilesByPhasingProgramAttachmentIdAsImage",
+            "params": [
+                {
+                    "name": "aphasingAttachmentId",
+                    "description": "",
+                    "type": "PhasingAttachmentId"
+                }
+            ],
+            "class": "PhasingDataAdapter"
+        },
+        {
+            "file": "js/mx/phasingdataadapter.js",
+            "line": 27,
             "description": "It retrieves the phasing view",
             "itemtype": "method",
             "name": "getPhasingViewByAutoProcIntegrationId",
@@ -594,7 +609,7 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 27,
+            "line": 36,
             "description": "It retrieves the phasing view",
             "itemtype": "method",
             "name": "getPhasingViewByDataCollectionId",
@@ -609,7 +624,7 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 36,
+            "line": 45,
             "description": "It retrieves the phasing view",
             "itemtype": "method",
             "name": "getPhasingViewByDataCollectionId",
@@ -624,7 +639,7 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 46,
+            "line": 55,
             "description": "It retrieves the phasing view",
             "itemtype": "method",
             "name": "getPhasingViewBySampleId",
@@ -639,7 +654,7 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 55,
+            "line": 64,
             "description": "It retrieves the phasing view",
             "itemtype": "method",
             "name": "getPhasingViewByProteinId",
@@ -654,28 +669,13 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 64,
+            "line": 73,
             "description": "It retrieves the phasing view",
             "itemtype": "method",
             "name": "getPhasingViewBySessionId",
             "params": [
                 {
                     "name": "sessionId",
-                    "description": "It may be a comma-separated list of session ids",
-                    "type": "String"
-                }
-            ],
-            "class": "PhasingDataAdapter"
-        },
-        {
-            "file": "js/mx/phasingdataadapter.js",
-            "line": 73,
-            "description": "It retrieves the phasing view",
-            "itemtype": "method",
-            "name": "getPhasingViewByPhasingStepId",
-            "params": [
-                {
-                    "name": "phasingStepId",
                     "description": "It may be a comma-separated list of session ids",
                     "type": "String"
                 }
@@ -700,6 +700,21 @@
         {
             "file": "js/mx/phasingdataadapter.js",
             "line": 91,
+            "description": "It retrieves the phasing view",
+            "itemtype": "method",
+            "name": "getPhasingViewByPhasingStepId",
+            "params": [
+                {
+                    "name": "phasingStepId",
+                    "description": "It may be a comma-separated list of session ids",
+                    "type": "String"
+                }
+            ],
+            "class": "PhasingDataAdapter"
+        },
+        {
+            "file": "js/mx/phasingdataadapter.js",
+            "line": 100,
             "description": "It retrieves the phasing files by phasing step",
             "itemtype": "method",
             "name": "getPhasingFilesByPhasingStepId",
@@ -714,7 +729,7 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 100,
+            "line": 109,
             "description": "It downloads a phasing file by phasing step attachment id",
             "itemtype": "method",
             "name": "getPhasingFilesByPhasingStepId",
@@ -729,7 +744,7 @@
         },
         {
             "file": "js/mx/phasingdataadapter.js",
-            "line": 109,
+            "line": 118,
             "description": "It downloads a csv file by phasing step attachment id",
             "itemtype": "method",
             "name": "getPhasingFilesByPhasingStepId",
