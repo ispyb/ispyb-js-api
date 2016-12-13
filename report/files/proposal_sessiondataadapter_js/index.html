@@ -101,10 +101,10 @@ SessionDataAdapter.prototype.getSessions = function(){
 	this.get(&#039;/{token}/proposal/{proposal}/session/list&#039;);
 };
 
-SessionDataAdapter.prototype.getSessionsByProposal = function(proposal){
+SessionDataAdapter.prototype.getSessionsByProposal = function(proposal){ 
 	this.get(&#039;/{token}/proposal/{0}/session/list&#039;.format([proposal]));
 };
-
+ 
 SessionDataAdapter.prototype.getSessionByProposalSessionId = function(proposal, sessionId){
 	this.get(&#039;/{token}/proposal/{0}/session/sessionId/{1}/list&#039;.format([proposal, sessionId]));
 };
