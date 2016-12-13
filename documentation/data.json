@@ -2,7 +2,7 @@
     "project": {
         "name": "ispyb-js-api",
         "description": "Javascript framework agnostic API to retrieve and update information to ISPyB",
-        "version": "1.0.0",
+        "version": "0.9.8",
         "url": "https://github.com/antolinos/ispyb-js-api"
     },
     "files": {
