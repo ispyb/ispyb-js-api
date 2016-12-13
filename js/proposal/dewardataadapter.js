@@ -35,5 +35,11 @@ DewarDataAdapter.prototype.updateSampleLocation = function(containerIdList, beam
     this.post(url, {sampleChangerLocation : sampleLocation.join()});
 };
 
+DewarDataAdapter.prototype.emptySampleLocation = function(containerIdList){
+    var url = '/{token}/proposal/{proposal}/container/{0}/samplechangerlocation/empty'.format([containerIdList]);
+    this.post(url);
+};
+
+
 
 
