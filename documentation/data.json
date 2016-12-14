@@ -119,6 +119,13 @@
             "fors": {},
             "namespaces": {}
         },
+        "js/saxs/datacollectionsaxsdataadapter.js": {
+            "name": "js/saxs/datacollectionsaxsdataadapter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "js/saxs/experiment.js": {
             "name": "js/saxs/experiment.js",
             "modules": {},
@@ -866,6 +873,11 @@
             "class": "DataAdapter"
         },
         {
+            "file": "js/saxs/datacollectionsaxsdataadapter.js",
+            "line": 29,
+            "class": "DataAdapter"
+        },
+        {
             "file": "js/saxs/experiment.js",
             "line": 1,
             "description": "This class represents an data Acquisition",
@@ -1097,6 +1109,10 @@
         {
             "message": "Missing item type",
             "line": " js/proposal/proposaldataadapter.js:31"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/datacollectionsaxsdataadapter.js:29"
         },
         {
             "message": "Missing item type\nThis class represents an data Acquisition",

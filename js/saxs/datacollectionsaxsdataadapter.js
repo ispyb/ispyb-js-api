@@ -26,4 +26,8 @@ DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByExperimentId= functi
 	this.get('/{token}/proposal/{proposal}/saxs/datacollection/experimentId/{0}/list'.format( [ experimentId]));
 };
 
+/** To be replaced by getDataCollectionsByExperimentId */
+DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByExperiment= function(experimentId){
+	this.get('/{token}/proposal/{proposal}/saxs/datacollection/experiment/{0}/list'.format( [ experimentId]));
+};
 
