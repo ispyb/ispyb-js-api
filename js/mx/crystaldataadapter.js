@@ -25,6 +25,13 @@ CrystalDataAdapter.prototype.getCrystalById= function(crystalId){
 	 this.get('/{token}/proposal/{proposal}/mx/crystal/{0}/get'.format( [crystalId.toString()]));
 };
 
+/**
+* @method getGeometryclassBySpacegroup
+*/
+CrystalDataAdapter.prototype.getGeometryclassBySpacegroup= function(spacegroup){
+	 this.get('/{token}/mx/geometryclass/{0}/get'.format( [spacegroup]));
+};
+
 
 
 
