@@ -27,10 +27,12 @@ CrystalDataAdapter.prototype.getCrystalById= function(crystalId){
 
 /**
 * @method getGeometryclassBySpacegroup
+* then it is possible to retrieve all cell dimensions from the geometry class
 */
 CrystalDataAdapter.prototype.getGeometryclassBySpacegroup= function(spacegroup){
 	 this.get('/{token}/mx/geometryclass/{0}/get'.format( [spacegroup]));
 };
+
 
 
 
