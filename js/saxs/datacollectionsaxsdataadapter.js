@@ -31,3 +31,10 @@ DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByExperiment= function
 	this.get('/{token}/proposal/{proposal}/saxs/datacollection/experiment/{0}/list'.format( [ experimentId]));
 };
 
+DataCollectionSaxsDataAdapter.prototype.getDataCollectionsBySessionId= function(sessionId){
+	this.get('/{token}/proposal/{proposal}/saxs/datacollection/session/{0}/list'.format( [ sessionId]));
+};
+
+DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByMacromoleculeId= function(macromoleculeId){
+	this.get('/{token}/proposal/{proposal}/saxs/datacollection/macromolecule/{0}/list'.format( [ sessionId]));
+};
