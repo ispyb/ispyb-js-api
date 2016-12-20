@@ -36,7 +36,7 @@ DataCollectionSaxsDataAdapter.prototype.getDataCollectionsBySessionId= function(
 };
 
 DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByMacromoleculeId= function(macromoleculeId){
-	this.get('/{token}/proposal/{proposal}/saxs/datacollection/macromolecule/{0}/list'.format( [ sessionId]));
+	this.get('/{token}/proposal/{proposal}/saxs/datacollection/macromolecule/{0}/list'.format( [ macromoleculeId]));
 };
 
 DataCollectionSaxsDataAdapter.prototype.getDataCollectionsById= function(dataCollectionIds){
