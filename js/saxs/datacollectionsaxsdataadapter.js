@@ -15,7 +15,7 @@ DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByKey= function(key, v
 };
 
 DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByDataCollectionId= function(dataCollectionIds){
-	this.get('/{token}/proposal/{proposal}/saxs/datacollection/dataCollectionId/{0}/list'.format( [ dataCollectionIds]));
+	this.get('/{token}/proposal/{proposal}/saxs/datacollection/dataCollectionId/{0}/bean'.format( [ dataCollectionIds]));
 };
 
 DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByIdList= function(dataCollectionIds){

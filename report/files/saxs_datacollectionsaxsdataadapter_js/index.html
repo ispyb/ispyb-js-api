@@ -106,7 +106,7 @@ DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByKey= function(key, v
 };
 
 DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByDataCollectionId= function(dataCollectionIds){
-	this.get(&#039;/{token}/proposal/{proposal}/saxs/datacollection/dataCollectionId/{0}/list&#039;.format( [ dataCollectionIds]));
+	this.get(&#039;/{token}/proposal/{proposal}/saxs/datacollection/dataCollectionId/{0}/bean&#039;.format( [ dataCollectionIds]));
 };
 
 DataCollectionSaxsDataAdapter.prototype.getDataCollectionsByIdList= function(dataCollectionIds){
