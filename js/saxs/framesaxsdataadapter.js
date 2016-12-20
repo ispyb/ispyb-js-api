@@ -11,7 +11,7 @@ FrameSaxsDataAdapter.prototype.getFramesByAverageId= function(averageId){
 };
 
 FrameSaxsDataAdapter.prototype.downloadFramesByAverageIdList= function(averageIdList){
-	return this.getUrl('/{token}/saxs/{proposal}/frame/{0}/zip'.format( [averageIdList.toString()]));
+	return this.getUrl('/{token}/proposal/{proposal}/saxs/frame/{0}/zip'.format( [averageIdList.toString()]));
 };
 
 FrameSaxsDataAdapter.prototype.getFramesURL = function(frames, averages, subtractions,sampleaverages, bufferaverages, models){
