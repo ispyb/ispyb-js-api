@@ -10,6 +10,10 @@ FrameSaxsDataAdapter.prototype.getFramesByAverageId= function(averageId){
 	this.get('/{0}/saxs/{1}/frame/average/{0}/list'.format( [averageId.toString()]));
 };
 
+FrameSaxsDataAdapter.prototype.downloadFramesByAverageIdList= function(averageIdList){
+	this.get('/{0}/saxs/{1}/frame/{0}/zip'.format( [averageIdList.toString()]));
+};
+
 FrameSaxsDataAdapter.prototype.getFramesURL = function(frames, averages, subtractions,sampleaverages, bufferaverages, models){
 	if (frames == null){
 		frames = [];
