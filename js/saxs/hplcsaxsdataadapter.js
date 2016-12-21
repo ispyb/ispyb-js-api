@@ -13,3 +13,11 @@ HPLCSaxsDataAdapter.prototype.getHPLCOverviewByExperimentId= function(experiment
 HPLCSaxsDataAdapter.prototype.getHPLCFramesScatteringURL= function(experimentId, frameIdList){
 	return this.getUrl('/{token}/proposal/{proposal}/saxs/experiment/{0}/hplc/frame/{1}/get?operation=log'.format( [experimentId, frameIdList.toString()]));
 };
+
+HPLCSaxsDataAdapter.prototype.getDownloadHDF5URL= function(experimentId){
+	return this.getUrl('/{token}/proposal/{proposal}/saxs/experiment/{0}/hplc/download'.format( [experimentId]));
+};
+
+HPLCSaxsDataAdapter.prototype.getDownloadHDF5FramesURL= function(experimentId, start, end){
+	return this.getUrl('/{token}/proposal/{proposal}/saxs/experiment/{0}/hplc/frame/{1}/{2}/zip'.format( [experimentId]));
+};
