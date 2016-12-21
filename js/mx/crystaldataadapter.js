@@ -52,7 +52,7 @@ CrystalDataAdapter.prototype.save= function(
                                                 cellGamma,
                                                 comments)
 {
-    var url = ('/{token}/proposal/{proposal}/mx/crystal/save');
+    var url = ('/{token}/proposal/{proposal}/mx/crystal/proteinid/{0}/save'.format( [proteinId]));
 	this.post(url, {
 						proteinId:proteinId,
                         crystalId:crystalId,
