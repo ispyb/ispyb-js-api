@@ -19,5 +19,5 @@ HPLCSaxsDataAdapter.prototype.getDownloadHDF5URL= function(experimentId){
 };
 
 HPLCSaxsDataAdapter.prototype.getDownloadHDF5FramesURL= function(experimentId, start, end){
-	return this.getUrl('/{token}/proposal/{proposal}/saxs/experiment/{0}/hplc/frame/{1}/{2}/zip'.format( [experimentId]));
+	return this.getUrl('/{token}/proposal/{proposal}/saxs/experiment/{0}/hplc/frame/{1}/{2}/zip'.format( [experimentId,start,end]));
 };
