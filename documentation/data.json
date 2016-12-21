@@ -494,6 +494,13 @@
             "class": "CrystalDataAdapter"
         },
         {
+            "file": "js/mx/crystaldataadapter.js",
+            "line": 38,
+            "itemtype": "method",
+            "name": "save\nCreate and new crystal form or updates an existing one",
+            "class": "CrystalDataAdapter"
+        },
+        {
             "file": "js/mx/datacollectiondataadapter.js",
             "line": 14,
             "itemtype": "method",
