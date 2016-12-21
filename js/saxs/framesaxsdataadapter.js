@@ -7,12 +7,14 @@ FrameSaxsDataAdapter.prototype.post = DataAdapter.prototype.post;
 FrameSaxsDataAdapter.prototype.getUrl = DataAdapter.prototype.getUrl;
 
 FrameSaxsDataAdapter.prototype.getFramesByAverageId= function(averageId){
-	this.get('/{0}/saxs/{1}/frame/average/{0}/list'.format( [averageId.toString()]));
+	this.get('/{token}/saxs/{proposal}/frame/average/{0}/bean'.format( [averageId.toString()]));
 };
 
 FrameSaxsDataAdapter.prototype.downloadFramesByAverageIdList= function(averageIdList){
 	return this.getUrl('/{token}/proposal/{proposal}/saxs/frame/{0}/zip'.format( [averageIdList.toString()]));
 };
+
+
 
 FrameSaxsDataAdapter.prototype.getFramesURL = function(frames, averages, subtractions,sampleaverages, bufferaverages, models){
 	if (frames == null){
