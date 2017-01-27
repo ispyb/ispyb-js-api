@@ -37,7 +37,9 @@ CrystalDataAdapter.prototype.getGeometryclassBySpacegroup= function(spacegroup){
 
 /**
 * @method save
-* Create and new crystal form or updates an existing one
+* @param {proteinId} proteinId is mandatory
+* @param {crystalId} crystalId should be '' when it is a new crystal ID
+* Creates a new crystal form or updates an existing one
 */
 CrystalDataAdapter.prototype.save= function(
                                                 proteinId,
