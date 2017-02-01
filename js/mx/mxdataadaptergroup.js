@@ -16,6 +16,7 @@ function MxDataAdapterGroup(args){
 	this.phasing = new PhasingDataAdapter(args);
     this.energyscan = new EnergyScanDataAdapter(args);
     this.xfescan = new XFEScanDataAdapter(args);
+    this.stats = new StatisticsDataAdapter(args);
 }
 
 
