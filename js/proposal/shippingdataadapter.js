@@ -71,3 +71,11 @@ ShippingDataAdapter.prototype.getDewarLabelURL = function(shippingId, dewarId){
 	return this.getUrl('/{token}/proposal/{proposal}/shipping/{0}/dewar/{1}/labels'.format([ shippingId, dewarId]));
 };
 
+/**
+* It retrieves the tracking history of the dewars for a given shipment
+* @method getPhasingFilesByPhasingProgramAttachmentIdAsImage
+* @param {Integer} shippingId
+*/
+ShippingDataAdapter.prototype.getDewarTrackingHistory = function(shippingId){
+	this.get('/{token}/proposal/{proposal}/shipping/{0}/history'.format([shippingId]));
+};

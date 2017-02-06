@@ -49,6 +49,7 @@
                                 <li><a href="../classes/PhasingDataAdapter.html">PhasingDataAdapter</a></li>
                                 <li><a href="../classes/ProteinDataAdapter.html">ProteinDataAdapter</a></li>
                                 <li><a href="../classes/SampleDataAdapter.html">SampleDataAdapter</a></li>
+                                <li><a href="../classes/StatisticsDataAdapter.html">StatisticsDataAdapter</a></li>
                                 <li><a href="../classes/WorkflowStepDataAdapter.html">WorkflowStepDataAdapter</a></li>
                                 <li><a href="../classes/XFEScanDataAdapter.html">XFEScanDataAdapter</a></li>
                             </ul>
@@ -93,7 +94,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/js_mx_crystaldataadapter.js.html#l1"><code>js&#x2F;mx&#x2F;crystaldataadapter.js:1</code></a>
+            Defined in: <a href="../files/js_mx_crystaldataadapter.js.html#l1"><code>js\mx\crystaldataadapter.js:1</code></a>
         </div>
 
 
@@ -121,7 +122,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_crystaldataadapter.js.html#l1"><code>js&#x2F;mx&#x2F;crystaldataadapter.js:1</code></a>
+        <a href="../files/js_mx_crystaldataadapter.js.html#l1"><code>js\mx\crystaldataadapter.js:1</code></a>
         </p>
 
 
@@ -168,9 +169,7 @@ then it is possible to retrieve all cell dimensions from the geometry class</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_save
-Create and new crystal form or updates an existing one">save
-Create and new crystal form or updates an existing one</a>
+                                <a href="#method_save">save</a>
 
                             </li>
                     </ul>
@@ -198,7 +197,7 @@ Create and new crystal form or updates an existing one</a>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_crystaldataadapter.js.html#l21"><code>js&#x2F;mx&#x2F;crystaldataadapter.js:21</code></a>
+        <a href="../files/js_mx_crystaldataadapter.js.html#l21"><code>js\mx\crystaldataadapter.js:21</code></a>
         </p>
 
 
@@ -228,7 +227,7 @@ Create and new crystal form or updates an existing one</a>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_crystaldataadapter.js.html#l14"><code>js&#x2F;mx&#x2F;crystaldataadapter.js:14</code></a>
+        <a href="../files/js_mx_crystaldataadapter.js.html#l14"><code>js\mx\crystaldataadapter.js:14</code></a>
         </p>
 
 
@@ -260,7 +259,7 @@ then it is possible to retrieve all cell dimensions from the geometry class</cod
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_crystaldataadapter.js.html#l28"><code>js&#x2F;mx&#x2F;crystaldataadapter.js:28</code></a>
+        <a href="../files/js_mx_crystaldataadapter.js.html#l28"><code>js\mx\crystaldataadapter.js:28</code></a>
         </p>
 
 
@@ -275,12 +274,19 @@ then it is possible to retrieve all cell dimensions from the geometry class</cod
 
 
 </div>
-<div id="method_save
-Create and new crystal form or updates an existing one" class="method item">
-    <h3 class="name"><code>save
-Create and new crystal form or updates an existing one</code></h3>
+<div id="method_save" class="method item">
+    <h3 class="name"><code>save</code></h3>
 
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>proteinId</code>
+                </li>
+                <li class="arg">
+                        <code>crystalId</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
 
 
 
@@ -292,7 +298,7 @@ Create and new crystal form or updates an existing one</code></h3>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/js_mx_crystaldataadapter.js.html#l38"><code>js&#x2F;mx&#x2F;crystaldataadapter.js:38</code></a>
+        <a href="../files/js_mx_crystaldataadapter.js.html#l38"><code>js\mx\crystaldataadapter.js:38</code></a>
         </p>
 
 
@@ -303,6 +309,35 @@ Create and new crystal form or updates an existing one</code></h3>
         
     </div>
 
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">proteinId</code>
+                        <span class="type">ProteinId</span>
+
+
+                    <div class="param-description">
+                        <p>is mandatory</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">crystalId</code>
+                        <span class="type">CrystalId</span>
+
+
+                    <div class="param-description">
+                        <p>should be '' when it is a new crystal ID
+Creates a new crystal form or updates an existing one</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
 
 
 
