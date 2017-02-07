@@ -49,6 +49,7 @@
                                 <li><a href="../classes/PhasingDataAdapter.html">PhasingDataAdapter</a></li>
                                 <li><a href="../classes/ProteinDataAdapter.html">ProteinDataAdapter</a></li>
                                 <li><a href="../classes/SampleDataAdapter.html">SampleDataAdapter</a></li>
+                                <li><a href="../classes/StatisticsDataAdapter.html">StatisticsDataAdapter</a></li>
                                 <li><a href="../classes/WorkflowStepDataAdapter.html">WorkflowStepDataAdapter</a></li>
                                 <li><a href="../classes/XFEScanDataAdapter.html">XFEScanDataAdapter</a></li>
                             </ul>
@@ -131,7 +132,9 @@ CrystalDataAdapter.prototype.getGeometryclassBySpacegroup= function(spacegroup){
 
 /**
 * @method save
-* Create and new crystal form or updates an existing one
+* @param {proteinId} proteinId is mandatory
+* @param {crystalId} crystalId should be &#x27;&#x27; when it is a new crystal ID
+* Creates a new crystal form or updates an existing one
 */
 CrystalDataAdapter.prototype.save= function(
                                                 proteinId,

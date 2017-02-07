@@ -85,6 +85,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "js/mx/statisticsdataadapter.js": {
+            "name": "js/mx/statisticsdataadapter.js",
+            "modules": {},
+            "classes": {
+                "StatisticsDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "js/mx/workflowstepdataadapter.js": {
             "name": "js/mx/workflowstepdataadapter.js",
             "modules": {},
@@ -268,6 +277,19 @@
             "file": "js/mx/sampledataadapter.js",
             "line": 1,
             "description": "DataAdDapter read/write information about sample",
+            "is_constructor": 1
+        },
+        "StatisticsDataAdapter": {
+            "name": "StatisticsDataAdapter",
+            "shortname": "StatisticsDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js/mx/statisticsdataadapter.js",
+            "line": 1,
+            "description": "Interface implementing the API for phasing",
             "is_constructor": 1
         },
         "WorkflowStepDataAdapter": {
@@ -497,7 +519,19 @@
             "file": "js/mx/crystaldataadapter.js",
             "line": 38,
             "itemtype": "method",
-            "name": "save\nCreate and new crystal form or updates an existing one",
+            "name": "save",
+            "params": [
+                {
+                    "name": "proteinId",
+                    "description": "is mandatory",
+                    "type": "ProteinId"
+                },
+                {
+                    "name": "crystalId",
+                    "description": "should be '' when it is a new crystal ID\nCreates a new crystal form or updates an existing one",
+                    "type": "CrystalId"
+                }
+            ],
             "class": "CrystalDataAdapter"
         },
         {
@@ -792,6 +826,26 @@
             "itemtype": "method",
             "name": "getSamplesByCrystalId",
             "class": "SampleDataAdapter"
+        },
+        {
+            "file": "js/mx/statisticsdataadapter.js",
+            "line": 16,
+            "description": "It retrieves the statistics url between the given dates",
+            "itemtype": "method",
+            "name": "getPhasingFilesByPhasingProgramAttachmentIdAsImage",
+            "params": [
+                {
+                    "name": "startDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "endDate",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "StatisticsDataAdapter"
         },
         {
             "file": "js/mx/workflowstepdataadapter.js",
