@@ -2,7 +2,7 @@
     "project": {
         "name": "ispyb-js-api",
         "description": "Javascript framework agnostic API to retrieve and update information to ISPyB",
-        "version": "1.0.0",
+        "version": "0.9.8",
         "url": "https://github.com/antolinos/ispyb-js-api"
     },
     "files": {
@@ -114,6 +114,13 @@
         },
         "js/proposal/proposaldataadapter.js": {
             "name": "js/proposal/proposaldataadapter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/saxs/datacollectionsaxsdataadapter.js": {
+            "name": "js/saxs/datacollectionsaxsdataadapter.js",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -477,6 +484,20 @@
             "line": 21,
             "itemtype": "method",
             "name": "getCrystalById",
+            "class": "CrystalDataAdapter"
+        },
+        {
+            "file": "js/mx/crystaldataadapter.js",
+            "line": 28,
+            "itemtype": "method",
+            "name": "getGeometryclassBySpacegroup\nthen it is possible to retrieve all cell dimensions from the geometry class",
+            "class": "CrystalDataAdapter"
+        },
+        {
+            "file": "js/mx/crystaldataadapter.js",
+            "line": 38,
+            "itemtype": "method",
+            "name": "save\nCreate and new crystal form or updates an existing one",
             "class": "CrystalDataAdapter"
         },
         {
@@ -866,6 +887,11 @@
             "class": "DataAdapter"
         },
         {
+            "file": "js/saxs/datacollectionsaxsdataadapter.js",
+            "line": 29,
+            "class": "DataAdapter"
+        },
+        {
             "file": "js/saxs/experiment.js",
             "line": 1,
             "description": "This class represents an data Acquisition",
@@ -1097,6 +1123,10 @@
         {
             "message": "Missing item type",
             "line": " js/proposal/proposaldataadapter.js:31"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js/saxs/datacollectionsaxsdataadapter.js:29"
         },
         {
             "message": "Missing item type\nThis class represents an data Acquisition",

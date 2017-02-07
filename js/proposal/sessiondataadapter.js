@@ -10,10 +10,10 @@ SessionDataAdapter.prototype.getSessions = function(){
 	this.get('/{token}/proposal/{proposal}/session/list');
 };
 
-SessionDataAdapter.prototype.getSessionsByProposal = function(proposal){
+SessionDataAdapter.prototype.getSessionsByProposal = function(proposal){ 
 	this.get('/{token}/proposal/{0}/session/list'.format([proposal]));
 };
-
+ 
 SessionDataAdapter.prototype.getSessionByProposalSessionId = function(proposal, sessionId){
 	this.get('/{token}/proposal/{0}/session/sessionId/{1}/list'.format([proposal, sessionId]));
 };
@@ -28,4 +28,8 @@ SessionDataAdapter.prototype.getSessionsByDateAndBeamline = function(startDate, 
 
 SessionDataAdapter.prototype.getSessionsByProposalAndDate = function(startDate, endDate, proposal){
 	this.get('/{token}/proposal/{0}/session/date/{1}/{2}/list'.format([proposal, startDate, endDate]));
+};
+
+SessionDataAdapter.prototype.getSessionsByBeamlineOperator = function(beamlineOperator){
+	this.get('/{token}/proposal/session/beamlineoperator/{0}/list'.format([beamlineOperator]));
 };
