@@ -85,8 +85,13 @@
             "fors": {},
             "namespaces": {}
         },
+<<<<<<< HEAD
         "js\\mx\\statisticsdataadapter.js": {
             "name": "js\\mx\\statisticsdataadapter.js",
+=======
+        "js/mx/statisticsdataadapter.js": {
+            "name": "js/mx/statisticsdataadapter.js",
+>>>>>>> 73df0b6fad832c133736c495ec7d7892cb91f606
             "modules": {},
             "classes": {
                 "StatisticsDataAdapter": 1
@@ -94,8 +99,13 @@
             "fors": {},
             "namespaces": {}
         },
+<<<<<<< HEAD
         "js\\mx\\workflowstepdataadapter.js": {
             "name": "js\\mx\\workflowstepdataadapter.js",
+=======
+        "js/mx/workflowstepdataadapter.js": {
+            "name": "js/mx/workflowstepdataadapter.js",
+>>>>>>> 73df0b6fad832c133736c495ec7d7892cb91f606
             "modules": {},
             "classes": {
                 "WorkflowStepDataAdapter": 1
@@ -294,7 +304,11 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+<<<<<<< HEAD
             "file": "js\\mx\\statisticsdataadapter.js",
+=======
+            "file": "js/mx/statisticsdataadapter.js",
+>>>>>>> 73df0b6fad832c133736c495ec7d7892cb91f606
             "line": 1,
             "description": "Interface implementing the API for phasing",
             "is_constructor": 1
@@ -835,7 +849,11 @@
             "class": "SampleDataAdapter"
         },
         {
+<<<<<<< HEAD
             "file": "js\\mx\\statisticsdataadapter.js",
+=======
+            "file": "js/mx/statisticsdataadapter.js",
+>>>>>>> 73df0b6fad832c133736c495ec7d7892cb91f606
             "line": 16,
             "description": "It retrieves the statistics url between the given dates",
             "itemtype": "method",
@@ -855,7 +873,11 @@
             "class": "StatisticsDataAdapter"
         },
         {
+<<<<<<< HEAD
             "file": "js\\mx\\workflowstepdataadapter.js",
+=======
+            "file": "js/mx/workflowstepdataadapter.js",
+>>>>>>> 73df0b6fad832c133736c495ec7d7892cb91f606
             "line": 16,
             "itemtype": "method",
             "name": "getImageByWorkflowStepId",
