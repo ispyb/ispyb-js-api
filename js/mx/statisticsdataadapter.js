@@ -33,5 +33,5 @@ StatisticsDataAdapter.prototype.getStatisticsByDate = function(type,startDate,en
 * @param {String} beamline
 */
 StatisticsDataAdapter.prototype.getStatisticsByDateAndBeamline = function(type,startDate,endDate,beamline){
-	return this.getUrl('/{token}/stats/autoprocstatistics/{0}/{1}/{2}/csv?beamline={3}'.format( [type,startDate,endDate,beamline]));                                                    
+	return this.getUrl('/{token}/stats/autoprocstatistics/{0}/{1}/{2}/csv?beamlinenames={3}'.format( [type,startDate,endDate,beamline]));                                                    
 };
