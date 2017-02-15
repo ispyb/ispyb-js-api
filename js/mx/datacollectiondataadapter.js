@@ -83,7 +83,16 @@ DataCollectionDataAdapter.prototype.getDataCollectionsByDataCollectionGroupId = 
     this.get('/{token}/proposal/{proposal}/mx/datacollection/datacollectiongroupid/{0}/list'.format([ datacollectiongroupid.toString()]));
 };
 
-
+/**
+* This method updates the comments for a dataCollection
+* @method saveComments
+*/
+DataCollectionDataAdapter.prototype.saveComments = function(dataCollectionId,comments){
+    var url = ('/{token}/proposal/{proposal}/mx/datacollection/{0}/comments/save'.format([dataCollectionId]));
+	this.post(url, {
+		comments : comments
+	});
+};
 
 
 

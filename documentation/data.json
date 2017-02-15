@@ -33,6 +33,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "js\\mx\\datacollectiongroupdataadapter.js": {
+            "name": "js\\mx\\datacollectiongroupdataadapter.js",
+            "modules": {},
+            "classes": {
+                "DataCollectionGroupDataAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "js\\mx\\energyscandataadapter.js": {
             "name": "js\\mx\\energyscandataadapter.js",
             "modules": {},
@@ -85,13 +94,8 @@
             "fors": {},
             "namespaces": {}
         },
-<<<<<<< HEAD
         "js\\mx\\statisticsdataadapter.js": {
             "name": "js\\mx\\statisticsdataadapter.js",
-=======
-        "js/mx/statisticsdataadapter.js": {
-            "name": "js/mx/statisticsdataadapter.js",
->>>>>>> 73df0b6fad832c133736c495ec7d7892cb91f606
             "modules": {},
             "classes": {
                 "StatisticsDataAdapter": 1
@@ -99,13 +103,8 @@
             "fors": {},
             "namespaces": {}
         },
-<<<<<<< HEAD
         "js\\mx\\workflowstepdataadapter.js": {
             "name": "js\\mx\\workflowstepdataadapter.js",
-=======
-        "js/mx/workflowstepdataadapter.js": {
-            "name": "js/mx/workflowstepdataadapter.js",
->>>>>>> 73df0b6fad832c133736c495ec7d7892cb91f606
             "modules": {},
             "classes": {
                 "WorkflowStepDataAdapter": 1
@@ -231,6 +230,18 @@
             "line": 1,
             "is_constructor": 1
         },
+        "DataCollectionGroupDataAdapter": {
+            "name": "DataCollectionGroupDataAdapter",
+            "shortname": "DataCollectionGroupDataAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\mx\\datacollectiongroupdataadapter.js",
+            "line": 1,
+            "is_constructor": 1
+        },
         "EnergyScanDataAdapter": {
             "name": "EnergyScanDataAdapter",
             "shortname": "EnergyScanDataAdapter",
@@ -304,11 +315,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-<<<<<<< HEAD
             "file": "js\\mx\\statisticsdataadapter.js",
-=======
-            "file": "js/mx/statisticsdataadapter.js",
->>>>>>> 73df0b6fad832c133736c495ec7d7892cb91f606
             "line": 1,
             "description": "Interface implementing the API for phasing",
             "is_constructor": 1
@@ -626,6 +633,22 @@
             "class": "DataCollectionDataAdapter"
         },
         {
+            "file": "js\\mx\\datacollectiondataadapter.js",
+            "line": 86,
+            "description": "This method updates the comments for a dataCollection",
+            "itemtype": "method",
+            "name": "saveComments",
+            "class": "DataCollectionDataAdapter"
+        },
+        {
+            "file": "js\\mx\\datacollectiongroupdataadapter.js",
+            "line": 13,
+            "description": "This method updates the comments for a dataCollection",
+            "itemtype": "method",
+            "name": "saveComments",
+            "class": "DataCollectionGroupDataAdapter"
+        },
+        {
             "file": "js\\mx\\energyscandataadapter.js",
             "line": 15,
             "itemtype": "method",
@@ -849,16 +872,17 @@
             "class": "SampleDataAdapter"
         },
         {
-<<<<<<< HEAD
             "file": "js\\mx\\statisticsdataadapter.js",
-=======
-            "file": "js/mx/statisticsdataadapter.js",
->>>>>>> 73df0b6fad832c133736c495ec7d7892cb91f606
             "line": 16,
             "description": "It retrieves the statistics url between the given dates",
             "itemtype": "method",
             "name": "getPhasingFilesByPhasingProgramAttachmentIdAsImage",
             "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                },
                 {
                     "name": "startDate",
                     "description": "",
@@ -873,11 +897,37 @@
             "class": "StatisticsDataAdapter"
         },
         {
-<<<<<<< HEAD
+            "file": "js\\mx\\statisticsdataadapter.js",
+            "line": 27,
+            "description": "It retrieves the statistics url between the given dates for the given beamline",
+            "itemtype": "method",
+            "name": "getPhasingFilesByPhasingProgramAttachmentIdAsImage",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "startDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "endDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "beamline",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "StatisticsDataAdapter"
+        },
+        {
             "file": "js\\mx\\workflowstepdataadapter.js",
-=======
-            "file": "js/mx/workflowstepdataadapter.js",
->>>>>>> 73df0b6fad832c133736c495ec7d7892cb91f606
             "line": 16,
             "itemtype": "method",
             "name": "getImageByWorkflowStepId",
