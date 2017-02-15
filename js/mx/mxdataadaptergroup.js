@@ -17,6 +17,7 @@ function MxDataAdapterGroup(args){
     this.energyscan = new EnergyScanDataAdapter(args);
     this.xfescan = new XFEScanDataAdapter(args);
     this.stats = new StatisticsDataAdapter(args);
+	this.dataCollectionGroup = new DataCollectionGroupDataAdapter(args);
 }
 
 
