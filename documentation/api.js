@@ -5,6 +5,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "CrystalDataAdapter",
         "DataAdapter",
         "DataCollectionDataAdapter",
+        "DataCollectionGroupDataAdapter",
         "EnergyScanDataAdapter",
         "Event",
         "LabcontactDataAdapter",

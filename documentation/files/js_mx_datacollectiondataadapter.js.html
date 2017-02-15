@@ -42,6 +42,7 @@
                                 <li><a href="../classes/CrystalDataAdapter.html">CrystalDataAdapter</a></li>
                                 <li><a href="../classes/DataAdapter.html">DataAdapter</a></li>
                                 <li><a href="../classes/DataCollectionDataAdapter.html">DataCollectionDataAdapter</a></li>
+                                <li><a href="../classes/DataCollectionGroupDataAdapter.html">DataCollectionGroupDataAdapter</a></li>
                                 <li><a href="../classes/EnergyScanDataAdapter.html">EnergyScanDataAdapter</a></li>
                                 <li><a href="../classes/Event.html">Event</a></li>
                                 <li><a href="../classes/LabcontactDataAdapter.html">LabcontactDataAdapter</a></li>
@@ -178,7 +179,16 @@ DataCollectionDataAdapter.prototype.getDataCollectionsByDataCollectionGroupId = 
     this.get(&#x27;/{token}/proposal/{proposal}/mx/datacollection/datacollectiongroupid/{0}/list&#x27;.format([ datacollectiongroupid.toString()]));
 };
 
-
+/**
+* This method updates the comments for a dataCollection
+* @method saveComments
+*/
+DataCollectionDataAdapter.prototype.saveComments = function(dataCollectionId,comments){
+    var url = (&#x27;/{token}/proposal/{proposal}/mx/datacollection/{0}/comments/save&#x27;.format([dataCollectionId]));
+	this.post(url, {
+		comments : comments
+	});
+};
 
 
 
