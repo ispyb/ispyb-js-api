@@ -16,7 +16,7 @@ FrameSaxsDataAdapter.prototype.downloadFramesByAverageIdList= function(averageId
 
 
 
-FrameSaxsDataAdapter.prototype.getFramesURL = function(frames, averages, subtractions,sampleaverages, bufferaverages, models){
+FrameSaxsDataAdapter.prototype.getFramesURL = function(frames, averages, subtractions,sampleaverages, bufferaverages, models, operation){
 	if (frames == null){
 		frames = [];
 	}
@@ -36,7 +36,11 @@ FrameSaxsDataAdapter.prototype.getFramesURL = function(frames, averages, subtrac
 	if (models == null){
 		models = [];
 	}
+
+	if (operation == null){
+		operation = "LOG";
+	}
 	
 	var connection = EXI.credentialManager.getConnections()[0];
-	return connection.url + ('/{0}/proposal/{1}/saxs/frame/datplot?frame={2}&average={3}&subtracted={4}&sampleaverage={5}&bufferaverage={6}&models={7}'.format([ connection.token,connection.user, frames.toString(), averages.toString(),subtractions.toString(), sampleaverages.toString(), bufferaverages.toString(), models.toString() ]));
+	return connection.url + ('/{0}/proposal/{1}/saxs/frame/datplot?frame={2}&average={3}&subtracted={4}&sampleaverage={5}&bufferaverage={6}&models={7}&operation={8}'.format([ connection.token,connection.user, frames.toString(), averages.toString(),subtractions.toString(), sampleaverages.toString(), bufferaverages.toString(), models.toString() ]));
 };
