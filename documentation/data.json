@@ -121,6 +121,13 @@
             "fors": {},
             "namespaces": {}
         },
+        "js\\proposal\\dewardataadapter.js": {
+            "name": "js\\proposal\\dewardataadapter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "js\\proposal\\labcontactdataadapter.js": {
             "name": "js\\proposal\\labcontactdataadapter.js",
             "modules": {},
@@ -981,6 +988,24 @@
             "itemtype": "method",
             "name": "get the URL to the csv File",
             "class": "XFEScanDataAdapter"
+        },
+        {
+            "file": "js\\proposal\\dewardataadapter.js",
+            "line": 43,
+            "description": "This method export a pdf list of the sample in the given dewars",
+            "itemtype": "method",
+            "name": "exportPDF",
+            "params": [
+                {
+                    "name": "dewarIdList",
+                    "description": ""
+                },
+                {
+                    "name": "sortView",
+                    "description": "[1: sort by acronym/sample name, 2: sort by dewar/container/location]"
+                }
+            ],
+            "class": "LabcontactDataAdapter"
         },
         {
             "file": "js\\proposal\\labcontactdataadapter.js",

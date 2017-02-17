@@ -40,6 +40,16 @@ DewarDataAdapter.prototype.emptySampleLocation = function(containerIdList){
     this.post(url);
 };
 
+/**
+* This method export a pdf list of the sample in the given dewars
+* @method exportPDF
+* @param dewarIdList
+* @param sortView [1: sort by acronym/sample name, 2: sort by dewar/container/location]
+*/
+DewarDataAdapter.prototype.exportPDF = function(dewarIdList,sortView) {
+	return this.getUrl('/{token}/proposal/{proposal}/mx/sample/dewar/{0}/sortView/{1}/list/pdf'.format( [dewarIdList,sortView]));
+};
+
 
 
 
