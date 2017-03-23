@@ -135,4 +135,3 @@ AutoProcIntegrationDataAdapter.prototype.getAttachmentListByautoProcProgramsIdLi
 AutoProcIntegrationDataAdapter.prototype.getPhasingByAutoproccesingIds = function(autoProcListId){
 	 this.get('/{token}/proposal/{proposal}/mx/autoprocintegration/autoprocintegrationid/{0}/phasing'.format( [autoProcListId.toString()]));
 };
-

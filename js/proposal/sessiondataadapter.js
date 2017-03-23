@@ -33,3 +33,11 @@ SessionDataAdapter.prototype.getSessionsByProposalAndDate = function(startDate, 
 SessionDataAdapter.prototype.getSessionsByBeamlineOperator = function(beamlineOperator){
 	this.get('/{token}/proposal/session/beamlineoperator/{0}/list'.format([beamlineOperator]));
 };
+
+SessionDataAdapter.prototype.downloadPDFReport = function(proposal,sessionId,reportType) {
+	return this.getUrl('/{token}/proposal/{0}/mx/datacollection/session/{1}/report/{2}/pdf'.format( [proposal,sessionId,reportType]));
+};
+
+SessionDataAdapter.prototype.downloadDOCReport = function(proposal,sessionId,reportType) {
+	return this.getUrl('/{token}/proposal/{0}/mx/datacollection/session/{1}/report/{2}/rtf'.format( [proposal,sessionId,reportType]));
+};
