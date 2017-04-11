@@ -103,6 +103,14 @@ AutoProcIntegrationDataAdapter.prototype.getDownloadAttachmentUrl= function(auto
 };
 
 /**
+* It gets the URL for display an attachement from an autoProcAttachmentId
+* @method getDownloadAttachmentUrl
+*/
+AutoProcIntegrationDataAdapter.prototype.getAttachmentUrl= function(autoProcAttachmentId){
+	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/autoprocattachmentid/{0}/get'.format( [autoProcAttachmentId.toString()]));
+};
+
+/**
 * It gets the list of attachments linked to a list of autoProcPrograms id
 * @method getDownloadAttachmentUrl
 */
