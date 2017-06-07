@@ -35,6 +35,6 @@ SessionDataAdapter.prototype.getSessionsByBeamlineOperator = function(beamlineOp
 };
 
 SessionDataAdapter.prototype.saveComments = function(sessionId, comments){
-    var url = '/{token}/proposal/{proposal}/mx/session/{0}/comments/save"'.format( [sessionId]);
+    var url = '/{token}/proposal/{proposal}/mx/session/{0}/comments/save'.format( [sessionId]);
     this.post(url, {comments : comments});
 };
