@@ -33,3 +33,8 @@ SessionDataAdapter.prototype.getSessionsByProposalAndDate = function(startDate, 
 SessionDataAdapter.prototype.getSessionsByBeamlineOperator = function(beamlineOperator){
 	this.get('/{token}/proposal/session/beamlineoperator/{0}/list'.format([beamlineOperator]));
 };
+
+SessionDataAdapter.prototype.saveComments = function(sessionId, comments){
+    var url = '/{token}/proposal/{proposal}/mx/session/{0}/comments/save"'.format( [sessionId]);
+    this.post(url, {comments : comments});
+};
