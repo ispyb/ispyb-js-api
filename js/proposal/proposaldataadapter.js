@@ -15,8 +15,10 @@ ProposalDataAdapter.prototype.getDewarByProposalId= function(){
 };
 
 ProposalDataAdapter.prototype.getProposalsInfo= function(){
-	this.get('/{token}/proposal/{proposal}/technique/saxs/get');
+	// this.get('/{token}/proposal/{proposal}/technique/saxs/get');
+	this.get('/{token}/proposal/{proposal}/info/get');
 };
+
 
 ProposalDataAdapter.prototype.getProposalBySessionId= function(sessionId){
 	this.get('/{token}/proposal/session/{0}/list'.format([sessionId]));
