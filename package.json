@@ -1,6 +1,6 @@
 {
   "name": "ispyb-js-api",
-  "version": "0.9.9",
+  "version": "0.1.9",
   "description": "Javascript framework agnostic API to retrieve and update information to ISPyB",
   "main": "Gruntfile.js",
   "dependencies": {
