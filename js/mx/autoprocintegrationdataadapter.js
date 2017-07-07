@@ -114,16 +114,21 @@ AutoProcIntegrationDataAdapter.prototype.getAttachmentUrl= function(autoProcAtta
 * It gets the list of attachments linked to a list of autoProcPrograms id
 * @method getDownloadAttachmentUrl
 */
-AutoProcIntegrationDataAdapter.prototype.getAttachmentListByautoProcProgramsIdList = function(autoProcProgramId){
-	return this.get('/{token}/proposal/{proposal}/mx/autoprocintegration/attachment/autoprocprogramid/{0}/list'.format( [autoProcProgramId.toString()]));
+AutoProcIntegrationDataAdapter.prototype.getAttachmentListByautoProcProgramsIdList = function(autoProcProgramId){	
+		return this.get('/{token}/proposal/{proposal}/mx/autoprocintegration/attachment/autoprocprogramid/{0}/list'.format( [autoProcProgramId.toString()]));	
+	
 };
 
 /**
 * It download a zipwith the list of attachments linked to a list of autoProcPrograms id
 * @method downloadAttachmentListByautoProcProgramsIdList
 */
-AutoProcIntegrationDataAdapter.prototype.downloadAttachmentListByautoProcProgramsIdList = function(autoProcProgramId){
+AutoProcIntegrationDataAdapter.prototype.downloadAttachmentListByautoProcProgramsIdList = function(autoProcProgramId, forcedFileName){
+	if (forcedFileName){
+		return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/attachment/autoprocprogramid/{0}/download?forceFilename={1}'.format( [autoProcProgramId.toString(), forcedFileName]));
+	}
 	return this.getUrl('/{token}/proposal/{proposal}/mx/autoprocintegration/attachment/autoprocprogramid/{0}/download'.format( [autoProcProgramId.toString()]));
+	
 };
 
 
