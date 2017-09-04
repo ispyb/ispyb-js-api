@@ -24,6 +24,10 @@ ProposalDataAdapter.prototype.getProposalBySessionId= function(sessionId){
 	this.get('/{token}/proposal/session/{0}/list'.format([sessionId]));
 };
 
+ProposalDataAdapter.prototype.synchSMIS= function(){
+	this.get('/{token}/proposal/{proposal}/update'.format([]));
+};
+
 ProposalDataAdapter.prototype.update= function(){
 	if (EXI != null){
 		if (EXI.proposalManager != null){
