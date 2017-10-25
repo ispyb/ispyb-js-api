@@ -95,11 +95,44 @@ DataCollectionDataAdapter.prototype.saveComments = function(dataCollectionId,com
 };
 
 /**
-* This method updates the comments for a dataCollection
-* @method saveComments
+* This method downloads a PDF report for the session
+* @method getReportURLBySessionId
 */
 DataCollectionDataAdapter.prototype.getReportURLBySessionId = function(sessionId){
-   return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/report/100000/pdf'.format([sessionId]));
+   return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/report/pdf'.format([sessionId]));
+	this.post(url, {
+		comments : comments
+	});
+};
+
+/**
+* This method downloads a RTF report for the session
+* @method getRtfReportURLBySessionId
+*/
+DataCollectionDataAdapter.prototype.getRtfReportURLBySessionId = function(sessionId){
+   return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/report/rtf'.format([sessionId]));
+	this.post(url, {
+		comments : comments
+	});
+};
+
+/**
+* This method downloads a PDF report for the session with analysis results
+* @method getAnalysisReportURLBySessionId
+*/
+DataCollectionDataAdapter.prototype.getAnalysisReportURLBySessionId = function(sessionId){
+   return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/analysisreport/pdf'.format([sessionId]));
+	this.post(url, {
+		comments : comments
+	});
+};
+
+/**
+* This method downloads a RTF report for the session with analysis results
+* @method getRtfAnalysisReportURLBySessionId
+*/
+DataCollectionDataAdapter.prototype.getRtfAnalysisReportURLBySessionId = function(sessionId){
+   return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/analysisreport/rtf'.format([sessionId]));
 	this.post(url, {
 		comments : comments
 	});
