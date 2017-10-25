@@ -94,6 +94,17 @@ DataCollectionDataAdapter.prototype.saveComments = function(dataCollectionId,com
 	});
 };
 
+/**
+* This method updates the comments for a dataCollection
+* @method saveComments
+*/
+DataCollectionDataAdapter.prototype.getReportURLBySessionId = function(sessionId){
+   return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/report/100000/pdf'.format([sessionId]));
+	this.post(url, {
+		comments : comments
+	});
+};
+
 
 
 
