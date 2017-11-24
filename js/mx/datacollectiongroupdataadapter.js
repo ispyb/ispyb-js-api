@@ -20,3 +20,8 @@ DataCollectionGroupDataAdapter.prototype.saveComments = function(dataCollectionG
 		comments : comments
 	});
 };
+
+
+DataCollectionGroupDataAdapter.prototype.getXtalThumbnail = function(dataCollectionGroupId){
+   return this.getUrl('/{token}/proposal/{proposal}/mx/datacollectiongroup/{0}/xtal/thumbnail'.format([dataCollectionGroupId]));
+};

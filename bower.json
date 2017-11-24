@@ -1,6 +1,6 @@
 {
   "name": "ispyb-js-api",
-  "version": "5.1.0",
+  "version": "5.4.0",
   "homepage": "https://github.com/ispyb/ispyb-js-api",
   "description": "ISPyB javascript API",
   "main": "index.html",
