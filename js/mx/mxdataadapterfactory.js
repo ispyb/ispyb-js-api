@@ -10,6 +10,7 @@ function MxDataAdapterFactory(args){
 	this.mx = new MxDataAdapterGroup(args);
 	this.saxs = new SaxsDataAdapterGroup(args);
 	this.exi = new ExiDataAdapterGroup(args);
+	this.em = new EmDataAdapterGroup(args);
 }
 
 

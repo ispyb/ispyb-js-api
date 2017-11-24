@@ -100,9 +100,7 @@ DataCollectionDataAdapter.prototype.saveComments = function(dataCollectionId,com
 */
 DataCollectionDataAdapter.prototype.getReportURLBySessionId = function(sessionId){
    return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/report/pdf'.format([sessionId]));
-	this.post(url, {
-		comments : comments
-	});
+
 };
 
 /**
@@ -111,9 +109,7 @@ DataCollectionDataAdapter.prototype.getReportURLBySessionId = function(sessionId
 */
 DataCollectionDataAdapter.prototype.getRtfReportURLBySessionId = function(sessionId){
    return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/report/rtf'.format([sessionId]));
-	this.post(url, {
-		comments : comments
-	});
+
 };
 
 /**
@@ -122,9 +118,7 @@ DataCollectionDataAdapter.prototype.getRtfReportURLBySessionId = function(sessio
 */
 DataCollectionDataAdapter.prototype.getAnalysisReportURLBySessionId = function(sessionId){
    return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/analysisreport/pdf'.format([sessionId]));
-	this.post(url, {
-		comments : comments
-	});
+
 };
 
 /**
@@ -133,10 +127,10 @@ DataCollectionDataAdapter.prototype.getAnalysisReportURLBySessionId = function(s
 */
 DataCollectionDataAdapter.prototype.getRtfAnalysisReportURLBySessionId = function(sessionId){
    return this.getUrl('/{token}/proposal/{proposal}/mx/datacollection/session/{0}/analysisreport/rtf'.format([sessionId]));
-	this.post(url, {
-		comments : comments
-	});
 };
+
+
+
 
 
 
