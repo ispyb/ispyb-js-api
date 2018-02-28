@@ -1,5 +1,5 @@
 /**
-* Interface implementing the API for workflows
+* Interface implementing the API for workflow steps
 *
 * @class WorkflowStepDataAdapter
 * @constructor
