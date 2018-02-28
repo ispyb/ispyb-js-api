@@ -79,3 +79,10 @@ ShippingDataAdapter.prototype.getDewarLabelURL = function(shippingId, dewarId){
 ShippingDataAdapter.prototype.getDewarTrackingHistory = function(shippingId){
 	this.get('/{token}/proposal/{proposal}/shipping/{0}/history'.format([shippingId]));
 };
+
+ShippingDataAdapter.prototype.addDewarsToShipment = function(shippingId, dewars){
+    var url = ('/{token}/proposal/{proposal}/shipping/{0}/dewars/add'.format([shippingId]));
+	this.post(url, {
+		dewars : JSON.stringify(dewars)
+	});
+};
